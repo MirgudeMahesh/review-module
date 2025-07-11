@@ -1,0 +1,216 @@
+.page-home {
+    width: 100%;
+    height: 100vh;
+
+    background-color: #534b4b;
+    display: flex;
+    justify-content: center;
+    /* centers horizontally */
+    align-items: center;
+}
+
+.page {
+    margin-top: 100px;
+
+}
+
+
+
+
+
+
+
+
+.loginpage {
+    background-color: rgb(0, 0, 0);
+    height: 260px;
+    /* margin-top: 180px; */
+    border: 2px solid rgb(245, 255, 62);
+    align-items: center;
+    flex-direction: column;
+    border-radius: 40px;
+    width: 320px;
+    /* margin-left: 105px; */
+    padding: 50px 0 0 40px;
+    color: white;
+}
+
+.loginpage div {
+    padding-top: 10px;
+}
+
+.username,
+.email,
+.password {
+    border-radius: 15px;
+    height: 20px;
+    width: 180px;
+    background-color: white;
+    margin-bottom: 12px;
+    margin-left: 28px;
+}
+
+.loginreg {
+    background-color: rgb(60, 60, 166);
+    color: white;
+    border-radius: 12px;
+    margin: 10px 0 10px 80px;
+}
+
+.loginreg:hover {
+    background-color: rgb(29, 29, 25);
+    color: white;
+}
+
+.firsttime,
+.firsttime1 {
+    margin-left: 45px;
+    margin-top: 10px;
+}
+
+.firsttime1 {
+    margin-top: -5px;
+}
+
+.button-like-text {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.button-like-text:hover {
+    color: #0056b3;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    margin-left: 320px;
+    margin-top: 200px;
+}
+
+.description {
+    color: rgb(144, 91, 155);
+    font-size: 35px;
+    margin-left: 250px;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+
+@media only screen and (max-width: 400px) {
+  .page-home {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #3a3636;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .page {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+     
+  }
+
+  .loginpage {
+    height: 300px;
+    width: 100%;
+    max-width: 320px;
+    background-color: #111;
+    border-radius: 20px;
+    border: 2px solid #ffff55;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loginpage div {
+    width: 100%;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .username,
+  .email,
+  .password {
+    margin-right: 20px;
+    width: 100%;
+    height: 29px;
+    border-radius: 12px;
+    border: none;
+    padding: 10px 14px;
+    font-size: 16px;
+    background-color: #e4e4e4;
+    color: #333;
+    box-sizing: border-box;
+  }
+
+  .username:focus,
+  .email:focus,
+  .password:focus {
+    background-color: #fff;
+    border: 1px solid #aaa;
+  }
+  .some{
+    margin-right: 70px;
+  }
+
+  .loginreg {
+    
+    width: 80%;
+    height: 25px;
+    border: none;
+    border-radius: 12px;
+    background-color: #3c3cc5;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .loginreg:hover {
+    background-color: #2a2a99;
+  }
+
+  .firsttime,
+  .firsttime1 {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
+    color: #ccc;
+    margin-right: 20px;
+  }
+
+  .button-like-text {
+    background: none;
+    border: none;
+    font: inherit;
+    color: #29a3ff;
+    text-decoration: underline;
+    cursor: pointer;
+    padding-left: 5px;
+  }
+
+  .button-like-text:hover {
+    color: #1481cc;
+  }
+}
