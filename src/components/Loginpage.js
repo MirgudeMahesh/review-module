@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles.css';
-import logooo from '../pictures/logooo.png';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 export default function Loginpage() {
     const [showSignup, setshowsignup] = useState(true);
@@ -10,9 +10,12 @@ export default function Loginpage() {
     const showsigninpage = () => {
         setshowsignup(false);
     }
+     const navigate= useNavigate();
 const myFunction = () => {}
 const myFunction2 = () => {}
-const handleloginpage=()=>{}
+const handleloginpage=()=>{
+    // navigate('/Example')
+}
 const handleRegister =()=>{}
 
     const handleSignUpClick = () => {
