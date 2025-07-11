@@ -2,7 +2,7 @@
     width: 100%;
     height: 100vh;
 
-    background-color: #534b4b;
+    background-color: #948e8e;
     display: flex;
     justify-content: center;
     /* centers horizontally */
@@ -197,10 +197,11 @@
     text-align: center;
     margin-top: 8px;
     color: #ccc;
-    margin-right: 20px;
+    margin-right: 0px;
   }
 
   .button-like-text {
+    
     background: none;
     border: none;
     font: inherit;
