@@ -14,7 +14,7 @@ export default function Loginpage() {
 const myFunction = () => {}
 const myFunction2 = () => {}
 const handleloginpage=()=>{
-    // navigate('/Example')
+    navigate('/Home')
 }
 const handleRegister =()=>{}
 

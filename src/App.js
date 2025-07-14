@@ -1,7 +1,7 @@
 
 import './App.css';
 import Loginpage from './components/Loginpage';
-// import Example from './components/Example';
+import Home from './components/Home';
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
    
       <Routes>
         <Route exact path='/' element={<Loginpage/>}/>
-    {/* <Route exact path='/Example' element={<Example/>}/> */}
+    <Route exact path='/Home' element={<Home/>}/>
      </Routes>
       </Router>
     </div>
