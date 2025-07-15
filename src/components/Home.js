@@ -4,62 +4,17 @@ import { useNavigate } from "react-router-dom";
 import '../styles.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
+import { useRole } from './RoleContext';
 
 const Home = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+    // const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+     const { role } = useRole();
 
   return (
     <div style={{overflowY:'auto',border:'0',margin:'0',maxHeight:'100%'}}>
 <div>
-  <nav className="navbar">
-      {/* <img style={{width:"80px",height:"80px",marginLeft:"60px"}} src='logo192.png' /> */}
-      {/* <h1 style={{ color: 'white',textAlign:'center',width:'300px',fontSize:'25px'}}>{name7}</h1> */}
-      
-      
-       
-       <h2 >Review</h2>
-        <select class="scb" id="options" >
-            <option> Home</option>
-            <option >About Me</option>
-            <option>Skills</option>
-            <option>Contact </option>
-        </select>
-      <ul className="ull">
-       
-        <li className="hide">
-          <button  className="text-button" >Home</button>
-        </li>
-        <li className="hide">
-          <a>
-            <button id="aboutmel" className="text-button" >
-              Add Notes
-            </button>
-          </a>
-        </li>
-        <li className="hide">
-          <a>
-            <button id="skills" className="text-button" >
-              My Notes
-            </button>
-          </a>
-        </li>
-
-        <li className="hide">
-          <a>
-            <button id="resume" className="text-button" >
-              About
-            </button>
-          </a>
-        </li>
-        <li className="hide">
-          <a>
-            <button id="contact" className="text-button" >
-             Logout
-            </button>
-          </a>
-        </li>
-      </ul>
-    </nav>
+ <Navbar/> 
 </div>
 <div
   style={{
@@ -70,7 +25,9 @@ const Home = () => {
     height: '80vh',
   }}
 >
+  {(role === 'bm' || role === 'be') ? (
   <div className="table-container">
+    <h1 style={{textAlign:'center'}}>Bussiness Performance</h1>
   <table className="custom-table">
     <thead>
       <tr>
@@ -82,39 +39,151 @@ const Home = () => {
     </thead>
     <tbody>
       <tr>
-        <td>Alice</td>
-        <td>21</td>
-        <td>alice@example.com</td>
+        <td>Target Ach</td>
+        <td>100%</td>
+        <td>alice</td>
         <td>88</td>
       </tr>
       <tr>
-        <td>Bob</td>
+        <td>Secondary Gr%</td>
         <td>22</td>
-        <td>bob@example.com</td>
+        <td>bob</td>
         <td>75</td>
       </tr>
       <tr>
-        <td>Charlie</td>
+        <td>Span of Performance</td>
         <td>23</td>
-        <td>charlie@example.com</td>
+        <td>charlie</td>
         <td>92</td>
       </tr>
       <tr>
-        <td>Diana</td>
+        <td>Dr.Conversion(Self Prio)</td>
         <td>20</td>
-        <td>diana@example.com</td>
+        <td>diana</td>
         <td>81</td>
       </tr>
       <tr>
-        <td>Ethan</td>
+        <td>%Gr in Rxer</td>
         <td>24</td>
-        <td>ethan@example.com</td>
+        <td>ethan</td>
+        <td>68</td>
+      </tr>
+      <tr>
+        <td>% of Viable Terr</td>
+        <td>24</td>
+        <td>ethan</td>
+        <td>68</td>
+      </tr>
+      <tr className='shade'>
+        <td>Performance Score</td>
+        <td>24</td>
+        <td>ethan</td>
         <td>68</td>
       </tr>
     </tbody>
   </table>
-</div>
+</div>):(
 
+ <div className="table-container">
+          <h3 style={{ textAlign: 'center' }}>Team Building & Development</h3>
+
+          <table className="custom-table">
+            <thead>
+              <tr>
+                <th>weightage</th>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Objective</th>
+                <th>Month Actual</th>
+                <th>YTD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>15%</td> {/* ✅ Show role here */}
+                <td>Hiring Quality Index</td>
+                <td>% of proposed candidates Approved by BHR vs Submitted to BHR by BL</td>
+                <td>100%</td>
+                <td>33%</td>
+                <td>70%</td>
+              </tr>
+              <tr>
+                 <td>0%</td> {/* ✅ Show role here */}
+                <td>Induction Score</td>
+                <td>*% of New Joinees Clearing induction in Pravesh</td>
+                <td>100%</td>
+                <td>33%</td>
+                <td>70%</td>
+              </tr>
+              <tr>
+                 <td>15%</td> {/* ✅ Show role here */}
+                <td>Team Stability IndexI</td>
+                <td>*Infant attrition rate (within 180 days)</td>
+                <td>100%</td>
+                <td>33%</td>
+                <td>70%</td>
+              </tr>
+              <tr>
+                 <td>0%</td> {/* ✅ Show role here */}
+                <td>Team Stability IndexI</td>
+                <td>*Avg. vacancy filling time (in days)</td>
+                <td>100%</td>
+                <td>33%</td>
+                <td>70%</td>
+              </tr>
+              <tr>
+                 <td>0%</td> {/* ✅ Show role here */}
+                <td>Team Stability IndexI</td>
+                <td>Overall retention rate (Annual rate in current FY)</td>
+                <td>100%</td>
+                <td>33%</td>
+                <td>70%</td>
+              </tr>
+                <tr>
+                 <td>0%</td> {/* ✅ Show role here */}
+                <td>Team Development Index</td>
+                <td>*% BM certification level change of L1, L2, L3 (10, 20,30 Points)</td>
+                <td>100%</td>
+                <td>33%</td>
+                <td>70%</td>
+              </tr>
+               <tr>
+                 <td>0%</td> {/* ✅ Show role here */}
+                <td>Team Development Index</td>
+                <td>*% BE certification level change of L1, L2, L3 (10, 20,30 Points)</td>
+                <td>100%</td>
+                <td>33%</td>
+                <td>70%</td>
+              </tr>
+                 <tr>
+                 <td>0%</td> {/* ✅ Show role here */}
+                <td>Talent Pool Strength</td>
+                <td>*No. of pre-assesed internal candidates for promotion</td>
+                <td>100%</td>
+                <td>33%</td>
+                <td>70%</td>
+              </tr>
+                <tr>
+                 <td>0%</td> {/* ✅ Show role here */}
+                <td>Talent Pool Strength</td>
+                <td>No of Candedates Data availabale for Vaccancies</td>
+                <td>100%</td>
+                <td>33%</td>
+                <td>70%</td>
+              </tr>
+              <tr className='shade'>
+                 <td></td>
+                <td>Team Building Score</td>
+                <td></td><td></td>
+                <td></td>
+                
+               
+                <td>68%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>)}
+     
 </div>
 
 

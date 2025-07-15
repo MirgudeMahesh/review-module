@@ -2,7 +2,7 @@
     width: 100%;
     height: 100vh;
 
-    background-color: #948e8e;
+    background-color: #dfdfdf;
     display: flex;
     justify-content: center;
     /* centers horizontally */
@@ -22,10 +22,10 @@
 
 
 .loginpage {
-    background-color: rgb(0, 0, 0);
-    height: 260px;
+    background-color: rgb(224, 224, 224);
+    height: 200px;
     /* margin-top: 180px; */
-    border: 2px solid rgb(245, 255, 62);
+    border: 2px solid rgb(0, 0, 0);
     align-items: center;
     flex-direction: column;
     border-radius: 40px;
@@ -39,11 +39,10 @@
     padding-top: 10px;
 }
 
-.username,
-.email,
-.password {
+.username {
     border-radius: 15px;
     height: 20px;
+    color: black;
     width: 180px;
     background-color: white;
     margin-bottom: 12px;
@@ -61,8 +60,17 @@
     background-color: rgb(29, 29, 25);
     color: white;
 }
+.select-role {
+  border-radius: 15px;
+  height: 30px;
+  color: black;
+  width: 180px;
+  background-color: white;
+  margin-bottom: 12px;
+  margin-left: 28px;
+}
 
-.firsttime,
+/* .firsttime,
 .firsttime1 {
     margin-left: 45px;
     margin-top: 10px;
@@ -70,7 +78,7 @@
 
 .firsttime1 {
     margin-top: -5px;
-}
+} */
 
 .button-like-text {
     background: none;
@@ -176,10 +184,21 @@
   width: 75%;
   overflow-y: auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #faf9f9;
   border-radius: 10px;
   margin: auto;
 }
+ .table-container-commit {
+  height: 70vh;
+  width: 75%;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #faf9f9;
+  border-radius: 10px;
+  font-size: 12px;
+  margin: auto;
+}
+
 
 .custom-table {
   width: 100%;
@@ -202,6 +221,127 @@
   background-color: #ddd;
   z-index: 1;
 }
+.custom-table tr.shade{
+  background-color: #443e3e;
+  color:white;
+  font-weight: bold;
+}
+/* ------------ */
+.table-container1 {
+  height: 63vh;
+  /* width: 50%; */
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  /* padding-left: 70px; */
+  
+}
+
+.custom-table1 {
+  width: 35%;
+  border-collapse: collapse;
+  font-size: 15px;
+
+  
+  
+  overflow: hidden;
+}
+
+.custom-table1 th,
+.custom-table1 td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.custom-table1 thead {
+  position: sticky;
+  top: 0;
+  background-color: #ddd;
+  z-index: 1;
+}
+.custom-table1 tr.shade{
+  background-color: #443e3e;
+  color:white;
+  font-weight: bold;
+}
+/* -------------------------------------- */
+.dropdown-wrapper {
+  max-height: 350px; /* You can adjust height */
+  overflow-y: auto;
+  border: 2px solid rgb(87, 82, 82);
+  border-radius: 10px;
+  width: fit-content;
+  margin: 0 auto; /* optional: center on page */
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 200px;
+}
+
+.vertical-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+select {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+select:focus {
+  border-color: #007bff;
+}
+
+.be-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 300px;
+}
+
+.be-list li {
+  padding: 10px;
+  background-color: #e0f7fa;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  border: 1px solid #b2ebf2;
+}
+
+
+
+/* ------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 500px) {
   .page-home {
