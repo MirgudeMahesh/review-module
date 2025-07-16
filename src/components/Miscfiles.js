@@ -8,15 +8,17 @@ export default function Miscfiles() {
   return (
     <div>
       <Navbar />
-      <div
+      {(role === 'bm' || role === 'be') ?
+         (<div
         style={{
           display: 'flex',
           justifyContent: 'center',
           marginTop: '125px',
+
           gap: '30px',
           height: '80vh',
           width: '100%',
-          alignItems: 'flex-start',
+          alignItems: 'center',
           padding: '50px',
         }}
       >
@@ -34,7 +36,7 @@ export default function Miscfiles() {
             </thead>
             <tbody>
               <tr>
-                <td>{role}</td> {/* ✅ Show role here */}
+                <td>{role}</td>
                 <td>100%</td>
                 <td>73%</td>
                 <td>88</td>
@@ -72,6 +74,7 @@ export default function Miscfiles() {
             </tbody>
           </table>
         </div>
+
 
         <div className="table-container1">
           <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
@@ -113,7 +116,183 @@ export default function Miscfiles() {
             </tbody>
           </table>
         </div>
-      </div>
+
+
+      </div>) : (<div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '125px',
+
+          gap: '30px',
+          height: '80vh',
+          width: '100%',
+          alignItems: 'center',
+          padding: '50px',
+        }}
+      >
+        <div className="table-container1">
+          <h3 style={{ textAlign: 'center' }}>Compliance & Reporting</h3>
+
+          <table className="custom-table1" style={{ fontSize: '12px', }}>
+            <thead>
+              <tr>
+                <th>weightage</th>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Objective(%)</th>
+                <th>Month Actual</th>
+                <th>YTD(%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>88</td>
+                <td>TP Adherence Score</td>
+                <td>% adherence to TP</td>
+                <td>73%</td>
+                <td>88</td><td>88</td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td>Reporting Integrity Index</td>
+                <td>Accuracy of SFA-reported data</td>
+                <td>73%</td>
+                <td>88</td><td>88</td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td>SFPI</td>
+                <td>Team's Customer Coverage</td>
+                <td>73%</td>
+                <td>88</td><td>88</td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td>SFPI</td>
+                <td>Team's Customer Compliance</td>
+                <td>73%</td>
+                <td>88</td><td>88</td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td>MSPR Compliance</td>
+                <td>% accuracy of MSP (for HQ) vs Objective taken cumulatively by BL</td>
+                <td>73%</td>
+                <td>88</td><td>88</td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td>MSPR Compliance</td>
+                <td>% of headquarters having MSR compliance with respect to Average Secondary Sales</td>
+                <td>73%</td>
+                <td>88</td><td>88</td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td><td>88</td>
+              </tr>
+              <tr className='shade'>
+
+                <td></td>
+                <td>Compliance & Reporting Score</td>
+                <td>20</td>
+                <td></td>
+                <td></td><td>88</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="table-container1"  >
+          <h3 style={{ textAlign: 'center' }}>Business Hygine & Demand Quality</h3>
+
+          <table className="custom-table1" style={{ fontSize: '12px', }}>
+            <thead>
+              <tr>
+                <th>weightage</th>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Objective(%)</th>
+                <th>Month Actual</th>
+                <th>YTD(%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>88</td>
+                <td>Return Ratio</td>
+                <td>% of Returns as % of secondary sales (Objective 2%) </td>
+                <td>73%</td>
+                <td>88</td><td>88</td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td>Outstanding Days</td>
+                <td>DSO (days Sales Outstanding) per zone 30</td>
+                <td>73%</td>
+                <td>88</td><td></td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td>Push-to-Pull Ratio</td>
+                <td>% business driven by schemes vs organic sales 30%</td>
+                <td>73%</td>
+                <td>88</td><td>88</td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td>Closing Stock Index</td>
+                <td>*Avg. closing stock in days (should be ≤30days)</td>
+                <td>73%</td>
+                <td>88</td><td></td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td><td></td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td><td></td>
+              </tr>
+              <tr>
+                <td>88</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td><td></td>
+              </tr><tr>
+                <td>88</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td><td></td>
+              </tr><tr>
+                <td>88</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td><td></td>
+              </tr>
+              <tr className='shade'>
+
+                <td></td>
+                <td>Performance Score</td>
+                <td></td>
+                <td>20</td>
+                <td></td><td>88</td>
+              </tr>
+            </tbody>
+          </table>
+        </div></div>)}
     </div>
   )
 }

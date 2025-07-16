@@ -1,11 +1,12 @@
 import React from 'react'
 import Navbar from './Navbar'
-
+import { useRole } from './RoleContext';
 export default function Commitment() {
+ const { role } = useRole(); 
   return (
     <div>
         <Navbar/>
-        <div
+       {(role === 'bm' || role === 'be') ? (  <div
   style={{
     display: 'flex',
     justifyContent: 'center',
@@ -15,7 +16,8 @@ export default function Commitment() {
   }}
 >
   
-  <div className="table-container-commit">
+ 
+     <div className="table-container-commit">
     <h3 style={{textAlign:'center'}}>REVIEW OUTCOME DETAILS-COMMITMENT FOR JULY</h3>
   <table className="custom-table">
     <thead>
@@ -59,6 +61,104 @@ export default function Commitment() {
   </table>
 </div>
 
-</div></div>
+</div> ):
+( (<div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '125px',
+
+          gap: '30px',
+          height: '80vh',
+          width: '100%',
+          alignItems: 'center',
+          padding: '50px',
+        }}
+      >
+        <div className="table-container1">
+          <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
+
+          <table className="custom-table1">
+            <thead>
+              <tr>
+                <th>Parameter___________</th>
+                <th>Objective(%)</th>
+                <th>Month(%)</th>
+                <th>YTD(%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Team BUilding and Development</td>
+                <td>100%</td>
+                <td>#REF!</td>
+                <td>88</td>
+              </tr>
+              <tr>
+                <td>Bussiness Performance</td>
+                <td>22</td>
+                <td>57%</td>
+                <td>75</td>
+              </tr>
+              <tr>
+                <td>Compliance and Reporting</td>
+                <td>23</td>
+                <td>#REF!</td>
+                <td>92</td>
+              </tr>
+              <tr>
+                <td>Bussiness Hygine and Demand Quality</td>
+                <td>20</td>
+                <td>#REF!</td>
+                <td>81</td>
+              </tr>
+             
+              <tr className='shade'>
+                <td>Efficiency Index</td>
+                <td>24</td>
+                <td>#REF!</td>
+                <td>68</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div className="table-container1">
+          <h3 style={{ textAlign: 'center' }}>Final Report</h3>
+
+          <table className="custom-table1">
+            <thead>
+              <tr>
+                <th>Team BUilding and Development</th>
+                <th>Performance Metrics</th>
+                <th>Compliance and Reporting</th>
+                <th>Business Hygine</th>
+                <th>Efficiency Index</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>
+                
+              </tr>
+               <tr>
+                <td>9%</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>
+                
+              </tr>
+               <tr>
+                <td>10%</td>  <td>22%</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>
+                
+              </tr>
+               <tr>
+                <td>8%</td>  <td>24%</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>
+                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>))}</div>
   )
 }

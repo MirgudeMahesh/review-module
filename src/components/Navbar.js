@@ -35,7 +35,7 @@ export default function Navbar() {
         </select>
       <ul className="ull">
        
-       {disable ?  (<> <li className="hide">
+          <li className="hide">
           <button  className="text-button" onClick={Home}  >Home</button>
         </li>
 
@@ -61,8 +61,8 @@ export default function Navbar() {
             </button>
           </a>
         </li>
-        </>
-):null}
+      
+
         <li className="hide">
           <a>
             <button id="contact" className="text-button"  onClick={selection}>
