@@ -9,10 +9,14 @@ import { DisableProvider } from './components/DisableProvider';
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import Commitment from './components/Commitment';
 import { RoleProvider, RoleSelection } from './components/RoleContext';
+import MyProfile from './components/MyProfile';
+import ActualCommit from './components/ActualCommit';
+import FinalReport from './components/FinalReport';
+
 function App() {
   return (
     <div >
-      <RoleProvider>
+      {/* <RoleProvider> */}
       <DisableProvider>
       <Router>
    
@@ -23,11 +27,13 @@ function App() {
     <Route exact path='/Miscellaneous' element={<Miscfiles/>}/>
      <Route exact path='/Commitment' element={<Commitment/>}/>
           <Route exact path='/Selection' element={<Selection/>}/>
-
+<Route exact path='/MyProfile' element={<MyProfile/>}/>
+   <Route exact path='/Review' element={<FinalReport/>}/>
      </Routes>
       </Router>
       </DisableProvider>
-      </RoleProvider>
+      {/* </RoleProvider>  */}
+     
     </div>
   );
 }

@@ -5,14 +5,15 @@ import '../styles.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-import { useRole } from './RoleContext';
+// import { useRole } from './RoleContext';
+import ActualCommit from './ActualCommit';
 
 const Home = () => {
     // const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
-     const { role } = useRole();
+     const  role  = localStorage.getItem('role')
 
   return (
-    <div style={{overflowY:'auto',border:'0',margin:'0',maxHeight:'100%'}}>
+    <div style={{border:'0',margin:'0',maxHeight:'100%'}}>
 <div>
  <Navbar/> 
 </div>
@@ -26,6 +27,7 @@ const Home = () => {
   }}
 >
   {(role === 'bm' || role === 'be') ? (
+ 
   <div className="table-container">
     <h1 style={{textAlign:'center'}}>Bussiness Performance</h1>
   <table className="custom-table">
@@ -82,9 +84,11 @@ const Home = () => {
       </tr>
     </tbody>
   </table>
-</div>):(
+<ActualCommit/></div>
+):(
 
- <div className="table-container">
+
+  <div className="table-container">
           <h3 style={{ textAlign: 'center' }}>Team Building & Development</h3>
 
           <table className="custom-table">
@@ -182,7 +186,7 @@ const Home = () => {
               </tr>
             </tbody>
           </table>
-        </div>)}
+       <ActualCommit/> </div> )}
      
 </div>
 

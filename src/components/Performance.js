@@ -1,8 +1,9 @@
 import React from 'react'
 import Navbar from './Navbar';
-import { useRole } from './RoleContext';
+// import { useRole } from './RoleContext';
+import ActualCommit from './ActualCommit';
 export default function Performance() {
-  const { role } = useRole();
+  const  role  = localStorage.getItem('role')
   return (
     <div><Navbar/>
     <div
@@ -45,7 +46,7 @@ export default function Performance() {
         <td>92</td>
       </tr>
       <tr>
-        <td>Mkting Impl(No inv>30 Days)</td>
+        <td>Mkting Impl(No inv > 30 Days)</td>
         <td>20</td>
         <td>diana</td>
         <td>81</td>
@@ -112,6 +113,7 @@ export default function Performance() {
       </tr>
     </tbody>
   </table>
+  <ActualCommit/>
 </div> 
   ):(
   <div className="table-container">
@@ -202,7 +204,7 @@ export default function Performance() {
       </tr>
     </tbody>
   </table>
-</div>)}
+<ActualCommit/></div>)}
 
 </div>
     </div>

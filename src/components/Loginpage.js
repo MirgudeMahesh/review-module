@@ -2,12 +2,12 @@
 
 import { useNavigate } from "react-router-dom";
 
-import { useRole } from './RoleContext';
+// import { useRole } from './RoleContext';
 import React, { useState } from 'react';
 
 export default function Loginpage() {
   const [selectedRole, setSelectedRole] = useState('');
-  const { setRole } = useRole();
+  // const { setRole } = useRole();
 
 
   const handleChange = (e) => {
@@ -17,8 +17,8 @@ const Navigate = useNavigate();
  
     const handleSubmit = (e) => {
     e.preventDefault();
-    setRole(selectedRole);
-    Navigate('/Selection') 
+    localStorage.setItem('role', selectedRole);
+    Navigate('/Review') 
   
   };
 

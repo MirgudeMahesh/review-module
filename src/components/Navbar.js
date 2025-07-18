@@ -9,7 +9,7 @@ export default function Navbar() {
   const { disable, setDisable } = useContext(DisableContext);
     const navigate = useNavigate();
     const perform = () => {navigate('/performance')}
-     const Home = () => {navigate('/Home')}
+     const Home = () => {navigate('/Home')};const Review = () => {navigate('/Review')}
           const misc = () => {navigate('/Miscellaneous')}
           const commitment = () => {navigate('/Commitment')}
                     const selection = () => {
@@ -25,15 +25,19 @@ export default function Navbar() {
       {/* <h1 style={{ color: 'white',textAlign:'center',width:'300px',fontSize:'25px'}}>{name7}</h1> */}
       
       
-       
-       <h2 >Review</h2>
+      
+       <h2 >Review</h2> 
         <select class="scb" id="options" >
             <option> Home</option>
             <option >About Me</option>
             <option>Skills</option>
             <option>Contact </option>
         </select>
-      <ul className="ull">
+      <ul className="navbar-menu">
+
+ <li className="hide">
+          <button  className="text-button" onClick={Review}>Review</button>
+        </li>
        
           <li className="hide">
           <button  className="text-button" onClick={Home}  >Home</button>
@@ -49,7 +53,7 @@ export default function Navbar() {
         <li className="hide">
           <a>
             <button id="skills" className="text-button" onClick={misc}>
-              Misc
+              Hygine
             </button>
           </a>
         </li>
@@ -70,6 +74,8 @@ export default function Navbar() {
             </button>
           </a>
         </li>
+       
+
       </ul>
     </nav>
     </div>
