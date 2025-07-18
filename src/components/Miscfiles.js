@@ -1,34 +1,45 @@
 import React from 'react'
 import Navbar from './Navbar';
-// import { useRole } from './RoleContext';
+// ------------------------Hygine---------------------
+import { useRole } from './RoleContext';
 import ActualCommit from './ActualCommit';
 export default function Miscfiles() {
-  const  role  = localStorage.getItem('role') // ✅ Get the role value
+const  role  = localStorage.getItem('role') 
 
   return (
-    <div>
-      <Navbar />
-      {(role === 'bm' || role === 'be') ?
-         (<div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginTop: '125px',
-
-          gap: '30px',
-          height: '80vh',
-          width: '100%',
-          alignItems: 'center',
-          padding: '50px',
-        }}
-      >
-        <div className="table-container">
+    
+      <div>
+          <Navbar />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '125px',
+              alignItems: 'center',
+              height: '80vh',
+            }}
+          >
+   
+    {role === 'bm' && (
+      <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  marginTop: '5px',
+                  alignItems: 'center',
+                  height: '80vh',
+                }}
+              >
+    
+    
+           
+                   <div className="table-container">
           <h3 style={{ textAlign: 'center' }}>Hygine</h3>
 
           <table className="custom-table">
             <thead>
               <tr>
-                <th>Parameter___________</th>
+                <th>Parameter</th>
                 <th>Objective(%)</th>
                 <th>Month(%)</th>
                 <th>YTD(%)</th>
@@ -75,25 +86,13 @@ export default function Miscfiles() {
           </table>
           <ActualCommit/>
         </div>
-
-
-      
-
-      </div>) : (<div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginTop: '125px',
-
-          gap: '30px',
-          height: '80vh',
-          width: '100%',
-          alignItems: 'center',
-          padding: '50px',
-        }}
-      >
-      
-        <div className="table-container"  >
+       
+    
+                </div>
+          
+        )}
+      {role === 'bl' && (
+       <div className="table-container"  >
           <h3 style={{ textAlign: 'center' }}>Business Hygine & Demand Quality</h3>
 
           <table className="custom-table" style={{ fontSize: '12px', }}>
@@ -179,7 +178,11 @@ export default function Miscfiles() {
               </tr>
             </tbody>
           </table>
-       <ActualCommit/> </div></div>)}
-    </div>
+       <ActualCommit/> </div>
+          
+        )}
+    
+           
+          </div></div>
   )
 }

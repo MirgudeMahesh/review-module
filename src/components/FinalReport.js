@@ -1,9 +1,17 @@
 import React from 'react'
 import { useRole } from './RoleContext';
 import Navbar from './Navbar';
+import { useState } from 'react';
 import ActualCommit from './ActualCommit';
+import Textarea from './Textarea';
 export default function FinalReport() {
 const role  = localStorage.getItem('role')
+
+const handleSubmit = (text) => {
+    console.log("ABC Submitted:", text);
+    // Handle ABC-specific logic here
+  };
+
   return (
     <div>
       <Navbar />
@@ -16,68 +24,91 @@ const role  = localStorage.getItem('role')
           height: '80vh',
         }}
       >
-        {(role === 'bm' || role === 'be') ? (
-          <div
+{role === 'be' && (
+  <div
             style={{
               display: 'flex',
               justifyContent: 'center',
-              marginTop: '125px',
+              marginTop: '5px',
               alignItems: 'center',
               height: '80vh',
             }}
           >
 
 
-            {/* <div className="table-container-commit">
-              <h3 style={{ textAlign: 'center' }}>REVIEW OUTCOME DETAILS-COMMITMENT FOR JULY</h3>
-              <table className="custom-table">
-                <thead>
-                  <tr>
-                    <th>BM Name</th>
-                    <th>Secondary Plan</th>
-                    <th>No. of Viable Territories</th>
-                    <th>No. of RxERS</th>
-                    <th>Coverage</th>
-                    <th>Compliance</th>
-                    <th>Marketing Implementation</th>
-                    <th>priority DR Covg-Self</th><th>Priority DR Conversion</th><th>No of W Days VTBM</th><th>RBO Cost</th><th>Receivables</th><th>Returns</th><th>Closing</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
-                  </tr>
-                  <tr>
-                    <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+       
+            
+   <div className="table-container">
+          <h3 style={{ textAlign: 'center' }}>Efficiency Index </h3>
 
-                  </tr>
-                  <tr>
-                    <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+          <table className="custom-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Objective(%)</th>
+                <th>Month(%)</th>
+                <th>YTD(%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Business Performance</td>
+                <td>100%</td>
+                <td>67%</td>
+                <td>88</td>
+              </tr>
+              <tr>
+                <td>Effort and Effectiveness</td>
+                <td>22</td>
+                <td>72%</td>
+                <td>75</td>
+              </tr>
+             <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr className='shade'>
+                <td>EL Score</td>
+                <td>24</td>
+                <td>70%</td>
+                <td>68</td>
+              </tr>
+            </tbody>
+          </table>
+          <ActualCommit />
+        </div>
 
-                  </tr>
-                  <tr>
-                    <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
+            </div>
+      
+    )}
+{role === 'bm' && (
+  <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '5px',
+              alignItems: 'center',
+              height: '80vh',
+            }}
+          >
 
-                  </tr>
-                  <tr>
-                    <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
 
-                  </tr>
-                  <tr>
-                    <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td>
-
-                  </tr>
-
-                </tbody>
-              </table>
-            </div> */}
+       
               <div className="table-container">
           <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
 
           <table className="custom-table">
             <thead>
               <tr>
-                <th>Parameter_____________</th>
+                <th>Parameter</th>
                 <th>Objective(%)</th>
                 <th>Month(%)</th>
                 <th>YTD(%)</th>
@@ -112,49 +143,54 @@ const role  = localStorage.getItem('role')
           </table>
           <ActualCommit />
         </div>
+   {/* <div className="table-container">
+          <h3 style={{ textAlign: 'center' }}>Efficiency Index be</h3>
 
+          <table className="custom-table">
+            <thead>
+              <tr>
+                <th>Parameter_____________</th>
+                <th>Objective(%)</th>
+                <th>Month(%)</th>
+                <th>YTD(%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Business Performance</td>
+                <td>100%</td>
+                <td>67%</td>
+                <td>88</td>
+              </tr>
+              <tr>
+                <td>Effort and Effectiveness</td>
+                <td>22</td>
+                <td>72%</td>
+                <td>75</td>
+              </tr>
+            
+              <tr className='shade'>
+                <td>EL Score</td>
+                <td>24</td>
+                <td>70%</td>
+                <td>68</td>
+              </tr>
+            </tbody>
+          </table>
+          <ActualCommit />
+        </div> */}
 
-            </div>) : (
-          // <div className="table-container">
-          //   <h3 style={{ textAlign: 'center' }}>Final Report</h3>
-
-          //   <table className="custom-table">
-          //     <thead>
-          //       <tr>
-          //         <th>Team BUilding and Development</th>
-          //         <th>Performance Metrics</th>
-          //         <th>Compliance and Reporting</th>
-          //         <th>Business Hygine</th>
-          //         <th>Efficiency Index</th>
-          //       </tr>
-          //     </thead>
-          //     <tbody>
-          //       <tr>
-          //         <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>
-
-          //       </tr>
-          //       <tr>
-          //         <td>9%</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>
-
-          //       </tr>
-          //       <tr>
-          //         <td>10%</td>  <td>22%</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>
-
-          //       </tr>
-          //       <tr>
-          //         <td>8%</td>  <td>24%</td>  <td>#REF!</td>  <td>#REF!</td>  <td>#REF!</td>
-
-          //       </tr>
-          //     </tbody>
-          //   </table>
-          //   <ActualCommit /> </div>
-               <div className="table-container">
+            </div>
+      
+    )}
+  {role === 'bl' && (
+  <div className="table-container">
                     <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
           
                     <table className="custom-table">
                       <thead>
                         <tr>
-                          <th>Parameter___________</th>
+                          <th>Parameter</th>
                           <th>Objective(%)</th>
                           <th>Month(%)</th>
                           <th>YTD(%)</th>
@@ -194,8 +230,13 @@ const role  = localStorage.getItem('role')
                         </tr>
                       </tbody>
                     </table>
-               <ActualCommit/>   </div>
-          )}
+               {/* <ActualCommit/> */}
+               <Textarea onsubmit={handleSubmit} />
+                  </div>
+      
+    )}
+
+       
       </div></div>
   )
 }

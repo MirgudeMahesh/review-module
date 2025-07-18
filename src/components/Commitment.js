@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import { useRole } from './RoleContext';
 import ActualCommit from './ActualCommit';
 export default function Commitment() {
- const { role } = localStorage.getItem('role')
+ const  role  = localStorage.getItem('role')
   return (
     <div>
         <Navbar/>
@@ -20,6 +20,7 @@ export default function Commitment() {
 
 <ActualCommit/>
 </div> ):
+
 ( (<div
         style={{
           display: 'flex',

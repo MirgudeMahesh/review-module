@@ -1,3 +1,38 @@
+.textarea-container {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+  margin: 100px auto;
+}
+
+.custom-textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  min-height: 80px; /* about 5 lines */
+}
+
+.submit-button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
 .page-home {
     width: 100%;
     height: 100vh;
@@ -138,7 +173,7 @@
   justify-content: space-between;
   align-items: center;
   padding-left: 40px;
-  padding-right: 50px;
+  padding-right: 90px;
 }
  .navbar-menu {
       list-style: none;

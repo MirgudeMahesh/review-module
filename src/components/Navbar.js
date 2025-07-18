@@ -5,7 +5,7 @@ import { useState,useContext } from 'react';
 import { DisableContext } from './DisableProvider';
 
 export default function Navbar() {
-  
+   const  role  = localStorage.getItem('role')
   const { disable, setDisable } = useContext(DisableContext);
     const navigate = useNavigate();
     const perform = () => {navigate('/performance')}
@@ -21,8 +21,7 @@ export default function Navbar() {
   return (
     <div>
         <nav className="navbar">
-      {/* <img style={{width:"80px",height:"80px",marginLeft:"60px"}} src='logo192.png' /> */}
-      {/* <h1 style={{ color: 'white',textAlign:'center',width:'300px',fontSize:'25px'}}>{name7}</h1> */}
+     
       
       
       
@@ -36,35 +35,53 @@ export default function Navbar() {
       <ul className="navbar-menu">
 
  <li className="hide">
-          <button  className="text-button" onClick={Review}>Review</button>
+          <button  className="text-button" onClick={Review}>Report</button>
         </li>
        
           <li className="hide">
-          <button  className="text-button" onClick={Home}  >Home</button>
+          <button  className="text-button" onClick={Home}  >Performance</button>
         </li>
 
         <li className="hide">
           <a>
             <button id="aboutmel" className="text-button" onClick={perform} >
-              Performance
+              Team Build
             </button>
           </a>
         </li>
-        <li className="hide">
+        {/* <li className="hide">
           <a>
             <button id="skills" className="text-button" onClick={misc}>
               Hygine
             </button>
           </a>
-        </li>
+        </li> */}
+        {role !== 'be' && (
+          <li className="hide">
+            <a>
+              <button id="skills" className="text-button" onClick={misc}>
+                Hygine
+              </button>
+            </a>
+          </li>
+        )}
 
-        <li className="hide">
+        {/* <li className="hide">
           <a>
             <button id="resume" className="text-button" onClick={commitment} >
-              Commitment
+              Compliance
             </button>
           </a>
-        </li>
+        </li> */}
+         {role !== 'be' && role !== 'bm' && (
+          <li className="hide">
+            <a>
+              <button id="resume" className="text-button" onClick={commitment} >
+                Compliance
+              </button>
+            </a>
+          </li>
+        )}
       
 
         <li className="hide">

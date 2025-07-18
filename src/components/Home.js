@@ -5,29 +5,38 @@ import '../styles.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-// import { useRole } from './RoleContext';
+import { useRole } from './RoleContext';
 import ActualCommit from './ActualCommit';
 
 const Home = () => {
-    // const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+    const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
      const  role  = localStorage.getItem('role')
 
   return (
-    <div style={{border:'0',margin:'0',maxHeight:'100%'}}>
-<div>
- <Navbar/> 
-</div>
-<div
-  style={{
-    display: 'flex',
-    justifyContent: 'center',
-    marginTop: '125px',
-    alignItems: 'center',
-    height: '80vh',
-  }}
->
-  {(role === 'bm' || role === 'be') ? (
+
+ <div><Navbar />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '125px',
+          alignItems: 'center',
+          height: '80vh',
+        }}
+      >
  
+        {role === 'bm' && (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '5px',
+              alignItems: 'center',
+              height: '80vh',
+            }}
+          >
+
+
   <div className="table-container">
     <h1 style={{textAlign:'center'}}>Bussiness Performance</h1>
   <table className="custom-table">
@@ -85,113 +94,184 @@ const Home = () => {
     </tbody>
   </table>
 <ActualCommit/></div>
-):(
 
+          </div>
 
-  <div className="table-container">
-          <h3 style={{ textAlign: 'center' }}>Team Building & Development</h3>
-
+        )}
+    
+         {role === 'bl' && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      marginTop: '5px',
+                      alignItems: 'center',
+                      height: '80vh',
+                    }}
+                  >
+        
+        
+        <div className="table-container">
+            <h1 style={{textAlign:'center'}}>Bussiness Performance</h1>
           <table className="custom-table">
             <thead>
               <tr>
                 <th>weightage</th>
                 <th>Parameter</th>
-                <th>Description</th>
-                <th>Objective</th>
-                <th>Month Actual</th>
-                <th>YTD</th>
+                <th>Description</th> <th>Objective(%)</th>
+                <th>Month Actual(%)</th>
+                <th>YTD(%)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>15%</td> {/* ✅ Show role here */}
-                <td>Hiring Quality Index</td>
-                <td>% of proposed candidates Approved by BHR vs Submitted to BHR by BL</td>
-                <td>100%</td>
-                <td>33%</td>
-                <td>70%</td>
+                <td>10%</td>
+                <td>Target / Objective Realization</td>
+                <td>Target achieved ≥100%</td>
+                <td>88</td><td>88</td><td>88</td>
               </tr>
               <tr>
-                 <td>0%</td> {/* ✅ Show role here */}
-                <td>Induction Score</td>
-                <td>*% of New Joinees Clearing induction in Pravesh</td>
-                <td>100%</td>
-                <td>33%</td>
-                <td>70%</td>
+                <td>10%</td>
+                <td>Target / Objective Realization</td>
+                <td> % of Territories achieving ≥90% of Objective</td>
+                <td>88</td><td>88</td><td>88</td>
               </tr>
-              <tr>
-                 <td>15%</td> {/* ✅ Show role here */}
-                <td>Team Stability IndexI</td>
-                <td>*Infant attrition rate (within 180 days)</td>
-                <td>100%</td>
-                <td>33%</td>
-                <td>70%</td>
-              </tr>
-              <tr>
-                 <td>0%</td> {/* ✅ Show role here */}
-                <td>Team Stability IndexI</td>
-                <td>*Avg. vacancy filling time (in days)</td>
-                <td>100%</td>
-                <td>33%</td>
-                <td>70%</td>
-              </tr>
-              <tr>
-                 <td>0%</td> {/* ✅ Show role here */}
-                <td>Team Stability IndexI</td>
-                <td>Overall retention rate (Annual rate in current FY)</td>
-                <td>100%</td>
-                <td>33%</td>
-                <td>70%</td>
+                   <tr>
+                <td>10%</td>
+                <td>Corporate Customer Engagement & Conversion Score</td>
+                <td> % of corporate doctors visited/month (Out of 100 Selected)</td>
+                <td>88</td><td>88</td><td>88</td>
               </tr>
                 <tr>
-                 <td>0%</td> {/* ✅ Show role here */}
-                <td>Team Development Index</td>
-                <td>*% BM certification level change of L1, L2, L3 (10, 20,30 Points)</td>
-                <td>100%</td>
-                <td>33%</td>
-                <td>70%</td>
+                <td>10%</td>
+                <td>Corporate Customer Engagement & Conversion Score</td>
+                <td> % of Corporate doctors moved to active prescriber category </td>
+                <td>88</td><td>88</td><td>88</td>
+              </tr>
+              <tr>
+                <td>68</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>68</td>
               </tr>
                <tr>
-                 <td>0%</td> {/* ✅ Show role here */}
-                <td>Team Development Index</td>
-                <td>*% BE certification level change of L1, L2, L3 (10, 20,30 Points)</td>
-                <td>100%</td>
-                <td>33%</td>
-                <td>70%</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
-                 <tr>
-                 <td>0%</td> {/* ✅ Show role here */}
-                <td>Talent Pool Strength</td>
-                <td>*No. of pre-assesed internal candidates for promotion</td>
-                <td>100%</td>
-                <td>33%</td>
-                <td>70%</td>
+               <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
                 <tr>
-                 <td>0%</td> {/* ✅ Show role here */}
-                <td>Talent Pool Strength</td>
-                <td>No of Candedates Data availabale for Vaccancies</td>
-                <td>100%</td>
-                <td>33%</td>
-                <td>70%</td>
-              </tr>
-              <tr className='shade'>
-                 <td></td>
-                <td>Team Building Score</td>
-                <td></td><td></td>
                 <td></td>
-                
-               
-                <td>68%</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+               <td></td>
+               <tr className='shade'>
+                <td></td>
+                <td>Performance Score</td>
+                <td>24</td>
+                <td></td>
+                <td></td>
+                <td>68</td>
               </tr>
             </tbody>
           </table>
-       <ActualCommit/> </div> )}
-     
-</div>
+        <ActualCommit/></div>
+        
+                  </div>
+        
+                )}
+
+    {role === 'be' && (
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '5px',
+              alignItems: 'center',
+              height: '80vh',
+            }}
+          >
 
 
-</div>
+  <div className="table-container">
+    <h1 style={{textAlign:'center'}}>Bussiness Performance</h1>
+  <table className="custom-table">
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Objective(%)</th>
+        <th>Month(%)</th>
+        <th>YTD(%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Secondary Gr%</td>
+        <td>#N/A</td>
+        <td>#N/A</td>
+        <td>#N/A</td>
+      </tr>
+      <tr>
+        <td>MSR Acheivement%</td>
+        <td>100</td>
+        <td>#N/A</td>
+        <td>#N/A</td>
+      </tr>
+      <tr>
+        <td>%Gr in Rxer</td>
+        <td>5</td>
+        <td>#N/A</td>
+        <td>#N/A</td>
+      </tr>
+       <tr>
+        <td>Brand Perf. Index</td>
+        <td>100</td>
+        <td>#N/A</td>
+        <td>#N/A</td>
+      </tr>
+      
+      <tr className='shade'>
+        <td>Performance Score</td>
+        <td>24</td>
+        <td>#N/A</td>
+        <td>68</td>
+      </tr>
+    </tbody>
+  </table>
+<ActualCommit/></div>
+
+          </div>
+
+        )}
+
+
+      
+      </div>
+    </div>
   )
 }
 
