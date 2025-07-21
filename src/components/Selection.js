@@ -128,7 +128,7 @@ function Selection() {
   const navigate = useNavigate();
  
   const logout = () => {localStorage.removeItem('role');navigate('/');localStorage.removeItem('name');}
-  const handleBeClick = (x) => { navigate('/Home');console.log("speaical")}
+  const handleBeClick = (x) => { navigate('/TeamBuild');console.log("speaical")}
 
 
   return (

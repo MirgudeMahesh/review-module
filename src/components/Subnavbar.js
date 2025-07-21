@@ -12,19 +12,19 @@ export default function SubNavbar() {
 
     switch (value) {
       case 'performance':
-        navigate(`/profile/${name}/Home`);
+        navigate(`/profile/${name}/Performance`);
         break;
       case 'Review':
         navigate(`/profile/${name}/Review`);
         break;
       case 'Miscelaneous':
-        navigate(`/profile/${name}/performance`);
+        navigate(`/profile/${name}/TeamBuild`);
         break;
       case 'hygine':
-        navigate(`/profile/${name}/Miscellaneous`);
+        navigate(`/profile/${name}/Hygine`);
         break;
       case 'compliance':
-        navigate(`/profile/${name}/Commitment`);
+        navigate(`/profile/${name}/Compliance`);
         break;
       default:
         break;
@@ -43,15 +43,15 @@ export default function SubNavbar() {
 
       <div className="tabs">
         <li><Link to={`/profile/${name}/Review`}>Report</Link></li>
-        <li><Link to={`/profile/${name}/Home`}>Performance</Link></li>
-        <li><Link to={`/profile/${name}/performance`}>TeamBuild</Link></li>
+        <li><Link to={`/profile/${name}/Performance`}>Performance</Link></li>
+        <li><Link to={`/profile/${name}/TeamBuild`}>TeamBuild</Link></li>
 
         {role !== 'be' && (
-          <li><Link to={`/profile/${name}/Miscellaneous`}>Hygine</Link></li>
+          <li><Link to={`/profile/${name}/Hygine`}>Hygine</Link></li>
         )}
 
         {role !== 'be' && role !== 'bm' && (
-          <li><Link to={`/profile/${name}/Commitment`}>Compliance</Link></li>
+          <li><Link to={`/profile/${name}/Compliance`}>Compliance</Link></li>
         )}
 
         <li><Link>Todo</Link></li>

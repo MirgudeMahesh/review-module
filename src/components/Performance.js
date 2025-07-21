@@ -19,15 +19,7 @@ export default function Performance() {
       >
 
         {role === 'bm' && (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: '5px',
-              alignItems: 'center',
-              height: '80vh',
-            }}
-          >
+         
 
 
             <div className="table-container">
@@ -132,7 +124,7 @@ export default function Performance() {
 
             </div>
 
-          </div>
+      
 
         )}
         {role === 'bl' && (

@@ -8,11 +8,11 @@ export default function Navbar() {
   const role = localStorage.getItem('role')
   const { disable, setDisable } = useContext(DisableContext);
   const navigate = useNavigate();
-  const perform = () => { navigate('/performance') }
-  const Home = () => { navigate('/Home'); localStorage.removeItem('name') }
+  const perform = () => { navigate('/TeamBuild') }
+  const Home = () => { navigate('/Performance'); localStorage.removeItem('name') }
   const Review = () => { navigate('/Review'); localStorage.removeItem('name') }
-  const misc = () => { navigate('/Miscellaneous'); localStorage.removeItem('name'); }
-  const commitment = () => { navigate('/Commitment'); localStorage.removeItem('name'); }
+  const misc = () => { navigate('/Hygine'); localStorage.removeItem('name'); }
+  const commitment = () => { navigate('/Compliance'); localStorage.removeItem('name'); }
   const selection = () => {
     setDisable(false);
     localStorage.removeItem('name');

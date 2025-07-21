@@ -25,15 +25,7 @@ const Home = () => {
       >
 
         {role === 'bm' && (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: '5px',
-              alignItems: 'center',
-              height: '80vh',
-            }}
-          >
+         
 
 
             <div className="table-container">
@@ -93,7 +85,7 @@ const Home = () => {
                 </tbody>
               </table>
                 { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}
-</div>
+
 
           </div>
 

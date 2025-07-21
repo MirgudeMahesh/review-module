@@ -22,17 +22,17 @@ function App() {
           <Routes>
              <Route exact path='/Review' element={<FinalReport/>} />
             <Route exact path='/' element={<Loginpage/>} />
-            <Route exact path='/Home' element={<Home/>} />
-            <Route exact path='/performance' element={<Performance/>} />
-            <Route exact path='/Miscellaneous' element={<Miscfiles/>} />
-            <Route exact path='/Commitment' element={<Commitment/>} />
+            <Route exact path='/Performance' element={<Home/>} />
+            <Route exact path='/TeamBuild' element={<Performance/>} />
+            <Route exact path='/Hygine' element={<Miscfiles/>} />
+            <Route exact path='/Compliance' element={<Commitment/>} />
             <Route exact path='/Selection' element={<Selection/>} />
 
        <Route exact path='/profile/:name/Review' element={<FinalReport/>} />
-            <Route exact path='/profile/:name/Home' element={<Home/>} />
-            <Route exact path='/profile/:name/performance' element={<Performance/>} />
-            <Route exact path='/profile/:name/Miscellaneous' element={<Miscfiles/>} />
-            <Route exact path='/profile/:name/Commitment' element={<Commitment/>} />
+            <Route exact path='/profile/:name/Performance' element={<Home/>} />
+            <Route exact path='/profile/:name/TeamBuild' element={<Performance/>} />
+            <Route exact path='/profile/:name/Hygine' element={<Miscfiles/>} />
+            <Route exact path='/profile/:name/Compliance' element={<Commitment/>} />
 
 
            

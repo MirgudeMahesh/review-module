@@ -22,15 +22,6 @@ const name = localStorage.getItem('name')
           >
    
     {role === 'bm' && (
-      <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  marginTop: '5px',
-                  alignItems: 'center',
-                  height: '80vh',
-                }}
-              >
     
     
            
@@ -90,7 +81,6 @@ const name = localStorage.getItem('name')
         </div>
        
     
-                </div>
           
         )}
       {role === 'bl' && (
