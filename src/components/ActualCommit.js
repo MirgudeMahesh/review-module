@@ -1,12 +1,12 @@
 import React from 'react'
-import MainNavbar from './MainNavbar'
+
 
 export default function ActualCommit() {
     return (
 
         <div> 
            
-            <div style={{padding:'100px'}}>
+            <div className='commit-padding'>
                    <h3 style={{textAlign:'center'}}>Commitment</h3>
             <div> <table className="custom-table-commit" >
              

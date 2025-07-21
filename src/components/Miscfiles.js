@@ -1,23 +1,24 @@
 import React from 'react'
 import Navbar from './Navbar';
 // ------------------------Hygine---------------------
-import { useRole } from './RoleContext';
+
 import ActualCommit from './ActualCommit';
+import Textarea from './Textarea';
+import Subnavbar from './Subnavbar';
 export default function Miscfiles() {
 const  role  = localStorage.getItem('role') 
+const name = localStorage.getItem('name')
+  const handleSubmit = (text) => {
+    console.log("ABC Submitted:", text);
 
+  };
   return (
     
       <div>
           <Navbar />
+          {name && <Subnavbar/>}
           <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: '125px',
-              alignItems: 'center',
-              height: '80vh',
-            }}
+         className='table-box'
           >
    
     {role === 'bm' && (
@@ -84,7 +85,8 @@ const  role  = localStorage.getItem('role')
               </tr>
             </tbody>
           </table>
-          <ActualCommit/>
+         { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}
+
         </div>
        
     
@@ -178,7 +180,7 @@ const  role  = localStorage.getItem('role')
               </tr>
             </tbody>
           </table>
-       <ActualCommit/> </div>
+        { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}</div>
           
         )}
     

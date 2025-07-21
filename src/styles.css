@@ -1,3 +1,44 @@
+.tabs {
+  display: flex;
+  align-items: center;
+  top: 4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  list-style: none;
+
+  padding: 10px;
+  margin: 30px auto;
+  background-color: #333;
+  margin-top: 200px;
+  border-radius: 10px;
+  width: fit-content;
+  height: 8vh;
+}
+
+.tabs li {
+  margin: 0 10px;
+}
+
+.tabs li a {
+  display: block;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: rgb(245, 240, 240);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.tabs li a:hover {
+  /* background-color: #007bff; */
+  color: #7caadb;
+  /* color: #fff; */
+  cursor: pointer;
+
+}
+
 .textarea-container {
   background-color: white;
   padding: 20px 30px;
@@ -16,7 +57,8 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   resize: vertical;
-  min-height: 80px; /* about 5 lines */
+  min-height: 80px;
+
 }
 
 .submit-button {
@@ -32,20 +74,21 @@
 .submit-button:hover {
   background-color: #0056b3;
 }
+/* Updated for inline table integration */
 
 .page-home {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 
-    background-color: #dfdfdf;
-    display: flex;
-    justify-content: center;
-    /* centers horizontally */
-    align-items: center;
+  background-color: #dfdfdf;
+  display: flex;
+  justify-content: center;
+  /* centers horizontally */
+  align-items: center;
 }
 
 .page {
-    margin-top: 100px;
+  margin-top: 100px;
 
 }
 
@@ -57,44 +100,45 @@
 
 
 .loginpage {
-    background-color: rgb(224, 224, 224);
-    height: 200px;
-    /* margin-top: 180px; */
-    border: 2px solid rgb(0, 0, 0);
-    align-items: center;
-    flex-direction: column;
-    border-radius: 40px;
-    width: 320px;
-    /* margin-left: 105px; */
-    padding: 50px 0 0 40px;
-    color: white;
+  background-color: rgb(224, 224, 224);
+  height: 200px;
+  /* margin-top: 180px; */
+  border: 2px solid rgb(0, 0, 0);
+  align-items: center;
+  flex-direction: column;
+  border-radius: 40px;
+  width: 320px;
+  /* margin-left: 105px; */
+  padding: 50px 0 0 40px;
+  color: white;
 }
 
 .loginpage div {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .username {
-    border-radius: 15px;
-    height: 20px;
-    color: black;
-    width: 180px;
-    background-color: white;
-    margin-bottom: 12px;
-    margin-left: 28px;
+  border-radius: 15px;
+  height: 20px;
+  color: black;
+  width: 180px;
+  background-color: white;
+  margin-bottom: 12px;
+  margin-left: 28px;
 }
 
 .loginreg {
-    background-color: rgb(60, 60, 166);
-    color: white;
-    border-radius: 12px;
-    margin: 10px 0 10px 80px;
+  background-color: rgb(60, 60, 166);
+  color: white;
+  border-radius: 12px;
+  margin: 10px 0 10px 80px;
 }
 
 .loginreg:hover {
-    background-color: rgb(29, 29, 25);
-    color: white;
+  background-color: rgb(29, 29, 25);
+  color: white;
 }
+
 .select-role {
   border-radius: 15px;
   height: 30px;
@@ -105,58 +149,44 @@
   margin-left: 28px;
 }
 
-/* .firsttime,
-.firsttime1 {
-    margin-left: 45px;
-    margin-top: 10px;
-}
 
-.firsttime1 {
-    margin-top: -5px;
-} */
 
 .button-like-text {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font: inherit;
-    color: #007bff;
-    text-decoration: underline;
-    cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .button-like-text:hover {
-    color: #0056b3;
+  color: #0056b3;
 }
 
 .image {
-    width: 200px;
-    height: 200px;
-    margin-left: 320px;
-    margin-top: 200px;
+  width: 200px;
+  height: 200px;
+  margin-left: 320px;
+  margin-top: 200px;
 }
 
 .description {
-    color: rgb(144, 91, 155);
-    font-size: 35px;
-    margin-left: 250px;
-    font-family: cursive;
-    font-weight: bold;
+  color: rgb(144, 91, 155);
+  font-size: 35px;
+  margin-left: 250px;
+  font-family: cursive;
+  font-weight: bold;
 }
-/* .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #000000;
-  padding: 10px 20px;
-  color: white;
-} */
+
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
 }
+
 .navbar {
   border-radius: 10px;
   background-color: black;
@@ -175,88 +205,55 @@
   padding-left: 40px;
   padding-right: 90px;
 }
- .navbar-menu {
-      list-style: none;
-      display: flex;
-      gap: 24px;
-      margin: 0;
-      padding: 0;
-    }
 
-    .hide {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s;
-      list-style-type: none;
-  
-  
-    }
-    /* .text-button{list-style-type: none;
-  text-decoration: none;
-  color: white;
-  font-size: 15px;
-  justify-content: space-between;}
-
-    .text-button:hover {
-      color: #007bff;
-    } */
-    .text-button {
-  background: none;
-  border: none;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 15px;
-  color: white;
-}
-
-.text-button:hover {
-  background-color: rgb(188, 209, 237);
-  color: red;
-  border-radius: 15px;
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-/* .text-button {
-  background: none;
-  border: none;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 15px;
-  color: white;
-}
-
-.text-button:hover {
-  background-color: rgb(188, 209, 237);
-  color: red;
-  border-radius: 15px;
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.navbar ul {
+.navbar-menu {
+  list-style: none;
   display: flex;
-  list-style-type: none;
-  margin-right: 85px;
-  
+  gap: 24px;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar ul li a {
-  
-  margin-left: 75px;
-  list-style-type: none;
+.hide {
   text-decoration: none;
-  color: white;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+  list-style-type: none;
+
+
+}
+
+.text-button {
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
   font-size: 15px;
-  justify-content: space-between;
-} */
- .scb{
+  color: white;
+}
+
+.text-button:hover {
+  background-color: rgb(188, 209, 237);
+  color: red;
+  border-radius: 15px;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.scb {
   display: none;
- }
+}
+.table-box
+{
+          display: flex;
+         justify-content: center;
+          margin-top: 225px;
+         align-items: center;
+          height: 80vh
+        }
 
-
- .table-container {
+.table-container {
   height: 70vh;
   width: 75%;
   overflow-y: auto;
@@ -268,44 +265,54 @@
 
 
 
-.custom-table{
+.custom-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
-  
+
   overflow: hidden;
 }
+
 .custom-table-commit {
   margin-top: 10px;
-/* border-radius: 20px; */
+  /* border-radius: 20px; */
   font-size: 13px;
-border:1px solid black;
-   width: 100%;
+  border: 1px solid black;
+  width: 100%;
   border-collapse: collapse;
 
-  
-  
+
+
   overflow: hidden;
+}
+.commit-padding{
+  padding: 100px;
 }
 
 .custom-table th,
-.custom-table td ,.custom-table-commit th,.custom-table-commit td{
+.custom-table td,
+.custom-table-commit th,
+.custom-table-commit td {
   border: 1px solid black;
   padding: 8px;
   text-align: left;
 }
 
-.custom-table thead,.custom-table-commit thead {
+.custom-table thead,
+.custom-table-commit thead {
   position: sticky;
   top: 0;
   background-color: #ddd;
   z-index: 1;
 }
-.custom-table tr.shade,.custom-table-commit tr.shade {
+
+.custom-table tr.shade,
+.custom-table-commit tr.shade {
   background-color: #443e3e;
-  color:white;
+  color: white;
   font-weight: bold;
 }
+
 /* ------------ */
 .table-container1 {
   height: 64vh;
@@ -318,7 +325,7 @@ border:1px solid black;
   justify-content: center;
   align-items: center;
   /* padding-left: 70px; */
-  
+
 }
 
 .custom-table1 {
@@ -327,7 +334,7 @@ border:1px solid black;
   font-size: 15px;
 
 
-  
+
   overflow: hidden;
 }
 
@@ -344,11 +351,13 @@ border:1px solid black;
   background-color: #ddd;
   z-index: 1;
 }
-.custom-table1 tr.shade{
+
+.custom-table1 tr.shade {
   background-color: #443e3e;
-  color:white;
+  color: white;
   font-weight: bold;
 }
+
 /* -------------------------------------- */
 /* .dropdown-wrapper {
   max-height: 350px; 
@@ -448,22 +457,23 @@ select:focus {
 
 /* ------------------------------------------------------------- */
 .dropdown-wrapper {
-  max-height: 350px; 
+  max-height: 350px;
   overflow-y: auto;
   /* border: 1px solid rgb(87, 82, 82); */
   border-radius: 10px;
   width: fit-content;
-  margin: 0 auto; 
+  margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
   margin-top: 200px;
 }
+
 .vertical-dropdown {
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 200px;
-  max-width: 500px;
+  max-width: 300px;
   padding: 20px;
   background-color: #f7f9fc;
   border: 1px solid #ccc;
@@ -527,9 +537,20 @@ select:focus {
   color: #0077cc;
   transform: scale(1.2);
 }
+.scb1{
+  display: none;
+}
 
-
-
+.compli-style {
+  display: flex;
+  justify-content: center;
+  margin-top: 225px;
+  gap: 30px;
+  height: 80vh;
+  width: 100%;
+  align-items: center;
+  padding: 50px;
+}
 
 
 
@@ -542,6 +563,66 @@ select:focus {
 
 
 @media only screen and (max-width: 500px) {
+  .tabs {
+    display: none;
+
+
+  }
+  .overflow{
+    overflow-x: hidden;
+  }
+  .table-box
+{
+          display: flex;
+         justify-content: center;
+          margin-top: 155px;
+         align-items: center;
+          height: 80vh
+        }
+        .compli-style {
+  display: flex;
+  justify-content: center;
+  margin-top: 145px;
+  gap: 30px;
+
+  height: 80vh;
+  width: 100%;
+
+  align-items: center;
+ padding: 30px;
+}
+.table-container {
+  height: 70vh;
+  width: 90%;
+  overflow-y: auto;
+
+  background-color: #faf9f9;
+  border-radius: 10px;
+  margin: auto;
+}
+.commit-padding{
+  margin-top: 35px;
+  padding: 0px;
+}
+
+
+  .scb1 {
+ top: 20%;
+    left: 45%;
+  transform: translate(-50%, -50%);
+    position: fixed;
+    display: list-item;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    width: 140px;
+    font-weight: 600;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
   .page-home {
     width: 100%;
     min-height: 100vh;
@@ -559,8 +640,8 @@ select:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-   
-     
+
+
   }
 
   .loginpage {
@@ -607,12 +688,13 @@ select:focus {
     background-color: #fff;
     border: 1px solid #aaa;
   }
-  .some{
+
+  .some {
     margin-right: 70px;
   }
 
   .loginreg {
-    
+
     width: 80%;
     height: 25px;
     border: none;
@@ -639,7 +721,7 @@ select:focus {
   }
 
   .button-like-text {
-    
+
     background: none;
     border: none;
     font: inherit;
@@ -652,40 +734,49 @@ select:focus {
   .button-like-text:hover {
     color: #1481cc;
   }
+
   .navbar {
-    /* width: 80%;
-    margin-left: 20px;
-    padding-left: 25px;
-    padding-right: 25px;
+   
+    width: 70%;
+    height: 10vh;
+    margin: 25px ;
+    margin-left: 30px;
+    padding: 15px 25px;
     border-radius: 20px;
-    background-color: rgb(5, 8, 5); */
-    width: 90%;
-  margin: 20px auto;
-  padding: 15px 25px;
-  border-radius: 20px;
-  background-color: rgb(5, 8, 5);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+    background-color: rgb(5, 8, 5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
-.navbar h1 {
-  color: white;
-  font-size: 24px;
-  margin: 0;
+
+  .navbar h1 {
+    color: white;
+    font-size: 25px;
+    margin: 0;
+  }
+.navbar h2{
+  font-size: 16px;
 }
- .scb {
-  display: list-item;
-  height: 40px;
-  background-color: black;
-  color: white;
-  border-radius: 10px;
-  width: 140px;
-  font-weight: 600;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+  .scb {
+    display: list-item;
+    height: 40px;
+    background-color: black;
+    color: white;
+    
+    border-radius: 10px;
+    width: 90px;
+    font-weight: 600;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+       
+  
+
+  
+
+
+  }
 
   .hide {
     display: none;
@@ -708,5 +799,3 @@ select:focus {
     font-size: 24px;
   }
 }
-
-

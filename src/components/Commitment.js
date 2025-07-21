@@ -1,43 +1,35 @@
 import React from 'react'
 import Navbar from './Navbar'
-import { useRole } from './RoleContext';
+
 import ActualCommit from './ActualCommit';
+import Subnavbar from './Subnavbar';
+import Textarea from './Textarea';
 export default function Commitment() {
  const  role  = localStorage.getItem('role')
+ const name = localStorage.getItem('name')
+  const handleSubmit = (text) => {
+    console.log("ABC Submitted:", text);
+
+  };
   return (
     <div>
         <Navbar/>
-       {(role === 'bm' || role === 'be') ? (  <div
-  style={{
-    display: 'flex',
-    justifyContent: 'center',
-    marginTop: '125px',
-    alignItems: 'center',
-    height: '80vh',
-  }}
+      {name && <Subnavbar/>}
+       {( role === 'bm') ? (  <div
+  className='table-box'
 >
   
 
 <ActualCommit/>
 </div> ):
 
-( (<div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginTop: '125px',
+( (
+  <div className='table-box '>
 
-          gap: '30px',
-          height: '80vh',
-          width: '100%',
-          alignItems: 'center',
-          padding: '50px',
-        }}
-      >
        <div className="table-container">
           <h3 style={{ textAlign: 'center' }}>Compliance & Reporting</h3>
 
-          <table className="custom-table" style={{ fontSize: '12px', }}>
+          <table className="custom-table"  style={{ fontSize: '12px', }}>
             <thead>
               <tr>
                 <th>weightage</th>
@@ -108,7 +100,8 @@ export default function Commitment() {
               </tr>
             </tbody>
           </table>
-          <ActualCommit/>
+           { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}
+
         </div>
 
 

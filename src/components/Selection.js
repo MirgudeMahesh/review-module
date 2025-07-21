@@ -1,9 +1,9 @@
-import React, { useState,useContext } from 'react';
+import React, { useState } from 'react';
 import '../styles.css';
 import Navbar from './Navbar';
 import { useNavigate } from "react-router-dom";
-// import { useRole } from './RoleContext';
-import { DisableContext } from './DisableProvider';
+
+
 
 const data={
   div1: {
@@ -114,167 +114,32 @@ div4: {
 
 
 function Selection() {
+  const profileView =(x)=>{
+    localStorage.setItem('name',x);
+     navigate(`/profile/${x}/Review`);
+  }
   const [selectedDiv, setSelectedDiv] = useState('');
   const [selectedTer, setSelectedTer] = useState('');
   const [selectedBh, setSelectedBh] = useState('');
   const [selectedBm, setSelectedBm] = useState('');
   
 
-    const { disable, setDisable } = useContext(DisableContext);
+    
   const navigate = useNavigate();
-  const role= localStorage.getItem('role') ;
-  const logout = () => {localStorage.removeItem('role');navigate('/')}
-  const handleBeClick = (x) => { setDisable(true);navigate('/Home');console.log("speaical")}
+ 
+  const logout = () => {localStorage.removeItem('role');navigate('/');localStorage.removeItem('name');}
+  const handleBeClick = (x) => { navigate('/Home');console.log("speaical")}
+
 
   return (
         <div>
       <Navbar />
-      <div className="dropdown-wrapper">
-        <div className="vertical-dropdown">
-          <ul className="nested-list">
-            {Object.keys(data).map((div) => (
-              <li key={div}>
-                <div className="link-group">
-                  <span
-                    className="item-link level-div"
-                    onClick={() => handleBeClick('be')}
-                  >
-                    {div}
-                  </span>
-                  <span
-                    className="toggle-arrow"
-                    onClick={() =>
-                      setSelectedDiv(selectedDiv === div ? '' : div)
-                    }
-                  >
-                    ▶
-                  </span>
-                </div>
-
-                {/* Territory List */}
-                {selectedDiv === div && (
-                  <ul className="nested-list">
-                    {Object.keys(data[div]).map((ter) => (
-                      <li key={ter}>
-                        <div className="link-group">
-                          <span
-                            className="item-link level-ter"
-                            onClick={() => handleBeClick('be')}
-                          >
-                            {ter}
-                          </span>
-                          <span
-                            className="toggle-arrow"
-                            onClick={() =>
-                              setSelectedTer(selectedTer === ter ? '' : ter)
-                            }
-                          >
-                            ▶
-                          </span>
-                        </div>
-
-                        {/* BH List */}
-                        {selectedTer === ter && (
-                          <ul className="nested-list">
-                            {Object.keys(data[div][ter]).map((bh) => (
-                              <li key={bh}>
-                                <div className="link-group">
-                                  <span
-                                    className="item-link level-bh"
-                                    onClick={() => handleBeClick('be')}
-                                  >
-                                    {bh}
-                                  </span>
-                                  <span
-                                    className="toggle-arrow"
-                                    onClick={() =>
-                                      setSelectedBh(selectedBh === bh ? '' : bh)
-                                    }
-                                  >
-                                    ▶
-                                  </span>
-                                </div>
-
-                                {/* BM List */}
-                                {selectedBh === bh && (
-                                  <ul className="nested-list">
-                                    {Object.keys(data[div][ter][bh]).map((bm) => (
-                                      <li key={bm}>
-                                        <div className="link-group">
-                                          <span
-                                            className="item-link level-bm"
-                                            onClick={() => handleBeClick('be')}
-                                          >
-                                            {bm}
-                                          </span>
-                                          <span
-                                            className="toggle-arrow"
-                                            onClick={() =>
-                                              setSelectedBm(selectedBm === bm ? '' : bm)
-                                            }
-                                          >
-                                            ▶
-                                          </span>
-                                        </div>
-
-                                        {/* BE List */}
-                                        {selectedBm === bm && (
-                                          <ul className="nested-list">
-                                            {Object.entries(
-                                              data[div][ter][bh][bm]
-                                            ).map(([blKey, blList]) => (
-                                              <li key={blKey}>
-                                                <div className="link-group">
-                                                  <span
-                                                    className="item-link level-be"
-                                                    onClick={() => handleBeClick('be')}
-                                                  >
-                                                    {blKey}
-                                                  </span>
-                                                  <span
-                                                    className="toggle-arrow"
-                                                    onClick={() =>
-                                                      {} // Optional: add expand logic for BLs
-                                                    }
-                                                  >
-                                                    ▶
-                                                  </span>
-                                                </div>
-
-                                                {/* BL List */}
-                                                <ul className="nested-list">
-                                                  {blList.map((bl) => (
-                                                    <li key={bl}>
-                                                      <span
-                                                        className="item-link level-bl"
-                                                        onClick={() => handleBeClick('bl')}
-                                                      >
-                                                        {bl}
-                                                      </span>
-                                                    </li>
-                                                  ))}
-                                                </ul>
-                                              </li>
-                                            ))}
-                                          </ul>
-                                        )}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                )}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+<div style={{justifyContent:'center',alignItems:'center',marginTop:'200px'}}>
+    <ul style={{border:'1px solid black', padding:'20px' ,width:"300px",alignItems:'center'}}>
+<button style={{listStyleType:'none'}}  onClick={()=>profileView('robert')}><li >robert</li></button>
+<button style={{listStyleType:'none'}}><li>Andrew</li></button>
+<button style={{listStyleType:'none'}}><li>Williams</li></button>
+      </ul></div>
       <button onClick={logout}>logout</button>
     </div>
 
