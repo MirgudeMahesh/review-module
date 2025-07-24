@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import stylesCSS from '../styles.css'; // Keep if needed for other styles
-
+import '../styles.css'; // Keep if needed for other styles
+ import { useRole } from './RoleContext';
+  import { useNavigate } from 'react-router-dom';
 const DrillDownTable = ({ childrenData, level }) => {
   const [expandedRows, setExpandedRows] = useState({});
-
+ const { role,setRole,name, setName } = useRole();
   const toggleRow = (name) => {
     setExpandedRows((prev) => ({
       ...prev,
@@ -11,6 +12,7 @@ const DrillDownTable = ({ childrenData, level }) => {
     }));
   };
 
+  const  navigate=useNavigate();
   const styles = {
     th: {
       backgroundColor: '#eeeeee',
@@ -30,9 +32,14 @@ const DrillDownTable = ({ childrenData, level }) => {
     }
   };
 
-  // Define hover styles separately
+  
 
   ;
+  
+  const openprofile=(x)=>{
+     setName(x);
+   navigate(`/profile/${x}/Review`);
+  }
 
   return (
     <>
@@ -48,7 +55,7 @@ const DrillDownTable = ({ childrenData, level }) => {
           {Object.entries(childrenData).map(([name, child]) => (
             <React.Fragment key={name}>
               <tr style={styles.row} onClick={() => toggleRow(name)}>
-                <td style={styles.td}>{name}</td>
+             <td style={styles.td} ><button onClick={()=>openprofile('Robert')} className='profile-button'>{name}</button></td> 
                 <td style={styles.td}>₹{child.amount}</td>
               </tr>
               {expandedRows[name] && child.children && Object.keys(child.children).length > 0 && (

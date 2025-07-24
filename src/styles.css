@@ -192,15 +192,15 @@
 }
 
 .navbar {
-  border-radius: 10px;
+  /* border-radius: 10px; */
   background-color: black;
   color: white;
   padding: 10px;
   position: fixed;
-  height: 100px;
-  margin-top: 40px;
-  width: 85%;
-  margin-left: 85px;
+  height: 80px;
+  /* margin-top: 40px; */
+  width: 100%;
+  /* margin-left: 85px; */
   top: 0;
   z-index: 1000;
   display: flex;
@@ -227,6 +227,18 @@
 
 
 }
+.profile-button {
+  list-style-type: none;
+  border: none;
+  margin: 0; /* Use 0 instead of 'none' for spacing properties */
+  background: none; /* Optional: remove button background */
+  cursor: pointer;  /* Optional: show pointer cursor on hover */
+}
+
+.profile-button:hover {
+  color: white;
+  background-color: black;
+}
 
 .text-button {
   background: none;
@@ -252,7 +264,7 @@
 {
           display: flex;
          justify-content: center;
-          margin-top: 225px;
+          margin-top: 127px;
          align-items: center;
           height: 80vh
         }

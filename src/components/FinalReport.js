@@ -23,13 +23,7 @@ export default function FinalReport() {
       {/* <Navbar />
       {name && <Subnavbar/>} */}
       <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-        marginTop: '225px',
-          alignItems: 'center',
-          height: '80vh',
-        }}
+        className='table-box'
       >
         {/* {role === 'be' && (
           <div
