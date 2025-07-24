@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles.css'; // custom styles if used
-
+import { useRole } from './RoleContext';
 export default function SubNavbar() {
   const navigate = useNavigate();
-  const name = localStorage.getItem('name');
-  const role = localStorage.getItem('role');
-
+  // const name = localStorage.getItem('name');
+  // const role = localStorage.getItem('role');
+  
+ const { role,name,setRole, setName } = useRole();
   const handleSelect = (e) => {
     const value = e.target.value;
 

@@ -1,20 +1,25 @@
 import React from 'react'
 import Navbar from './Navbar'
+ import { useRole } from './RoleContext';
 
 import ActualCommit from './ActualCommit';
 import Subnavbar from './Subnavbar';
 import Textarea from './Textarea';
 export default function Commitment() {
- const  role  = localStorage.getItem('role')
- const name = localStorage.getItem('name')
+//  const  role  = localStorage.getItem('role')
+//  const name = localStorage.getItem('name')
+
+ 
+  
+         const { role,setRole,name, setName } = useRole();
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", text);
 
   };
   return (
     <div>
-        <Navbar/>
-      {name && <Subnavbar/>}
+        {/* <Navbar/>
+      {name && <Subnavbar/>} */}
        {( role === 'bm') ? (  <div
   className='table-box'
 >
@@ -100,7 +105,7 @@ export default function Commitment() {
               </tr>
             </tbody>
           </table>
-           { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}
+            { name && < Textarea onsubmit={handleSubmit}/>}
 
         </div>
 
@@ -108,6 +113,8 @@ export default function Commitment() {
         
 
 
-      </div>))}</div>
+      </div>))}  
+          {/* {role && name === '' && <ActualCommit />} */}
+          </div>
   )
 }

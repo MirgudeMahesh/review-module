@@ -4,10 +4,15 @@ import Navbar from './Navbar';
 
 import ActualCommit from './ActualCommit';
 import Textarea from './Textarea';
+ import { useRole } from './RoleContext';
 import Subnavbar from './Subnavbar';
 export default function FinalReport() {
-  const role = localStorage.getItem('role')
-const name = localStorage.getItem('name')
+
+   const { role,setRole,name, setName } = useRole();
+   
+//   const role = localStorage.getItem('role')
+// const name = localStorage.getItem('name')
+
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", text);
 
@@ -15,8 +20,8 @@ const name = localStorage.getItem('name')
 
   return (
     <div>
-      <Navbar />
-      {name && <Subnavbar/>}
+      {/* <Navbar />
+      {name && <Subnavbar/>} */}
       <div
         style={{
           display: 'flex',
@@ -139,8 +144,7 @@ const name = localStorage.getItem('name')
       </tbody>
     </table>
 
-    {name ? <Textarea onsubmit={handleSubmit} /> : <ActualCommit />}
-  </div>
+ { name && < Textarea onsubmit={handleSubmit}/>}  </div>
 )}
 
         {/* {role === 'bm' && (
@@ -251,8 +255,7 @@ const name = localStorage.getItem('name')
       </tbody>
     </table>
 
-    {name ? <Textarea onsubmit={handleSubmit} /> : <ActualCommit />}
-  </div>
+ { name && < Textarea onsubmit={handleSubmit}/>}  </div>
 )}
 
         {role === 'bl' && (
@@ -305,13 +308,16 @@ const name = localStorage.getItem('name')
             </table>
             {/* <ActualCommit/> */}
           
-   { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}
+   { name && < Textarea onsubmit={handleSubmit}/>}
 
           </div>
 
         )}
 
 
-      </div></div>
+      </div>
+    
+    {/* {role && name === '' && <ActualCommit />} */}
+    </div>
   )
 }

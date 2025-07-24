@@ -1,19 +1,23 @@
 import React from 'react'
 //----------------------------Team Build-----------------------------
-import Navbar from './Navbar';
+
 import Textarea from './Textarea';
 import ActualCommit from './ActualCommit';
-import Subnavbar from './Subnavbar';
+ import { useRole } from './RoleContext';
 export default function Performance() {
-  const role = localStorage.getItem('role')
- const name = localStorage.getItem('name')
+ 
+  
+         const { role,setRole,name, setName } = useRole();
+//   const role = localStorage.getItem('role')
+//  const name = localStorage.getItem('name')
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", text);
 
   };
   return (
-    <div><Navbar />
-   {name && <Subnavbar/>}
+    <div>
+      {/* <Navbar />
+   {name && <Subnavbar/>} */}
       <div
       className='table-box'
       >
@@ -120,7 +124,7 @@ export default function Performance() {
                   </tr>
                 </tbody>
               </table>
-                { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}
+                { name && < Textarea onsubmit={handleSubmit}/>}
 
             </div>
 
@@ -228,7 +232,7 @@ export default function Performance() {
                   </tr>
                 </tbody>
               </table>
-                { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)} </div>
+               { name && < Textarea onsubmit={handleSubmit}/>}</div>
 
         
 
@@ -308,13 +312,15 @@ export default function Performance() {
                   </tr>
                 </tbody>
               </table>
-              { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}
+               { name && < Textarea onsubmit={handleSubmit}/>}
             
 
           </div>
 
         )}
       </div>
+       
+          {/* {role && name === '' && <ActualCommit />} */}
     </div>
   )
 }

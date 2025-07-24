@@ -5,9 +5,12 @@ import Navbar from './Navbar';
 import ActualCommit from './ActualCommit';
 import Textarea from './Textarea';
 import Subnavbar from './Subnavbar';
+import { useRole } from './RoleContext';
 export default function Miscfiles() {
-const  role  = localStorage.getItem('role') 
-const name = localStorage.getItem('name')
+    
+       const { role,setRole,name, setName } = useRole();
+// const  role  = localStorage.getItem('role') 
+// const name = localStorage.getItem('name')
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", text);
 
@@ -15,8 +18,8 @@ const name = localStorage.getItem('name')
   return (
     
       <div>
-          <Navbar />
-          {name && <Subnavbar/>}
+          {/* <Navbar />
+          {name && <Subnavbar/>} */}
           <div
          className='table-box'
           >
@@ -76,7 +79,7 @@ const name = localStorage.getItem('name')
               </tr>
             </tbody>
           </table>
-         { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}
+         { name && < Textarea onsubmit={handleSubmit}/>}
 
         </div>
        
@@ -169,12 +172,14 @@ const name = localStorage.getItem('name')
                 <td></td><td>88</td>
               </tr>
             </tbody>
-          </table>
-        { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}</div>
+          </table> { name && < Textarea onsubmit={handleSubmit}/>}
+        </div>
           
         )}
     
            
-          </div></div>
+          </div> 
+              {/* {role && name === '' && <ActualCommit />} */}
+              </div>
   )
 }

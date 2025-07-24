@@ -1,21 +1,22 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 
-import { useContext } from 'react';
-import { DisableContext } from './DisableProvider';
 
+import { useRole } from './RoleContext';
 export default function Navbar() {
-  const role = localStorage.getItem('role')
-  const { disable, setDisable } = useContext(DisableContext);
+  // const role = localStorage.getItem('role');
+
+   const { role,setRole, setName } = useRole();
+  
   const navigate = useNavigate();
   const perform = () => { navigate('/TeamBuild') }
-  const Home = () => { navigate('/Performance'); localStorage.removeItem('name') }
-  const Review = () => { navigate('/Review'); localStorage.removeItem('name') }
-  const misc = () => { navigate('/Hygine'); localStorage.removeItem('name'); }
-  const commitment = () => { navigate('/Compliance'); localStorage.removeItem('name'); }
+  const Home = () => { navigate('/Performance'); setName('') }
+  const Review = () => { navigate('/Review'); setName('')  }
+  const misc = () => { navigate('/Hygine'); setName('') }
+  const commitment = () => { navigate('/Compliance'); setName('') }
   const selection = () => {
-    setDisable(false);
-    localStorage.removeItem('name');
+
+   setName('')
     navigate('/Selection');
 
   }
@@ -53,17 +54,12 @@ export default function Navbar() {
 
 
         <h2 >Review</h2>
-        {/* <select class="scb" id="options" >
-            <option> Report</option>
-            <option >Performance</option>
-            <option>Team Build</option>
-            <option>Hygine </option> <option>select </option>
-        </select> */}
+      
         <select className="scb" id="options" onChange={(e) => handleSelect(e.target.value)}>
           <option value="">Select</option>
           <option value="report">Report</option>
           <option value="performance">Performance</option>
-          <option value="team">Team Build</option>
+          <option value="team">TeamBuild</option>
           {role !== 'be' && <option value="hygine">Hygine</option>}
           {role !== 'be' && role !== 'bm' && <option value="compliance">Compliance</option>}
           <option value="chose">chose</option>
@@ -82,7 +78,7 @@ export default function Navbar() {
           <li className="hide">
             <a>
               <button id="aboutmel" className="text-button" onClick={perform} >
-                Team Build
+                TeamBuild
               </button>
             </a>
           </li>

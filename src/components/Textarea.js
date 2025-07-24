@@ -13,6 +13,9 @@ export default function Textarea({ onsubmit }) {
 
   return (
     <div className="textarea-container">
+      <select style={{borderRadius:'5px'}}>
+        <option></option> <option></option> <option></option>
+      </select>
       <textarea
         placeholder="add commitment"
         value={text}

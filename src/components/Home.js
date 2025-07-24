@@ -6,20 +6,24 @@ import { useState } from 'react';
 import Navbar from './Navbar';
 import Subnavbar from './Subnavbar';
 import ActualCommit from './ActualCommit';
+ import { useRole } from './RoleContext';
 import Textarea from './Textarea';
 const Home = () => {
- const name = localStorage.getItem('name')
+  
+     const { role,setRole,name, setName } = useRole();
+//  const name = localStorage.getItem('name')
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", text);
 
   };
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
-  const role = localStorage.getItem('role')
+  // const role = localStorage.getItem('role')
 
   return (
 
-    <div><Navbar />
-      {name && <Subnavbar/>}
+    <div>
+      {/* <Navbar />
+      {name && <Subnavbar/>} */}
       <div
         className='table-box'
       >
@@ -84,7 +88,7 @@ const Home = () => {
                   </tr>
                 </tbody>
               </table>
-                { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}
+                { name && < Textarea onsubmit={handleSubmit}/>}
 
 
           </div>
@@ -183,7 +187,7 @@ const Home = () => {
                 </tr>
               </tbody>
             </table>
-          { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}</div>
+ { name && < Textarea onsubmit={handleSubmit}/>}          </div>
 
 
 
@@ -238,7 +242,7 @@ const Home = () => {
                   </tr>
                 </tbody>
               </table>
-              { name ? (< Textarea onsubmit={handleSubmit}/>):( <ActualCommit/>)}
+              { name && < Textarea onsubmit={handleSubmit}/>}
 
           </div>
 
@@ -247,6 +251,8 @@ const Home = () => {
 
 
       </div>
+      {/* {role && name === '' && <ActualCommit />} */}
+
     </div>
   )
 }

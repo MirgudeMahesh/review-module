@@ -5,20 +5,21 @@ import Home from './components/Home';
 import Miscfiles from './components/Miscfiles';
 import Performance from './components/Performance';
 import Selection from './components/Selection';
-import { DisableProvider } from './components/DisableProvider';
+import { RoleProvider } from './components/RoleContext';
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import Commitment from './components/Commitment';
 
 import FinalReport from './components/FinalReport';
+import Layout from './components/Layout';
 
 function App() {
   return (
     <div className='overflow' >
 
-      {/* <RoleProvider> */}
-      <DisableProvider>
+      <RoleProvider>
+ 
         <Router>
-
+<Layout>
           <Routes>
              <Route exact path='/Review' element={<FinalReport/>} />
             <Route exact path='/' element={<Loginpage/>} />
@@ -37,9 +38,10 @@ function App() {
 
            
           </Routes>
+             </Layout>
         </Router>
-      </DisableProvider>
-      {/* </RoleProvider>  */}
+ 
+      </RoleProvider> 
 
     </div>
   );

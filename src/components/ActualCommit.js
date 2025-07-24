@@ -4,7 +4,7 @@ import React from 'react'
 export default function ActualCommit() {
     return (
 
-        <div> 
+        <div className='commitmenta'> 
            
             <div className='commit-padding'>
                    <h3 style={{textAlign:'center'}}>Commitment</h3>
