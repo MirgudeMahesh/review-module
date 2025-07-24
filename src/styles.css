@@ -1,16 +1,16 @@
 .tabs {
   display: flex;
   align-items: center;
-  top: 4%;
+  /* top: 4%;
   left: 50%;
   transform: translate(-50%, -50%);
-  position: fixed;
+  position: fixed; */
   list-style: none;
 
   padding: 10px;
   margin: 30px auto;
   background-color: #333;
-  margin-top: 200px;
+  /* margin-top: 200px; */
   border-radius: 10px;
   width: fit-content;
   height: 8vh;

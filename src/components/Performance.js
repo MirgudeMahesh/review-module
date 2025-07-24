@@ -4,6 +4,7 @@ import React from 'react'
 import Textarea from './Textarea';
 import ActualCommit from './ActualCommit';
  import { useRole } from './RoleContext';
+ import Subnavbar from './Subnavbar';
 export default function Performance() {
  
   
@@ -27,6 +28,7 @@ export default function Performance() {
 
 
             <div className="table-container">
+                {name && <Subnavbar/>}
               <h1 style={{ textAlign: 'center' }}>Efforts and Effectivenss</h1>
               <table className="custom-table">
                 <thead>
@@ -135,6 +137,7 @@ export default function Performance() {
         
 
             <div className="table-container">
+               {name && <Subnavbar/>}
               <h3 style={{ textAlign: 'center' }}>Team Building & Development</h3>
 
               <table className="custom-table">
@@ -243,6 +246,7 @@ export default function Performance() {
 
 
             <div className="table-container">
+                {name && <Subnavbar/>}
               <h1 style={{ textAlign: 'center' }}>Efforts and Effectivenss</h1>
               <table className="custom-table">
                 <thead>

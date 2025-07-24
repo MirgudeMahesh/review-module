@@ -98,6 +98,7 @@ export default function FinalReport() {
         )} */}
         {role === 'be' && (
   <div className="table-container">
+      {name && <Subnavbar/>}
     <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
 
     <table className="custom-table">
@@ -209,6 +210,7 @@ export default function FinalReport() {
         )} */}
         {role === 'bm' && (
   <div className="table-container">
+      {name && <Subnavbar/>}
     <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
 
     <table className="custom-table">
@@ -261,9 +263,11 @@ export default function FinalReport() {
         {role === 'bl' && (
             
           <div className="table-container">
+           {name && <Subnavbar/>}
             <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
 
             <table className="custom-table">
+               
               <thead>
                 <tr>
                   <th>Parameter</th>

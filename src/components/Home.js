@@ -33,6 +33,7 @@ const Home = () => {
 
 
             <div className="table-container">
+                {name && <Subnavbar/>}
               <h1 style={{ textAlign: 'center' }}>Bussiness Performance</h1>
               <table className="custom-table">
                 <thead>
@@ -100,6 +101,7 @@ const Home = () => {
 
 
           <div className="table-container">
+             {name && <Subnavbar/>}
             <h1 style={{ textAlign: 'center' }}>Bussiness Performance</h1>
             <table className="custom-table">
               <thead>
@@ -198,6 +200,7 @@ const Home = () => {
 
 
             <div className="table-container">
+                {name && <Subnavbar/>}
               <h1 style={{ textAlign: 'center' }}>Bussiness Performance</h1>
               <table className="custom-table">
                 <thead>

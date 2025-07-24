@@ -22,7 +22,7 @@ export default function Commitment() {
       {name && <Subnavbar/>} */}
        {( role === 'bm') ? (  <div
   className='table-box'
->
+>  {name && <Subnavbar/>}
   
 
 <ActualCommit/>
@@ -32,6 +32,7 @@ export default function Commitment() {
   <div className='table-box '>
 
        <div className="table-container">
+         {name && <Subnavbar/>}
           <h3 style={{ textAlign: 'center' }}>Compliance & Reporting</h3>
 
           <table className="custom-table"  style={{ fontSize: '12px', }}>

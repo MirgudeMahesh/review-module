@@ -29,6 +29,7 @@ export default function Miscfiles() {
     
            
                    <div className="table-container">
+                      {name && <Subnavbar/>}
           <h3 style={{ textAlign: 'center' }}>Hygine</h3>
 
           <table className="custom-table">
@@ -88,6 +89,7 @@ export default function Miscfiles() {
         )}
       {role === 'bl' && (
        <div className="table-container"  >
+         {name && <Subnavbar/>}
           <h3 style={{ textAlign: 'center' }}>Business Hygine & Demand Quality</h3>
 
           <table className="custom-table" style={{ fontSize: '12px', }}>

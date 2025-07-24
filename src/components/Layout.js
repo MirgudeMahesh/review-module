@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       {role && <Navbar />}
-      {name && <Subnavbar />}
+      {/* {name && <Subnavbar />} */}
       
       <main>{children}</main>
 
