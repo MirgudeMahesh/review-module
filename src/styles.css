@@ -236,8 +236,10 @@
 }
 
 .profile-button:hover {
-  color: white;
-  background-color: black;
+  /* color: white;
+  background-color: black; */
+  text-decoration: underline;
+  color:blue;
 }
 
 .text-button {

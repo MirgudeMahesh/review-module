@@ -20,12 +20,15 @@ const DrillDownTable = ({ childrenData, level }) => {
       textAlign: 'left'
     },
     td: {
-      padding: '8px 12px'
+      padding: '8px 12px',
+     
+      border:'1px solid black'
     },
     table: {
       width: '100%',
       borderCollapse: 'collapse',
-      marginTop: '10px'
+      marginTop: '10px',
+      fontSize:'13px'
     },
     row: {
       cursor: 'pointer'
@@ -48,16 +51,29 @@ const DrillDownTable = ({ childrenData, level }) => {
         <thead>
           <tr>
             <th style={styles.th}>Name (Level {level})</th>
-            <th style={styles.th}>Amount</th>
+            <th style={styles.th}>Efficiency(%)</th>
           </tr>
         </thead>
         <tbody>
           {Object.entries(childrenData).map(([name, child]) => (
             <React.Fragment key={name}>
-              <tr style={styles.row} onClick={() => toggleRow(name)}>
+              {/* <tr style={styles.row} onClick={() => toggleRow(name)}>
              <td style={styles.td} ><button onClick={()=>openprofile('Robert')} className='profile-button'>{name}</button></td> 
-                <td style={styles.td}>₹{child.amount}</td>
-              </tr>
+                <td style={styles.td}>{child.amount}</td>
+              </tr> */}
+              <tr
+  style={{
+    ...styles.row,
+    backgroundColor: child.amount <= 50 ? 'rgb(255, 120, 120)' : 'transparent'
+  }}
+  onClick={() => toggleRow(name)}
+>
+  <td style={styles.td}>
+    <button onClick={() => openprofile('Robert')} className='profile-button'>{name}</button>
+  </td> 
+  <td style={styles.td}>{child.amount}</td>
+</tr>
+
               {expandedRows[name] && child.children && Object.keys(child.children).length > 0 && (
                 <tr className="nested">
                   <td colSpan="2" style={{ paddingLeft: '30px' }}>
