@@ -11,7 +11,12 @@ import Commitment from './components/Commitment';
 
 import FinalReport from './components/FinalReport';
 import Layout from './components/Layout';
-
+import Chats from './components/Chats';
+import UserHome from './components/dashboard/UserHome';
+import UserFinalReport from './components/dashboard/UserFinalReport';
+import UserPerformance from './components/dashboard/UserPerformance';
+import UserMiscfiles from './components/dashboard/UserMiscfiles';
+import UserCommitment from './components/dashboard/UserCommitment';
 function App() {
   return (
     <div className='overflow' >
@@ -28,12 +33,12 @@ function App() {
             <Route exact path='/Hygine' element={<Miscfiles/>} />
             <Route exact path='/Compliance' element={<Commitment/>} />
             <Route exact path='/Selection' element={<Selection/>} />
-
-       <Route exact path='/profile/:name/Review' element={<FinalReport/>} />
-            <Route exact path='/profile/:name/Performance' element={<Home/>} />
-            <Route exact path='/profile/:name/TeamBuild' element={<Performance/>} />
-            <Route exact path='/profile/:name/Hygine' element={<Miscfiles/>} />
-            <Route exact path='/profile/:name/Compliance' element={<Commitment/>} />
+   <Route exact path='/Chats' element={<Chats/>} />
+       <Route exact path='/profile/:name/Review' element={<UserFinalReport/>} />
+            <Route exact path='/profile/:name/Performance' element={<UserHome/>} />
+            <Route exact path='/profile/:name/TeamBuild' element={<UserPerformance/>} />
+            <Route exact path='/profile/:name/Hygine' element={<UserMiscfiles/>} />
+            <Route exact path='/profile/:name/Compliance' element={<UserCommitment/>} />
 
 
            

@@ -1,11 +1,12 @@
 import React from 'react'
 //----------------------------Team Build-----------------------------
 
-import Textarea from './Textarea';
-import ActualCommit from './ActualCommit';
- import { useRole } from './RoleContext';
- import Subnavbar from './Subnavbar';
-export default function Performance() {
+import Textarea from '../Textarea';
+import ActualCommit from '../ActualCommit';
+ import { useRole } from '../RoleContext';
+ import Subnavbar from '../Subnavbar';
+ import '../../styles.css';
+export default function UserPerformance() {
  
   
          const { role,setRole,name, setName } = useRole();
@@ -19,7 +20,7 @@ export default function Performance() {
   return (
     <div>
       {/* <Navbar />
-  //  {name && <Subnavbar/>} */}
+   {name && <Subnavbar/>} */}
       <div
       className='table-box'
       >
@@ -29,7 +30,7 @@ export default function Performance() {
 
 
             <div className="table-container">
-                {/* {name && <Subnavbar/>} */}
+                {name && <Subnavbar/>}
               <h1 style={{ textAlign: 'center' }}>Efforts and Effectivenss</h1>
               <table className="custom-table">
                 <thead>
@@ -127,7 +128,7 @@ export default function Performance() {
                   </tr>
                 </tbody>
               </table>
-                {/* { name && < Textarea onsubmit={handleSubmit}/>} */}
+                { name && < Textarea onsubmit={handleSubmit}/>}
 
             </div>
 
@@ -138,7 +139,7 @@ export default function Performance() {
         
 
             <div className="table-container">
-               {/* {name && <Subnavbar/>} */}
+               {name && <Subnavbar/>}
               <h3 style={{ textAlign: 'center' }}>Team Building & Development</h3>
 
               <table className="custom-table">
@@ -236,8 +237,7 @@ export default function Performance() {
                   </tr>
                 </tbody>
               </table>
-               {/* { name && < Textarea onsubmit={handleSubmit}/>} */}
-               </div>
+               { name && < Textarea onsubmit={handleSubmit}/>}</div>
 
         
 
@@ -248,7 +248,7 @@ export default function Performance() {
 
 
             <div className="table-container">
-                {/* {name && <Subnavbar/>} */}
+                {name && <Subnavbar/>}
               <h1 style={{ textAlign: 'center' }}>Efforts and Effectivenss</h1>
               <table className="custom-table">
                 <thead>
@@ -318,7 +318,7 @@ export default function Performance() {
                   </tr>
                 </tbody>
               </table>
-               {/* { name && < Textarea onsubmit={handleSubmit}/>} */}
+               { name && < Textarea onsubmit={handleSubmit}/>}
             
 
           </div>
