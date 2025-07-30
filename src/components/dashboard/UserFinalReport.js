@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
-import ActualCommit from './ActualCommit';
-import Textarea from './Textarea';
-import { useRole } from './RoleContext';
-import Subnavbar from './Subnavbar';
-
-export default function FinalReport() {
+import Navbar from '../Navbar';
+import ActualCommit from '../ActualCommit';
+import Textarea from '../Textarea';
+import { useRole } from '../RoleContext';
+import Subnavbar from '../Subnavbar';
+import '../../styles.css';
+export default function UserFinalReport() {
   const { role, setRole, name, setName } = useRole();
   const [selectedDate, setSelectedDate] = useState('');
 
@@ -29,7 +29,7 @@ export default function FinalReport() {
       <div className="table-box">
         {role === 'be' && (
           <div className="table-container">
-            {/* {name && <Subnavbar />} */}
+            {name && <Subnavbar />}
             <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
 
             <table className="custom-table">
@@ -75,13 +75,13 @@ export default function FinalReport() {
               </tbody>
             </table>
 
-            {/* {name && <Textarea onsubmit={handleSubmit} />} */}
+            {name && <Textarea onsubmit={handleSubmit} />}
           </div>
         )}
 
         {role === 'bm' && (
           <div className="table-container">
-            {/* {name && <Subnavbar />} */}
+            {name && <Subnavbar />}
             <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
 
             <table className="custom-table">
@@ -127,13 +127,13 @@ export default function FinalReport() {
               </tbody>
             </table>
 
-            {/* {name && <Textarea onsubmit={handleSubmit} />} */}
+            {name && <Textarea onsubmit={handleSubmit} />}
           </div>
         )}
 
         {role === 'bl' && (
           <div className="table-container">
-            {/* {name && <Subnavbar />} */}
+            {name && <Subnavbar />}
             <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
 
             <table className="custom-table">
@@ -179,7 +179,7 @@ export default function FinalReport() {
               </tbody>
             </table>
 
-            {/* {name && <Textarea onsubmit={handleSubmit} />} */}
+            {name && <Textarea onsubmit={handleSubmit} />}
 
           
           </div>

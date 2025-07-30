@@ -1,11 +1,12 @@
 import React from 'react'
-import Navbar from './Navbar'
-import { useRole } from './RoleContext';
+import Navbar from '../Navbar'
+import { useRole } from '../RoleContext';
+import '../../styles.css';
+import ActualCommit from '../ActualCommit';
+import Subnavbar from '../Subnavbar';
+import Textarea from '../Textarea';
 
-import ActualCommit from './ActualCommit';
-import Subnavbar from './Subnavbar';
-import Textarea from './Textarea';
-export default function Commitment() {
+export default function UserCommitment() {
   //  const  role  = localStorage.getItem('role')
   //  const name = localStorage.getItem('name')
 
@@ -18,11 +19,11 @@ export default function Commitment() {
   };
   return (
     <div>
-    
+      {/* <Navbar/>
+      {name && <Subnavbar/>} */}
       {(role === 'bm') ? (<div
         className='table-box'
-      > 
-       {/* {name && <Subnavbar />} */}
+      >  {name && <Subnavbar />}
 
 
         <ActualCommit />
@@ -32,7 +33,7 @@ export default function Commitment() {
           <div className='table-box '>
 
             <div className="table-container">
-              {/* {name && <Subnavbar />} */}
+              {name && <Subnavbar />}
               <h3 style={{ textAlign: 'center' }}>Compliance & Reporting</h3>
 
               <table className="custom-table" style={{ fontSize: '12px', }}>
@@ -106,7 +107,7 @@ export default function Commitment() {
                   </tr>
                 </tbody>
               </table>
-              {/* {name && < Textarea onsubmit={handleSubmit} />} */}
+              {name && < Textarea onsubmit={handleSubmit} />}
 
             </div>
 

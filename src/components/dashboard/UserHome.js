@@ -1,16 +1,16 @@
 import React from 'react'
 
-import '../styles.css';
+import '../../styles.css';
 import { useState } from 'react';
 
-import Navbar from './Navbar';
-import Subnavbar from './Subnavbar';
-import ActualCommit from './ActualCommit';
- import { useRole } from './RoleContext';
-import Textarea from './Textarea';
-const Home = () => {
+import Navbar from '../Navbar';
+import Subnavbar from '../Subnavbar';
+import ActualCommit from '../ActualCommit';
+ import { useRole } from '../RoleContext';
+import Textarea from '../Textarea';
+const UserHome = () => {
   
-     const { role,setRole } = useRole();
+     const { role,setRole,name, setName } = useRole();
 //  const name = localStorage.getItem('name')
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", text);
@@ -23,7 +23,7 @@ const Home = () => {
 
     <div>
       {/* <Navbar />
-      // {name && <Subnavbar/>} */}
+      {name && <Subnavbar/>} */}
       <div
         className='table-box'
       >
@@ -33,7 +33,7 @@ const Home = () => {
 
 
             <div className="table-container">
-                {/* {name && <Subnavbar/>} */}
+                {name && <Subnavbar/>}
               <h1 style={{ textAlign: 'center' }}>Bussiness Performance</h1>
               <table className="custom-table">
                 <thead>
@@ -89,7 +89,7 @@ const Home = () => {
                   </tr>
                 </tbody>
               </table>
-                {/* { name && < Textarea onsubmit={handleSubmit}/>} */}
+                { name && < Textarea onsubmit={handleSubmit}/>}
 
 
           </div>
@@ -101,7 +101,7 @@ const Home = () => {
 
 
           <div className="table-container">
-             {/* {name && <Subnavbar/>} */}
+             {name && <Subnavbar/>}
             <h1 style={{ textAlign: 'center' }}>Bussiness Performance</h1>
             <table className="custom-table">
               <thead>
@@ -189,8 +189,7 @@ const Home = () => {
                 </tr>
               </tbody>
             </table>
- {/* { name && < Textarea onsubmit={handleSubmit}/>}     */}
-       </div>
+ { name && < Textarea onsubmit={handleSubmit}/>}          </div>
 
 
 
@@ -201,7 +200,7 @@ const Home = () => {
 
 
             <div className="table-container">
-                {/* {name && <Subnavbar/>} */}
+                {name && <Subnavbar/>}
               <h1 style={{ textAlign: 'center' }}>Bussiness Performance</h1>
               <table className="custom-table">
                 <thead>
@@ -246,7 +245,7 @@ const Home = () => {
                   </tr>
                 </tbody>
               </table>
-              {/* { name && < Textarea onsubmit={handleSubmit}/>} */}
+              { name && < Textarea onsubmit={handleSubmit}/>}
 
           </div>
 
@@ -261,4 +260,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default UserHome;

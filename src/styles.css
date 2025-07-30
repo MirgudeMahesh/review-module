@@ -1,18 +1,15 @@
-.tabs {
+/* .tabs {
   display: flex;
   align-items: center;
-  /* top: 4%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: fixed; */
+ 
   list-style: none;
 
   padding: 10px;
   margin: 30px auto;
   background-color: #333;
-  /* margin-top: 200px; */
+  
   border-radius: 10px;
-  width: fit-content;
+  width: 90%;
   height: 8vh;
 }
 
@@ -33,27 +30,98 @@
   color: rgb(245, 240, 240);
   font-size: 16px;
   font-weight: 500;
+} */
+.tabs {
+  display: flex;
+  flex-wrap: nowrap; 
+  justify-content: space-between; /* space out evenly */
+  align-items: center;
+
+  list-style: none;
+  padding: 10px;
+  margin: 30px auto;
+  background-color: #333;
+
+  border-radius: 10px;
+  width: 90%;
+  height: 8vh;
+  /* overflow: hidden;  */
+}
+
+.tabs li {
+  flex: 1; /* allows each li to take equal space */
+  text-align: center;
+  margin: 0 5px; /* small margin for spacing */
+}
+
+.tabs li a {
+  display: block;
+  width: 100%; /* fill li width */
+  padding: 10px 0;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: rgb(245, 240, 240);
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap; /* prevent text from wrapping */
 }
 
 .tabs li a:hover {
-  /* background-color: #007bff; */
+ 
   color: #7caadb;
-  /* color: #fff; */
+
   cursor: pointer;
 
+}
+
+.sidebyside {
+  /* display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 20px; */
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 30px;
+}
+
+.message7 {
+  position: fixed;
+  top: 86%;
+  left: 93%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  /* Optional: ensures it's above other elements */
+  background-color: white;
+  /* Optional styling */
+  padding: 0.5rem;
+  /* Optional styling */
+  border-radius: 50%;
+  /* Optional styling */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Optional */
 }
 
 .textarea-container {
   background-color: white;
   padding: 20px 30px;
   border-radius: 10px;
+  border: 1px solid rgb(92, 89, 89);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 400px;
   margin: 100px auto;
+  font-size: 14px;
 }
+
 
 .custom-textarea {
   padding: 10px;
@@ -78,6 +146,7 @@
 .submit-button:hover {
   background-color: #0056b3;
 }
+
 /* Updated for inline table integration */
 
 .page-home {
@@ -227,19 +296,23 @@
 
 
 }
+
 .profile-button {
   list-style-type: none;
   border: none;
-  margin: 0; /* Use 0 instead of 'none' for spacing properties */
-  background: none; /* Optional: remove button background */
-  cursor: pointer;  /* Optional: show pointer cursor on hover */
+  margin: 0;
+  /* Use 0 instead of 'none' for spacing properties */
+  background: none;
+  /* Optional: remove button background */
+  cursor: pointer;
+  /* Optional: show pointer cursor on hover */
 }
 
 .profile-button:hover {
   /* color: white;
   background-color: black; */
   text-decoration: underline;
-  color:blue;
+  color: blue;
 }
 
 .text-button {
@@ -262,14 +335,14 @@
 .scb {
   display: none;
 }
-.table-box
-{
-          display: flex;
-         justify-content: center;
-          margin-top: 127px;
-         align-items: center;
-          height: 80vh
-        }
+
+.table-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 127px;
+  align-items: center;
+  height: 80vh
+}
 
 .table-container {
   border: 1px solid black;
@@ -288,16 +361,16 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
- 
+
 
   overflow: hidden;
- 
+
 }
 
 .custom-table-commit {
- 
+
   margin-top: 10px;
-  /* border-radius: 20px; */
+
   font-size: 13px;
   border: 1px solid black;
   width: 100%;
@@ -306,7 +379,8 @@
 
   overflow: hidden;
 }
-.commit-padding{
+
+.commit-padding {
   padding: 100px;
 }
 
@@ -460,7 +534,8 @@
   color: #0077cc;
   transform: scale(1.2);
 }
-.scb1{
+
+.scb1 {
   display: none;
 }
 
@@ -480,66 +555,127 @@
 
 
 
-.commitmenta{
-padding:'50px'
+.commitmenta {
+  padding: '50px';
+  /* overflow-x: scroll; */
 }
 
 
 
 
-@media only screen and (max-width: 500px) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 540px) {
+  .textarea-container {
+    padding: 50px;
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    border: 1px solid rgb(92, 89, 89);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 100px auto;
+    font-size: 14px;
+  }
+
+  .sidebyside {
+    flex-direction: column;
+    align-items: stretch;
+
+  }
+
   .tabs {
     display: none;
 
 
   }
-  .commitmenta{
-padding:'50px';
-justify-content: center;
-align-items: center;
-}
-  .overflow{
+
+  .commitmenta {
+
+
+    width: 90%;
+    height: 50vh;
+    margin-top: 55px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overflow {
     overflow-x: hidden;
   }
-  .table-box
-{
-          display: flex;
-         justify-content: center;
-          margin-top: 155px;
-         align-items: center;
-          height: 80vh
-        }
-        .compli-style {
-  display: flex;
-  justify-content: center;
-  margin-top: 145px;
-  gap: 30px;
 
-  height: 80vh;
-  width: 100%;
+  .table-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 155px;
+    align-items: center;
+    height: 80vh;
+    width: 90%;
 
-  align-items: center;
- padding: 30px;
-}
-.table-container {
-  height: 70vh;
-  width: 90%;
-  overflow-y: auto;
+  }
 
-  background-color: #faf9f9;
-  border-radius: 10px;
-  margin: auto;
-}
-.commit-padding{
-  margin-top: 35px;
-  padding: 0px;
-}
+  .compli-style {
+    display: flex;
+    justify-content: center;
+    margin-top: 145px;
+    gap: 30px;
+
+    height: 80vh;
+    width: 100%;
+
+    align-items: center;
+    padding: 30px;
+  }
+
+  .table-container {
+    height: 70vh;
+    width: 90%;
+    overflow-y: auto;
+
+    background-color: #faf9f9;
+    border-radius: 10px;
+    margin: auto;
+  }
+
+  .commit-padding {
+    margin-top: 35px;
+    padding: 20px;
+
+  }
 
 
   .scb1 {
- top: 20%;
+    top: 20%;
     left: 45%;
-  transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     position: fixed;
     display: list-item;
     height: 40px;
@@ -666,10 +802,10 @@ align-items: center;
   }
 
   .navbar {
-   
+
     width: 70%;
     height: 10vh;
-    margin: 25px ;
+    margin: 25px;
     margin-left: 30px;
     padding: 15px 25px;
     border-radius: 20px;
@@ -685,25 +821,27 @@ align-items: center;
     font-size: 25px;
     margin: 0;
   }
-.navbar h2{
-  font-size: 16px;
-}
+
+  .navbar h2 {
+    font-size: 16px;
+  }
+
   .scb {
     display: list-item;
     height: 40px;
     background-color: black;
     color: white;
-    
+
     border-radius: 10px;
     width: 90px;
     font-weight: 600;
     padding: 6px 12px;
     font-size: 14px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-       
-  
 
-  
+
+
+
 
 
   }

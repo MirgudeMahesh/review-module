@@ -9,7 +9,7 @@ export default function Navbar() {
    const { role,setRole, setName } = useRole();
   
   const navigate = useNavigate();
-  const perform = () => { navigate('/TeamBuild') }
+  const perform = () => { navigate('/TeamBuild');setName('') }
   const Home = () => { navigate('/Performance'); setName('') }
   const Review = () => { navigate('/Review'); setName('')  }
   const misc = () => { navigate('/Hygine'); setName('') }
