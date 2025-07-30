@@ -9,11 +9,11 @@ export default function Navbar() {
    const { role,setRole, setName } = useRole();
   
   const navigate = useNavigate();
-  const perform = () => { navigate('/TeamBuild');setName('') }
-  const Home = () => { navigate('/Performance'); setName('') }
-  const Review = () => { navigate('/Review'); setName('')  }
-  const misc = () => { navigate('/Hygine'); setName('') }
-  const commitment = () => { navigate('/Compliance'); setName('') }
+  const perform = () => { navigate('/TeamBuild');setName(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const Home = () => { navigate('/Performance'); setName(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const Review = () => { navigate('/Review'); setName('') ; window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const misc = () => { navigate('/Hygine'); setName('') ; window.scrollTo({ top: 0, behavior: 'smooth' });}
+  const commitment = () => { navigate('/Compliance'); setName(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
   const selection = () => {
 
    setName('')
