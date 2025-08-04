@@ -11,6 +11,7 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 import Escalating from './Escalating';
 import Chats from './dashboard/Chats';
 import MainNavbar from './MainNavbar';
+import Textarea from './Textarea';
 
 const Layout = ({ children }) => {
   const navigate = useNavigate();
@@ -22,10 +23,11 @@ const Layout = ({ children }) => {
 
   // Modal State
   const [showModal, setShowModal] = useState(false);
+
   const [inputText, setInputText] = useState('');
 
-  const handleOpenModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
+  const handleOpenModal = () => setShowModal(true); 
+  const handleCloseModal = () => setShowModal(false); 
   const handleSubmit = () => {
     alert(`Submitted: ${inputText}`);
     setShowModal(false);
@@ -46,12 +48,7 @@ const Layout = ({ children }) => {
 
         {role && !shouldHideMainUI && <ActualCommit />}
         {role && name && !shouldHideMainUI && <Chats />}
-{/* 
-        {role && !shouldHideMainUI && role !== 'BE' && name === '' && (
-          <div className='sidebyside'>
-            <Escalating />
-          </div>
-        )} */}
+
 
        
       </div>
@@ -78,6 +75,10 @@ const Layout = ({ children }) => {
 </div>
 
 )}
+
+
+
+
 
     </>
   );

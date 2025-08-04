@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useRole } from './RoleContext';
-
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Navbar({ handleOpenModal }) {
     const { role,name,setRole, setName } = useRole();
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ export default function Navbar({ handleOpenModal }) {
     fontSize: '18px',
   }}
 >
-  ?
+ <FontAwesomeIcon icon={faTriangleExclamation} />
 </button>
 
       </div>

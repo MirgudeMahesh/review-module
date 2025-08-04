@@ -98,12 +98,16 @@ else{
       <button onClick={handleSubmit} className="submit-button">
         Submit
       </button>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-  {warning && (
-    <p style={{ color: warntext === 'Message delivered' ? 'blue' : 'red' }}>
-      {warntext}
-    </p>
-  )}
+  <div className="warning-container">
+  <p
+    className="warning-message"
+    style={{
+      visibility: warning ? 'visible' : 'hidden',
+      color: warntext === 'Message delivered' ? 'blue' : 'red',
+    }}
+  >
+    {warntext || 'placeholder'}
+  </p>
 </div>
 
     </div>

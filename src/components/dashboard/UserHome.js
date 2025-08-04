@@ -89,7 +89,7 @@ const UserHome = () => {
                   </tr>
                 </tbody>
               </table>
-                { name && < Textarea onsubmit={handleSubmit}/>}
+                
 
 
           </div>
@@ -189,7 +189,7 @@ const UserHome = () => {
                 </tr>
               </tbody>
             </table>
- { name && < Textarea onsubmit={handleSubmit}/>}          </div>
+       </div>
 
 
 
@@ -245,7 +245,7 @@ const UserHome = () => {
                   </tr>
                 </tbody>
               </table>
-              { name && < Textarea onsubmit={handleSubmit}/>}
+      
 
           </div>
 

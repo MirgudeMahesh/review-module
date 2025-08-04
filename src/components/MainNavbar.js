@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 
-
 import { useRole } from './RoleContext';
 export default function Navbar() {
 
@@ -30,7 +29,7 @@ window.scrollTo({ top: 0, behavior: 'smooth' });
         break;
     case 'MyChats':
       Info();
-
+      break;
       case 'chose':
         selection();
         break;
@@ -65,9 +64,9 @@ window.scrollTo({ top: 0, behavior: 'smooth' });
             <button className="text-button" onClick={Review}>Profile</button>
           </li>
 
-          <li className="hide">
+      {(role==='bl' || role==='admin ')  && (  <li className="hide">
             <button className="text-button" onClick={Raise}  >Raise</button>
-          </li>
+          </li>)}
 
         
        

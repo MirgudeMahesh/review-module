@@ -74,7 +74,7 @@ export default function UserFinalReport() {
               </tbody>
             </table>
 
-            {name && <Textarea onsubmit={handleSubmit} />}
+         
           </div>
         )}
 
@@ -126,7 +126,7 @@ export default function UserFinalReport() {
               </tbody>
             </table>
 
-            {name && <Textarea onsubmit={handleSubmit} />}
+       
           </div>
         )}
 
@@ -178,7 +178,6 @@ export default function UserFinalReport() {
               </tbody>
             </table>
 
-            {name && <Textarea onsubmit={handleSubmit} />}
 
           
           </div>

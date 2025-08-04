@@ -127,7 +127,7 @@ export default function UserPerformance() {
                   </tr>
                 </tbody>
               </table>
-                { name && < Textarea onsubmit={handleSubmit}/>}
+               
 
             </div>
 
@@ -236,7 +236,7 @@ export default function UserPerformance() {
                   </tr>
                 </tbody>
               </table>
-               { name && < Textarea onsubmit={handleSubmit}/>}</div>
+             </div>
 
         
 
@@ -317,7 +317,7 @@ export default function UserPerformance() {
                   </tr>
                 </tbody>
               </table>
-               { name && < Textarea onsubmit={handleSubmit}/>}
+           
             
 
           </div>

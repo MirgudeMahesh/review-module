@@ -29,7 +29,7 @@ export default function Escalating() {
 
   return (
     <div className="escalating-container">
-      <h3>Escalating</h3>
+      <h3>Escalating<br/>___________________________________________</h3>
 
       <div className="form-group">
         <label htmlFor="metric" >Issue:</label>

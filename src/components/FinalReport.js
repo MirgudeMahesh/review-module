@@ -9,18 +9,7 @@ export default function FinalReport() {
   const { role, setRole, name, setName } = useRole();
   const [selectedDate, setSelectedDate] = useState('');
 
- 
- const handleSubmit = ({ text, selectedDate,warning,warntext,setWarning,setWarntext }) => {
-  if(text===''){ setWarning(true);
-         setWarntext('add text ')
-      setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
-      
-      return;
-    }
 
-  console.log("Submitted:", text);
-  console.log("Selected Date:", selectedDate);
-};
 
   return (
     <div>

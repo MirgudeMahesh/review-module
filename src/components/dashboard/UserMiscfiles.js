@@ -79,7 +79,7 @@ export default function UserMiscfiles() {
               </tr>
             </tbody>
           </table>
-         { name && < Textarea onsubmit={handleSubmit}/>}
+        
 
         </div>
        
@@ -173,7 +173,7 @@ export default function UserMiscfiles() {
                 <td></td><td>88</td>
               </tr>
             </tbody>
-          </table> { name && < Textarea onsubmit={handleSubmit}/>}
+          </table>
         </div>
           
         )}

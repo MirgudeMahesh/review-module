@@ -106,7 +106,7 @@ export default function UserCommitment() {
                   </tr>
                 </tbody>
               </table>
-              {name && < Textarea onsubmit={handleSubmit} />}
+           
 
             </div>
 
