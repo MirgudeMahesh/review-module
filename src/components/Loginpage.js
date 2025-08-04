@@ -17,7 +17,7 @@ export default function Loginpage() {
     }
 
     setRole(selectedRole); // <- this updates localStorage too
-    navigate('/Review');
+    navigate('/');
   };
 
   return (

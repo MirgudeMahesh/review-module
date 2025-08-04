@@ -9,8 +9,6 @@ export default function Performance() {
  
   
          const { role,setRole,name, setName } = useRole();
-//   const role = localStorage.getItem('role')
-//  const name = localStorage.getItem('name')
 
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", 'performance');

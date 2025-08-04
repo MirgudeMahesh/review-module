@@ -11,13 +11,13 @@ import Textarea from '../Textarea';
 const UserHome = () => {
   
      const { role,setRole,name, setName } = useRole();
-//  const name = localStorage.getItem('name')
+
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", text);
 
   };
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
-  // const role = localStorage.getItem('role')
+  
 
   return (
 

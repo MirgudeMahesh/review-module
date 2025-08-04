@@ -1,44 +1,85 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import Subnavbar from './Subnavbar';
 import { useRole } from './RoleContext';
 import ActualCommit from './ActualCommit';
 import Filtering from './Filtering';
 import '../styles.css';
-import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import Escalating from './Escalating';
+import Chats from './dashboard/Chats';
+import MainNavbar from './MainNavbar';
+
 const Layout = ({ children }) => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { role, name } = useRole();
- const chats = () => { navigate('/Chats');}
+
+  const hideComponentsOnPaths = ['/LoginPage'];
+  const shouldHideMainUI = hideComponentsOnPaths.includes(location.pathname);
+
+  // Modal State
+  const [showModal, setShowModal] = useState(false);
+  const [inputText, setInputText] = useState('');
+
+  const handleOpenModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+  const handleSubmit = () => {
+    alert(`Submitted: ${inputText}`);
+    setShowModal(false);
+  };
+
   return (
-    <div>
-      {role && <Navbar />}
-{role && name==='' && <div className="message7">
- <button style={{ border: 'none',
-    margin: 0,
-    background: 'none',
-    cursor: 'pointer'}} onClick={chats}> <FontAwesomeIcon icon={faComment} size="3x" /></button>
-</div>}
-
-      {/* Uncomment if needed */}
-      {/* {name && <Subnavbar />} */}
-
-      <main>{children}</main>
-
-      {/* Show ActualCommit if role exists and name is empty */}
-      {role && name === '' && <ActualCommit />}
-
-      {/* Two side-by-side Filtering components */}
-      {role && role !== 'BE' && name === '' && (
-        <div className='sidebyside'>
-         <Filtering />
-          <Escalating/>
+    <>
+      {/* Optional: Add blur class to main UI when modal shows */}
+      <div className={`layout-container ${showModal ? 'blurred' : ''}`}>
+        {role && !shouldHideMainUI && <MainNavbar />}
+        <div style={{ marginTop: "150px" }}>
+          {role && !shouldHideMainUI && (
+  <Navbar handleOpenModal={handleOpenModal} />
+)}
         </div>
-      )}
+
+        <main>{children}</main>
+
+        {role && !shouldHideMainUI && <ActualCommit />}
+        {role && name && !shouldHideMainUI && <Chats />}
+{/* 
+        {role && !shouldHideMainUI && role !== 'BE' && name === '' && (
+          <div className='sidebyside'>
+            <Escalating />
+          </div>
+        )} */}
+
+       
+      </div>
+
+      {/* Modal */}
+    {showModal && (
+<div className="modal-overlay">
+  <div className="modal-box">
+    <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px' }}>
+      <button
+        onClick={handleCloseModal}
+        style={{
+          border: 'none',
+          background: 'transparent',
+          fontSize: '24px',
+          cursor: 'pointer',
+        }}
+      >
+        &times;
+      </button>
     </div>
+    <Escalating />
+  </div>
+</div>
+
+)}
+
+    </>
   );
 };
 

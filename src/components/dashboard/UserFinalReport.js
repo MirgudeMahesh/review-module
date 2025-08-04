@@ -21,10 +21,9 @@ export default function UserFinalReport() {
   console.log("Submitted:", text);
   console.log("Selected Date:", selectedDate);
 };
-
   return (
     <div>
-      {/* <Navbar /> */}
+
 
       <div className="table-box">
         {role === 'be' && (

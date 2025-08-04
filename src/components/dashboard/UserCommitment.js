@@ -7,8 +7,7 @@ import Subnavbar from '../Subnavbar';
 import Textarea from '../Textarea';
 
 export default function UserCommitment() {
-  //  const  role  = localStorage.getItem('role')
-  //  const name = localStorage.getItem('name')
+ 
 
 
 

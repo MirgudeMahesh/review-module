@@ -1,78 +1,72 @@
 import React, { useState } from 'react';
+import '../styles.css' // optional if using separate CSS
 
 export default function Escalating() {
   const [text, setText] = useState('');
-   const [metric, setMetric] = useState('');
-  const[warning,setWarning]=useState(false)
-const[warntext,setWarntext]=useState('')
+  const [metric, setMetric] = useState('');
+  const [warning, setWarning] = useState(false);
+  const [warntext, setWarntext] = useState('');
 
   const handleSubmit = () => {
-  
-  
-     if(text===''){ setWarning(true);
-         setWarntext('add text ')
-      setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
-      
+    if (text === '') {
+      setWarning(true);
+      setWarntext('Please add a message');
+      setTimeout(() => setWarning(false), 3000);
+      return;
+    } else if (metric === '') {
+      setWarning(true);
+      setWarntext('Please select a metric');
+      setTimeout(() => setWarning(false), 3000);
       return;
     }
-     else if(metric===''){
-        setWarning(true);
-         setWarntext('select metric ')
-      setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
-      
-      return;
-    }
-  
- 
-else{ 
-    setWarning(true);
-    setWarntext('Message delivered')
-    setTimeout(() => setWarning(false), 3000); 
-    setText('');
-    console.log(metric)
 
+    setWarning(true);
+    setWarntext('Message delivered');
+    setTimeout(() => setWarning(false), 3000);
+    setText('');
     setMetric('');
-  }
   };
 
   return (
-    <div className="textarea-container">
-         <h3 style={{textAlign:'center'}}>Escalating</h3>
-      <div>
-        <label htmlFor="metric">Issue: </label>
+    <div className="escalating-container">
+      <h3>Escalating</h3>
+
+      <div className="form-group">
+        <label htmlFor="metric" >Issue:</label>
         <select
           id="metric"
           value={metric}
-          onChange={(e) => setMetric(e.target.value)}
-          style={{ borderRadius: '5px',marginLeft:'30px' }}
+          onChange={(e) => setMetric(e.target.value)} 
         >
           <option value="">Select a metric</option>
           <option value="Sales">Performance</option>
           <option value="Revenue">TeamBuild</option>
-          <option value="Efficiency">Hygine</option>
-          <option value="Efficiency">Compliance</option>
+          <option value="Hygine">Hygine</option>
+          <option value="Compliance">Compliance</option>
         </select>
       </div>
 
-    
-
       <textarea
-        placeholder="send message"
+        placeholder="Enter your message"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        className="custom-textarea"
-        style={{ marginTop: '10px' }}
+        className="custom-textarea7"
       />
 
-      <button onClick={handleSubmit} className="submit-button">
+      <button onClick={handleSubmit} className="submit-button7">
         Submit
       </button>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-  {warning && (
-    <p style={{ color: warntext === 'Message delivered' ? 'blue' : 'red' }}>
-      {warntext}
-    </p>
-  )}
+
+ <div className="warning-container">
+  <p
+    className="warning-message"
+    style={{
+      visibility: warning ? 'visible' : 'hidden',
+      color: warntext === 'Message delivered' ? 'blue' : 'red',
+    }}
+  >
+    {warntext || 'placeholder'}
+  </p>
 </div>
 
     </div>

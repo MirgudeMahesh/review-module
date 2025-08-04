@@ -6,9 +6,7 @@ import ActualCommit from './ActualCommit';
 import Subnavbar from './Subnavbar';
 import Textarea from './Textarea';
 export default function Commitment() {
-  //  const  role  = localStorage.getItem('role')
-  //  const name = localStorage.getItem('name')
-
+ 
 
 
   const { role, setRole, name, setName } = useRole();
@@ -22,7 +20,6 @@ export default function Commitment() {
       {(role === 'bm') ? (<div
         className='table-box'
       > 
-       {/* {name && <Subnavbar />} */}
 
 
         <ActualCommit />

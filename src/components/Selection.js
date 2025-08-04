@@ -1,6 +1,6 @@
 
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useRole } from './RoleContext';
 import DrillDownHierarchy from './DrillDownHierarchy';
@@ -10,15 +10,11 @@ function Selection() {
   const navigate = useNavigate();
   const { setRole, setName } = useRole();
 
-  const profileView = (x) => {
-    setName(x);
-    navigate(`/profile/${x}/Review`);
-  };
 
   const logout = () => {
     setRole('');
     setName('');
-    navigate('/');
+    navigate('/LoginPage');
   };
 
   return (
