@@ -8,12 +8,13 @@ import DrillDownHierarchy from './DrillDownHierarchy';
 function Selection() {
   const [expandedRows, setExpandedRows] = useState({});
   const navigate = useNavigate();
-  const { setRole, setName } = useRole();
+  const { setRole, setName ,setUser} = useRole();
 
 
     const logout = () => {
     setRole('');
     setName('');
+    setUser('');
     navigate('/', { replace: true });
   };
   return (
