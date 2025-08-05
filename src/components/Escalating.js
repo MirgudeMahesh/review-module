@@ -8,21 +8,23 @@ export default function Escalating() {
   const [warntext, setWarntext] = useState('');
 
   const handleSubmit = () => {
-    if (text === '') {
-      setWarning(true);
-      setWarntext('Please add a message');
-      setTimeout(() => setWarning(false), 3000);
-      return;
-    } else if (metric === '') {
+    if (metric === '') {
       setWarning(true);
       setWarntext('Please select a metric');
       setTimeout(() => setWarning(false), 3000);
       return;
     }
-
+ else if (text === '') {
+      setWarning(true);
+      setWarntext('Please add a message');
+      setTimeout(() => setWarning(false), 3000);
+      return;
+    }
     setWarning(true);
     setWarntext('Message delivered');
     setTimeout(() => setWarning(false), 3000);
+    console.log("Submitted:", text);
+    console.log("Selected Metric:", metric);
     setText('');
     setMetric('');
   };

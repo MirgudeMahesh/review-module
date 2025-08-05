@@ -15,12 +15,24 @@ const [metric, setMetric] = useState('');
   // };
  
  const handleSubmit = () => {
-  if(text===''){ setWarning(true);
+    if(metric === '') {
+      setWarning(true);
+      setWarntext('Please select a metric');
+      setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
+      return;
+    }
+  else if(text===''){ setWarning(true);
          setWarntext('add text ')
       setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
       
       return;
     }
+      else if (new Date(selectedDate) <= new Date() || selectedDate === '') {
+    setWarning(true);
+    setWarntext('Date should be in the future');
+    setTimeout(() => setWarning(false), 3000);
+    return;
+  }
      else if (isNaN(parseInt(target)) ) {
       setWarning(true);
       setWarntext('target should be integer')
@@ -28,20 +40,14 @@ const [metric, setMetric] = useState('');
       
       return;
     }
-    else if (new Date(selectedDate) <= new Date()) {
-    setWarning(true);
-    setWarntext('Date should be in the future');
-    setTimeout(() => setWarning(false), 3000);
-    return;
-  }
+  
     else{
       setWarning(true);
     setWarntext('Message delivered');
-       console.log("Submitted:", text);
-  console.log("Selected Date:", selectedDate);
-  console.log("Target:", target);
-  console.log("selectedMetric:",metric);
+        setTimeout(() => setWarning(false), 3000);
+
       setTarget('');
+      setSelectedDate('');
       setText('');
 setMetric('');
 return;

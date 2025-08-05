@@ -10,7 +10,14 @@ const[warntext,setWarntext]=useState('')
 
   const handleSubmit = () => {
     // Check if from or to are not integers
-    if (isNaN(parseInt(from)) || isNaN(parseInt(to))) {
+    if(metric===''){
+        setWarning(true);
+         setWarntext('select metric ')
+      setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
+      
+      return;
+    }
+   else if (isNaN(parseInt(from)) || isNaN(parseInt(to))) {
       setWarning(true);
       setWarntext('Range should be integer')
       setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
@@ -30,21 +37,14 @@ const[warntext,setWarntext]=useState('')
       
       return;
     }
-    else if(metric===''){
-        setWarning(true);
-         setWarntext('select metric ')
-      setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
-      
-      return;
-    }
+    
  
 else{ 
     setWarning(true);
     setWarntext('Message delivered')
     setTimeout(() => setWarning(false), 3000); 
     setText('');
-    console.log(metric)
-
+    
     setMetric('');
     setFrom('');
     setTo('');}
