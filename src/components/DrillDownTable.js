@@ -42,6 +42,7 @@ const DrillDownTable = ({ childrenData, level }) => {
   const openprofile=(x)=>{
      setName(x);
    navigate(`/profile/${x}/Review`);
+   window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   return (
@@ -57,10 +58,7 @@ const DrillDownTable = ({ childrenData, level }) => {
         <tbody>
           {Object.entries(childrenData).map(([name, child]) => (
             <React.Fragment key={name}>
-              {/* <tr style={styles.row} onClick={() => toggleRow(name)}>
-             <td style={styles.td} ><button onClick={()=>openprofile('Robert')} className='profile-button'>{name}</button></td> 
-                <td style={styles.td}>{child.amount}</td>
-              </tr> */}
+              
               <tr
   style={{
     ...styles.row,
@@ -69,7 +67,7 @@ const DrillDownTable = ({ childrenData, level }) => {
   onClick={() => toggleRow(name)}
 >
   <td style={styles.td}>
-    <button onClick={() => openprofile('Robert')} className='profile-button'>{name}</button>
+    <button onClick={() => openprofile(name)} className='profile-button'>{name}</button>
   </td> 
   <td style={styles.td}>{child.amount}</td>
 </tr>

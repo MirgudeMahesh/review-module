@@ -51,9 +51,9 @@ export default function Loginpage() {
       <label>Select Name:</label>
       <select value={selectedName} onChange={(e) => setSelectedName(e.target.value)}>
         <option value="">--Choose a name--</option>
-        {employees.map((emp) => (
-          <option key={emp.id} value={emp.name}>{emp.name}</option>
-        ))}
+       {employees.map((emp) => (
+  <option key={emp.name} value={emp.name}>{emp.name}</option>
+))}
       </select>
       <button type="submit">Submit</button>
       <p style={{ color: 'red' }}>{warning}</p>
