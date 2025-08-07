@@ -43,6 +43,7 @@ const DrillDownTable = ({ childrenData, level }) => {
      setName(x);
    navigate(`/profile/${x}/Review`);
    window.scrollTo({ top: 0, behavior: 'smooth' });
+   
   }
 
   return (
