@@ -6,42 +6,42 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Navbar({ handleOpenModal }) {
     const { role,name,setRole, setName } = useRole();
   const navigate = useNavigate();
-  const perform = () => { navigate('/TeamBuild');setName(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  const Home = () => { navigate('/Performance'); setName(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  const Review = () => { navigate('/'); setName('') ; window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  const misc = () => { navigate('/Hygine'); setName('') ; window.scrollTo({ top: 0, behavior: 'smooth' });}
-  const commitment = () => { navigate('/Compliance'); setName(''); }
+  const perform = () => { navigate('/TeamBuild'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const Home = () => { navigate('/Performance');  window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const Review = () => { navigate('/');  window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const misc = () => { navigate('/Hygine');  window.scrollTo({ top: 0, behavior: 'smooth' });}
+  const commitment = () => { navigate('/Compliance');  }
  
   const handleSelect = (value) => {
     switch (value) {
       case 'report':
         Review()
-        setName('');
+        
         window.scrollTo({ top: 0, behavior: 'smooth' });
         break;
       case 'performance':
         Home();
-        setName('');
+        
         window.scrollTo({ top: 0, behavior: 'smooth' });
         break;
       case 'team':
         perform()
-        setName('');
+        
 
         window.scrollTo({ top: 0, behavior: 'smooth' });
         break;
       case 'hygine':
         misc()
-        setName('');
+        
         window.scrollTo({ top: 0, behavior: 'smooth' });
         break;
       case 'compliance':
         commitment()
-        setName('');
+        
         break;
     case 'Escalating':
       handleOpenModal();
-      setName('');
+      
       break;
 
       

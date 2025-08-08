@@ -8,14 +8,14 @@ export default function Navbar() {
    const { role,setRole, setName } = useRole();
   
   const navigate = useNavigate();
-  const Raise = () => { navigate('/disclosure'); setName(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  const Review = () => { navigate('/'); setName('') ; window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const Raise = () => { navigate('/disclosure');  window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const Review = () => { navigate('/'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
  
-   const Info = () => { navigate('/info'); setName('') ; window.scrollTo({ top: 0, behavior: 'smooth' }); }
+   const Info = () => { navigate('/info');  window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
   const selection = () => {
 window.scrollTo({ top: 0, behavior: 'smooth' }); 
-   setName('')
+   
     navigate('/Selection');
 
   }

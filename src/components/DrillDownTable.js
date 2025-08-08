@@ -4,7 +4,7 @@ import '../styles.css'; // Keep if needed for other styles
   import { useNavigate } from 'react-router-dom';
 const DrillDownTable = ({ childrenData, level }) => {
   const [expandedRows, setExpandedRows] = useState({});
- const { role,setRole,name, setName } = useRole();
+ const {  setName ,setUserRole} = useRole();
   const toggleRow = (name) => {
     setExpandedRows((prev) => ({
       ...prev,
@@ -38,13 +38,21 @@ const DrillDownTable = ({ childrenData, level }) => {
   
 
   ;
-  
-  const openprofile=(x)=>{
-     setName(x);
-   navigate(`/profile/${x}/Review`);
-   window.scrollTo({ top: 0, behavior: 'smooth' });
-   
-  }
+const openprofile = (x) => {
+const selectedChild = childrenData[x];
+if (selectedChild?.territory) {
+localStorage.setItem("territory", selectedChild.territory);
+ 
+
+}
+if(selectedChild?.role){
+  setUserRole(selectedChild.role);
+ 
+}
+setName(x);
+navigate(`/profile/${x}/Review`);
+window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
   return (
     <>

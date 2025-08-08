@@ -8,13 +8,18 @@ import DrillDownHierarchy from './DrillDownHierarchy';
 function Selection() {
   const [expandedRows, setExpandedRows] = useState({});
   const navigate = useNavigate();
-  const { setRole, setName ,setUser} = useRole();
+  const { setRole, setName ,setUser,setUserRole} = useRole();
 
 
     const logout = () => {
     setRole('');
     setName('');
     setUser('');
+    setUserRole('');
+    localStorage.removeItem('empterr');   
+    localStorage.removeItem('empcode');
+     localStorage.removeItem('territory');
+    
     navigate('/', { replace: true });
   };
   return (

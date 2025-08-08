@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRole } from './RoleContext';
 
 export default function Loginpage() {
-  const [selectedName, setSelectedName] = useState('');
+  const [selectedTerritory, setSelectedTerritory] = useState('');
   const [warning, setWarning] = useState('');
   const [employees, setEmployees] = useState([]);
 
@@ -23,32 +23,35 @@ export default function Loginpage() {
       .catch((err) => console.error('Error fetching employees:', err));
   }, [navigate]);
 
-const handleSubmit = (e) => {
-e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-if (!selectedName) {
-setWarning('Select a name');
-return;
-}
+    if (!selectedTerritory) {
+      setWarning('Select a territory');
+      return;
+    }
 
-const selectedEmp = employees.find((emp) => emp.name === selectedName);
+    const selectedEmp = employees.find(emp => emp.Territory === selectedTerritory);
 
-if (!selectedEmp || !selectedEmp.Role) {
-setWarning('Role not found for selected employee');
-return;
-}
+    if (!selectedEmp || !selectedEmp.Role) {
+      setWarning('Role not found for selected employee');
+      return;
+    }
 
-let userRole = selectedEmp.Role.toLowerCase();
-if (userRole === 'te') {
-userRole = 'be';
-}
+    localStorage.setItem('empcode', selectedEmp.Emp_Code);
+    localStorage.setItem('empterr', selectedEmp.Territory);
 
-setRole(userRole);
-setUser(selectedEmp.name);
+    let userRole = selectedEmp.Role.toLowerCase();
+    if (userRole === 'te') {
+      userRole = 'be';
+    }
 
+    setRole(userRole);
+    setUser(selectedEmp.name);
 
-navigate('/', { replace: true });
-};
+    navigate('/', { replace: true });
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -60,16 +63,16 @@ navigate('/', { replace: true });
         margin: '50px auto',
       }}
     >
-      <label htmlFor="employee-select">Select Name:</label>
+      <label htmlFor="employee-select">Select Employee (Territory):</label>
       <select
         id="employee-select"
-        value={selectedName}
-        onChange={(e) => setSelectedName(e.target.value)}
+        value={selectedTerritory}
+        onChange={(e) => setSelectedTerritory(e.target.value)}
       >
-        <option value="">--Choose a name--</option>
+        <option value="">--Choose an employee--</option>
         {employees.map((emp) => (
-          <option key={emp.name || emp.id} value={emp.name}>
-            {emp.name}
+          <option key={emp.Emp_Code} value={emp.Territory}>
+            {emp.name} ({emp.Territory})
           </option>
         ))}
       </select>
