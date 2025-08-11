@@ -175,7 +175,7 @@ export default function Textarea() {
             color: warntext === 'Message delivered' ? 'blue' : 'red',
           }}
         >
-          {warntext || ''}
+          {warntext || '                                                                                                                                                                                                                                                                                                                                                                                                                                  '}
         </p>
       </div>
 
