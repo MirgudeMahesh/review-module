@@ -6,7 +6,7 @@ import Textarea from './Textarea';
 
 export default function SubNavbar() {
   const navigate = useNavigate();
-  const { role, name, setName } = useRole();
+  const { userRole, name, setName } = useRole();
 
   const [showModal1, setShowModal1] = useState(false);
 
@@ -49,8 +49,8 @@ export default function SubNavbar() {
           <option value="Review">Report</option>
           <option value="performance">Performance</option>
           <option value="Miscelaneous">TeamBuild</option>
-          {role !== 'be' && <option value="hygine">Hygine</option>}
-          {role !== 'be' && role !== 'bm' && <option value="compliance">Compliance</option>}
+          {userRole !== 'BE' && <option value="hygine">Hygine</option>}
+          {userRole !== 'BE' && userRole !== 'BM' && <option value="compliance">Compliance</option>}
           <option value="Chats">Todo</option>
           <option value="Escalating">Commit</option>
         </select>
@@ -60,10 +60,10 @@ export default function SubNavbar() {
         <li><Link to={`/profile/${name}/Review`}>Report</Link></li>
         <li><Link to={`/profile/${name}/Performance`}>Performance</Link></li>
         <li><Link to={`/profile/${name}/TeamBuild`}>TeamBuild</Link></li>
-        {role !== 'be' && (
+        {userRole !== 'BE' && (
           <li><Link to={`/profile/${name}/Hygine`}>Hygine</Link></li>
         )}
-        {role !== 'be' && role !== 'bm' && (
+        {userRole !== 'BE' && userRole !== 'BM' && (
           <li><Link to={`/profile/${name}/Compliance`}>Compliance</Link></li>
         )}
 

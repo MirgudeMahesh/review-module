@@ -9,7 +9,7 @@ import ActualCommit from '../ActualCommit';
 export default function UserPerformance() {
  
   
-         const { role,setRole,name, setName } = useRole();
+         const { role,userRole,name, setName } = useRole();
 
 
   const handleSubmit = (text) => {
@@ -24,7 +24,7 @@ export default function UserPerformance() {
       className='table-box'
       >
 
-        {role === 'bm' && (
+        {userRole === 'BM' && (
          
 
 
@@ -134,7 +134,7 @@ export default function UserPerformance() {
       
 
         )}
-        {role === 'bl' && (
+        {userRole === 'BL' && (
         
 
             <div className="table-container">
@@ -242,7 +242,7 @@ export default function UserPerformance() {
 
         )}
 
-        {role === 'be' && (
+        {userRole === 'BE' && (
         
 
 

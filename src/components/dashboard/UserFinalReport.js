@@ -6,7 +6,7 @@ import { useRole } from '../RoleContext';
 import Subnavbar from '../Subnavbar';
 import '../../styles.css';
 export default function UserFinalReport() {
-  const { role, setRole, name, setName } = useRole();
+  const { userRole,role, setRole, name, setName } = useRole();
   const [selectedDate, setSelectedDate] = useState('');
 
  
@@ -26,7 +26,7 @@ export default function UserFinalReport() {
 
 
       <div className="table-box">
-        {role === 'be' && (
+        {userRole === 'BE' && (
           <div className="table-container">
             {name && <Subnavbar />}
             <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
@@ -78,7 +78,7 @@ export default function UserFinalReport() {
           </div>
         )}
 
-        {role === 'bm' && (
+        {userRole === 'BM' && (
           <div className="table-container">
             {name && <Subnavbar />}
             <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>
@@ -130,7 +130,7 @@ export default function UserFinalReport() {
           </div>
         )}
 
-        {role === 'bl' && (
+        {userRole === 'BL' && (
           <div className="table-container">
             {name && <Subnavbar />}
             <h3 style={{ textAlign: 'center' }}>Efficiency Index</h3>

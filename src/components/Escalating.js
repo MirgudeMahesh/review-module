@@ -7,7 +7,7 @@ export default function Escalating() {
   const [warning, setWarning] = useState(false);
   const [warntext, setWarntext] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit =async () => {
     if (metric === '') {
       setWarning(true);
       setWarntext('Please select a metric');
@@ -20,13 +20,60 @@ export default function Escalating() {
       setTimeout(() => setWarning(false), 3000);
       return;
     }
-    setWarning(true);
-    setWarntext('Message delivered');
-    setTimeout(() => setWarning(false), 3000);
-    console.log("Submitted:", text);
-    console.log("Selected Metric:", metric);
-    setText('');
-    setMetric('');
+ else {
+      console.log('pressed');
+      const payload = {
+        metric: metric,
+        message: text,
+        role: localStorage.getItem('role'),
+        employee_name: localStorage.getItem('user'),
+        territory_code: localStorage.getItem('empterr'),
+        employee_code: localStorage.getItem('empcode'),
+
+     
+    
+        entry_date: new Date().toISOString().split('T')[0], // YYYY-MM-DD
+       
+        
+      };
+      // try {
+        const response = await fetch('http://localhost:8000/putEscalations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+          .then(response => response.text())
+          .then(result => {
+            setWarning(true);
+            setWarntext('Message delivered');
+            
+            setText('');
+            setMetric('');
+          });
+
+        setTimeout(() => {
+          setWarntext('');
+          setWarning(false);
+        }, 1000);
+
+
+
+
+      
+
+
+      return;
+    }
+    
+    // setWarning(true);
+    // setWarntext('Message delivered');
+    // setTimeout(() => setWarning(false), 3000);
+    // console.log("Submitted:", text);
+    // console.log("Selected Metric:", metric);
+    // setText('');
+    // setMetric('');
   };
 
   return (

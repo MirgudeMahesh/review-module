@@ -4,13 +4,13 @@ import { useRole } from './RoleContext';
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Navbar({ handleOpenModal }) {
-    const { role,name,setRole, setName } = useRole();
+    const { role,name,setRole, setName,setUserRole } = useRole();
   const navigate = useNavigate();
-  const perform = () => { navigate('/TeamBuild'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const perform = () => { navigate('/TeamBuild'); setUserRole('');window.scrollTo({ top: 0, behavior: 'smooth' }); }
   const Home = () => { navigate('/Performance');  window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  const Review = () => { navigate('/');  window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  const misc = () => { navigate('/Hygine');  window.scrollTo({ top: 0, behavior: 'smooth' });}
-  const commitment = () => { navigate('/Compliance');  }
+  const Review = () => { navigate('/'); setUserRole(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const misc = () => { navigate('/Hygine'); setUserRole(''); window.scrollTo({ top: 0, behavior: 'smooth' });}
+  const commitment = () => { navigate('/Compliance');setUserRole('');window.scrollTo({ top: 0, behavior: 'smooth' });  }
  
   const handleSelect = (value) => {
     switch (value) {

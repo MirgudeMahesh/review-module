@@ -5,68 +5,88 @@ export default function Filtering() {
   const [metric, setMetric] = useState('');
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
-  const[warning,setWarning]=useState(false)
-const[warntext,setWarntext]=useState('')
+  const [warning, setWarning] = useState(false);
+  const [warntext, setWarntext] = useState('');
 
-  const handleSubmit = () => {
-    // Check if from or to are not integers
-    if(metric===''){
-        setWarning(true);
-         setWarntext('select metric ')
-      setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
-      
-      return;
-    }
-   else if (isNaN(parseInt(from)) || isNaN(parseInt(to))) {
+  const handleSubmit = async () => {
+    // Validation
+    if (metric === '') {
       setWarning(true);
-      setWarntext('Range should be integer')
-      setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
-      
+      setWarntext('select metric');
+      setTimeout(() => setWarning(false), 3000);
+      return;
+    } else if (isNaN(parseInt(from)) || isNaN(parseInt(to))) {
+      setWarning(true);
+      setWarntext('Range should be integer');
+      setTimeout(() => setWarning(false), 3000);
+      return;
+    } else if (parseInt(from) > parseInt(to)) {
+      setWarning(true);
+      setWarntext('give proper range');
+      setTimeout(() => setWarning(false), 3000);
+      return;
+    } else if (text === '') {
+      setWarning(true);
+      setWarntext('add text');
+      setTimeout(() => setWarning(false), 3000);
       return;
     }
-    else if(from > to){
- setWarning(true);
-      setWarntext('give proper range')
-      setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
-      
-      return;
+
+    try {
+      // Prepare data for backend
+      const payload = {
+        metric,
+        sender: localStorage.getItem('user'),
+        sender_code: localStorage.getItem('empcode'),
+        sender_territory: localStorage.getItem('empterr'),
+        from: parseInt(from),
+        to: parseInt(to),
+        received_date: new Date().toISOString().split('T')[0], // today
+        goal_date: new Date().toISOString().split('T')[0],     // today
+        message: text
+      };
+
+      const res = await fetch('http://localhost:8000/addEscalation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error('Failed to send data');
+
+      setWarning(true);
+      setWarntext('Message delivered');
+      setTimeout(() => setWarning(false), 3000);
+
+      // Reset form
+      setText('');
+      setMetric('');
+      setFrom('');
+      setTo('');
+    } catch (err) {
+      console.error('Error sending message:', err);
+      setWarning(true);
+      setWarntext('Error delivering message');
+      setTimeout(() => setWarning(false), 3000);
     }
-    else if(text===''){ setWarning(true);
-         setWarntext('add text ')
-      setTimeout(() => setWarning(false), 3000); // hide after 3 seconds
-      
-      return;
-    }
-    
- 
-else{ 
-    setWarning(true);
-    setWarntext('Message delivered')
-    setTimeout(() => setWarning(false), 3000); 
-    setText('');
-    
-    setMetric('');
-    setFrom('');
-    setTo('');}
   };
 
   return (
-   
     <div className="textarea-container">
-         <h3 style={{textAlign:'center'}}>Disclosure</h3>
+      <h3 style={{ textAlign: 'center' }}>Disclosure</h3>
       <div>
         <label htmlFor="metric">Metric: </label>
         <select
           id="metric"
           value={metric}
           onChange={(e) => setMetric(e.target.value)}
-          style={{ borderRadius: '5px',marginLeft:'30px' }}
+          style={{ borderRadius: '5px', marginLeft: '30px' }}
         >
           <option value="">Select a metric</option>
           <option value="Sales">Performance</option>
           <option value="Revenue">TeamBuild</option>
           <option value="Efficiency">Hygine</option>
-          <option value="Efficiency">Compliance</option>
+          <option value="Compliance">Compliance</option>
         </select>
       </div>
 
@@ -76,14 +96,24 @@ else{
           type="text"
           value={from}
           onChange={(e) => setFrom(e.target.value)}
-          style={{ width: '50px', borderRadius: "5px" ,marginLeft:'20px' ,height:'25px'}}
+          style={{
+            width: '50px',
+            borderRadius: '5px',
+            marginLeft: '20px',
+            height: '25px'
+          }}
         />
-        <p style={{ marginLeft: "30px" }}>To:</p>
+        <p style={{ marginLeft: '30px' }}>To:</p>
         <input
           type="text"
           value={to}
           onChange={(e) => setTo(e.target.value)}
-          style={{ width: '50px', borderRadius: "5px",marginLeft:'20px' ,height:'25px' }}
+          style={{
+            width: '50px',
+            borderRadius: '5px',
+            marginLeft: '20px',
+            height: '25px'
+          }}
         />
       </div>
 
@@ -98,20 +128,18 @@ else{
       <button onClick={handleSubmit} className="submit-button">
         Submit
       </button>
-  <div className="warning-container">
-  <p
-    className="warning-message"
-    style={{
-      visibility: warning ? 'visible' : 'hidden',
-      color: warntext === 'Message delivered' ? 'blue' : 'red',
-    }}
-  >
-    {warntext || 'placeholder'}
-  </p>
-</div>
 
+      <div className="warning-container">
+        <p
+          className="warning-message"
+          style={{
+            visibility: warning ? 'visible' : 'hidden',
+            color: warntext === 'Message delivered' ? 'blue' : 'red'
+          }}
+        >
+          {warntext || 'placeholder'}
+        </p>
+      </div>
     </div>
-
   );
-
 }

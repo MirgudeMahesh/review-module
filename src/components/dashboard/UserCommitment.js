@@ -11,7 +11,7 @@ export default function UserCommitment() {
 
 
 
-  const { role, setRole, name, setName } = useRole();
+  const {userRole, setRole, name, setName } = useRole();
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", text);
 
@@ -20,7 +20,7 @@ export default function UserCommitment() {
     <div>
       {/* <Navbar/>
       {name && <Subnavbar/>} */}
-      {(role === 'bm') ? (<div
+      {(userRole === 'BM') ? (<div
         className='table-box'
       >  {name && <Subnavbar />}
 

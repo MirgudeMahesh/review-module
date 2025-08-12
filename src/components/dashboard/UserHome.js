@@ -10,7 +10,7 @@ import ActualCommit from '../ActualCommit';
 import Textarea from '../Textarea';
 const UserHome = () => {
   
-     const { role,setRole,name, setName } = useRole();
+     const { role,userRole,name, setName } = useRole();
 
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", text);
@@ -28,7 +28,7 @@ const UserHome = () => {
         className='table-box'
       >
 
-        {role === 'bm' && (
+        {userRole === 'BM' && (
          
 
 
@@ -96,7 +96,7 @@ const UserHome = () => {
 
         )}
 
-        {role === 'bl' && (
+        {userRole === 'BL' && (
 
 
 
@@ -195,7 +195,7 @@ const UserHome = () => {
 
         )}
 
-        {role === 'be' && (
+        {userRole === 'BE' && (
          
 
 

@@ -16,7 +16,7 @@ import Textarea from './Textarea';
 const Layout = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { role, name } = useRole();
+  const { role, name,userRole } = useRole();
 
   const hideComponentsOnPaths = ['/LoginPage'];
   const shouldHideMainUI = hideComponentsOnPaths.includes(location.pathname);
@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
         <main>{children}</main>
 
         {role && !shouldHideMainUI && <ActualCommit />}
-        {role && name && !shouldHideMainUI && <Chats />}
+        {userRole && role && !shouldHideMainUI && <Chats />}
 
 
        

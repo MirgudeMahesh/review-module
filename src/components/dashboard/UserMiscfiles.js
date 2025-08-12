@@ -8,7 +8,7 @@ import Subnavbar from '../Subnavbar';
 import { useRole } from '../RoleContext';
 export default function UserMiscfiles() {
     
-       const { role,setRole,name, setName } = useRole();
+       const { role,userRole,name, setName } = useRole();
 
   const handleSubmit = (text) => {
     console.log("ABC Submitted:", text);
@@ -23,7 +23,7 @@ export default function UserMiscfiles() {
          className='table-box'
           >
    
-    {role === 'bm' && (
+    {userRole === 'BM' && (
     
     
            
@@ -86,7 +86,7 @@ export default function UserMiscfiles() {
     
           
         )}
-      {role === 'bl' && (
+      {userRole === 'BL' && (
        <div className="table-container"  >
          {name && <Subnavbar/>}
           <h3 style={{ textAlign: 'center' }}>Business Hygine & Demand Quality</h3>
