@@ -118,12 +118,12 @@ export default function Navbar() {
               </button>)}
             </a>
           </li>
-          {/* <li className="hide">
+          <li className="hide">
             <a>
               <button id="contact" className="text-button" onClick={Raise}  >Raise
               </button>
             </a>
-          </li> */}
+          </li>
         </ul>
       </nav>
     </div>
