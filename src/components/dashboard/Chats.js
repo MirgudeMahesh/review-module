@@ -8,10 +8,39 @@ export default function Chats() {
   const [text, setText] = useState('');
 
   const chatBoxRef = useRef(null); // 👈 Attach this to chat box
-
-  const sendMessage = () => {
-    setText('');
+const sendInformation = async () => {
+  const payload = {
+    sender: localStorage.getItem('user'),
+    sender_code: localStorage.getItem('empcode'),
+    sender_territory: localStorage.getItem('empterr'),
+    receiver: localStorage.getItem('name'),
+    receiver_code: 'abc', // placeholder, update as needed
+    receiver_territory: localStorage.getItem('territory'),
+    received_date: new Date().toISOString().split('T')[0], // YYYY-MM-DD
+    message: text // Assuming you have a state variable 'text' for message content
   };
+
+  try {
+    await fetch('http://localhost:8000/putInfo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    // Show success feedback
+    
+    setText(''); // Clear message text
+
+   
+  } catch (error) {
+    console.error('Error sending data:', error);
+
+  }
+};
+
+
 
   useEffect(() => {
     // Only scroll the chat box, not the entire page
@@ -71,7 +100,7 @@ export default function Chats() {
               className="message-input"
               onChange={(e) => setText(e.target.value)}
             />
-            <button className="send-button" onClick={sendMessage}>Send</button>
+            <button className="send-button" onClick={sendInformation}>Send</button>
           </div>
         </div>
       </div>

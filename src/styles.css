@@ -194,20 +194,16 @@
   margin: 0 5px; 
 }
 
-.tabs77 li a {
-  display: block;
-  width: 100%; /* fill li width */
-  padding: 10px 0;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  color: rgb(245, 240, 240);
-  font-size: 16px;
-  font-weight: 500;
-  white-space: nowrap; /* prevent text from wrapping */
-}
 
-.tabs77 li a:hover {
+.text-button3 {
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 15px;
+  color: white;
+}
+.text-button3:hover {
   color: #7caadb;
   cursor: pointer;
 }
@@ -619,6 +615,7 @@ border:1px solid black;
   font-size: 15px;
   color: white;
 }
+
 
 .text-button:hover {
   background-color: white;

@@ -6,13 +6,7 @@ export default function Textarea() {
   const [warning, setWarning] = useState(false)
   const [warntext, setWarntext] = useState('')
   const [metric, setMetric] = useState('');
-  // const handleSubmit = () => {
-  //   if (onsubmit) {
-  //     onsubmit({ text, selectedDate,warning,warntext ,setWarning,setWarntext,target,setTarget});  // ✅ Pass both values
-  //   }
-  //   setText('');
-  //   setSelectedDate('');
-  // };
+
 
   const handleSubmit = async () => {
     if (metric === '') {
