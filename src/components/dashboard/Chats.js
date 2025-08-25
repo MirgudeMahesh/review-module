@@ -4,20 +4,26 @@ import { useRole } from '../RoleContext';
 import '../../styles.css';
 
 export default function Chats() {
+  
   const { role, setRole, name, setName } = useRole();
   const [text, setText] = useState('');
-
+  const [results, setResults] = useState([]);
+   const [warning, setWarning] = useState("");
   const chatBoxRef = useRef(null); // 👈 Attach this to chat box
+
 const sendInformation = async () => {
+  if(text===''){
+    return
+  }
   const payload = {
     sender: localStorage.getItem('user'),
     sender_code: localStorage.getItem('empcode'),
     sender_territory: localStorage.getItem('empterr'),
     receiver: localStorage.getItem('name'),
-    receiver_code: 'abc', // placeholder, update as needed
+    receiver_code: 'abc', // placeholder
     receiver_territory: localStorage.getItem('territory'),
     received_date: new Date().toISOString().split('T')[0], // YYYY-MM-DD
-    message: text // Assuming you have a state variable 'text' for message content
+    message: text
   };
 
   try {
@@ -29,26 +35,53 @@ const sendInformation = async () => {
       body: JSON.stringify(payload)
     });
 
-    // Show success feedback
-    
-    setText(''); // Clear message text
+    // ⬇️ Append message instantly to UI
+    setResults((prev) => [...prev, payload]);
 
-   
+    setText(''); // Clear input after sending
+
   } catch (error) {
     console.error('Error sending data:', error);
-
   }
 };
 
+  const fetchMessages = async () => {
+    const empterr=localStorage.getItem("territory");
+    try {
+      const response = await fetch(
+        "http://localhost:8000/getMessagesByTerritory",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            receiver_territory: empterr,
+          }),
+        }
+      );
 
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
 
-  useEffect(() => {
-    // Only scroll the chat box, not the entire page
-    const box = chatBoxRef.current;
-    if (box) {
-      box.scrollTop = box.scrollHeight;
+      const data = await response.json();
+      setResults(data.results || []);
+    } catch (err) {
+      console.error(err);
+      setWarning("Error fetching messages");
+      setTimeout(() => setWarning(""), 3000);
     }
-  }, []);
+  };
+
+useEffect(()=>{
+  fetchMessages();
+},[])
+  useEffect(() => {
+    
+    // Only scroll the chat box, not the entire page
+    if (chatBoxRef.current) {
+      chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+    }
+  }, [results]);
 
   return (
     <div>
@@ -57,39 +90,29 @@ const sendInformation = async () => {
           <h2>Add Information</h2>
 
           {/* 👇 Scrollable chat box with ref */}
-          <div className="chat-box" ref={chatBoxRef}>
-            <div className="chat-message received">
-              <div className="chat-info">
-                <span className="chat-name">Alice</span>
-                <span className="chat-time">2025-07-30 10:15 AM</span>
-              </div>
-              <div className="chat-text">Hi there! How are you?</div>
-            </div>
-
-            <div className="chat-message sent">
-              <div className="chat-info">
-                <span className="chat-name">You</span>
-                <span className="chat-time">2025-07-30 10:16 AM</span>
-              </div>
-              <div className="chat-text">Doing great! What about you?</div>
-            </div>
-
-            <div className="chat-message received">
-              <div className="chat-info">
-                <span className="chat-name">Alice</span>
-                <span className="chat-time">2025-07-30 10:18 AM</span>
-              </div>
-              <div className="chat-text">I’m good too, just working on the project.</div>
-            </div>
-
-            <div className="chat-message received">
-              <div className="chat-info">
-                <span className="chat-name">Alice</span>
-                <span className="chat-time">2025-07-30 10:19 AM</span>
-              </div>
-              <div className="chat-text">Just a reminder for tomorrow's meeting.</div>
-            </div>
+<div className="chat-box" ref={chatBoxRef}>
+  {results.length === 0 ? (
+    <p className="no-messages">No messages yet</p>
+  ) : (
+    results.map((msg, index) => {
+      const isSelfMessage = msg.sender === msg.receiver; // 👈 check condition
+      return (
+        <div
+          key={index}
+          className={`chat-message ${isSelfMessage ? "sent" : "received"}`}
+        >
+          <div className="chat-info">
+            <span className="chat-name">{msg.sender}</span>
+            <span className="chat-time">
+             {new Date(msg.received_date).toLocaleDateString()}
+            </span>
           </div>
+          <div className="chat-text">{msg.message}</div>
+        </div>
+      );
+    })
+  )}
+</div>
 
           {/* Input area */}
          <div className="message-input-container">

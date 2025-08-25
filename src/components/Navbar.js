@@ -5,13 +5,13 @@ import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Navbar({ handleOpenModal }) {
-  const { role, setUserRole } = useRole();
+  const { role, setUserRole,setName } = useRole();
   const navigate = useNavigate();
 
   // Navigation functions
   const perform = () => { 
     navigate('/TeamBuild'); 
-    setUserRole(''); 
+     
     window.scrollTo({ top: 0, behavior: 'smooth' }); 
   };
 
@@ -22,19 +22,22 @@ export default function Navbar({ handleOpenModal }) {
 
   const Review = () => { 
     navigate('/'); 
-    setUserRole(''); 
+   
     window.scrollTo({ top: 0, behavior: 'smooth' }); 
   };
 
   const misc = () => { 
     navigate('/Hygine'); 
-    setUserRole(''); 
+         
+
     window.scrollTo({ top: 0, behavior: 'smooth' }); 
   };
 
-  const commitment = () => { 
+  const commitment = () => {
+          
+ 
     navigate('/Compliance'); 
-    setUserRole(''); 
+     
     window.scrollTo({ top: 0, behavior: 'smooth' }); 
   };
 

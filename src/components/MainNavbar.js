@@ -8,23 +8,24 @@ export default function Navbar() {
   const { role, setRole, setName, setUserRole, setUser } = useRole();
 
   const navigate = useNavigate();
-  const Raise = () => { navigate('/disclosure'); setUserRole(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-  const Review = () => { navigate('/'); setUserRole(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const Raise = () => { navigate('/disclosure');  window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const Review = () => { navigate('/');  window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-  const Info = () => { navigate('/info'); setUserRole(''); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  const Info = () => { navigate('/info');  window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
   const selection = () => {
-    setUserRole('');
+   
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
     navigate('/Selection');
 
   }
   const notselection = () => {
+    
     setRole('');
     setName('');
     setUser('');
-    setUserRole('');
+    
     localStorage.removeItem('empterr');
     localStorage.removeItem('empcode');
     localStorage.removeItem('territory');

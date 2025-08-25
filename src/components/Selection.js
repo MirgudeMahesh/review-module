@@ -16,6 +16,7 @@ function Selection() {
     setName('');
     setUser('');
     setUserRole('');
+   
     localStorage.removeItem('empterr');   
     localStorage.removeItem('empcode');
      localStorage.removeItem('territory');

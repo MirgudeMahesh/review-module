@@ -2,6 +2,7 @@ import React from 'react'
 
 import '../../styles.css';
 import { useState } from 'react';
+import Chats from './Chats';
 
 import Navbar from '../Navbar';
 import Subnavbar from '../Subnavbar';
@@ -254,7 +255,6 @@ const UserHome = () => {
 
 
       </div>
-      {/* {role && name === '' && <ActualCommit />} */}
 
     </div>
   )

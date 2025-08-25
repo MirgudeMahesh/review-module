@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../Navbar';
 import ActualCommit from '../ActualCommit';
+import Chats from './Chats';
 import Textarea from '../Textarea';
 import { useRole } from '../RoleContext';
 import Subnavbar from '../Subnavbar';
@@ -183,6 +184,7 @@ export default function UserFinalReport() {
           </div>
         )}
       </div>
+    
     </div>
   );
 }

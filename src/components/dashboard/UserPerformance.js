@@ -6,6 +6,7 @@ import ActualCommit from '../ActualCommit';
  import { useRole } from '../RoleContext';
  import Subnavbar from '../Subnavbar';
  import '../../styles.css';
+import Chats from './Chats';
 export default function UserPerformance() {
  
   
@@ -325,7 +326,6 @@ export default function UserPerformance() {
         )}
       </div>
        
-          {/* {role && name === '' && <ActualCommit />} */}
     </div>
   )
 }

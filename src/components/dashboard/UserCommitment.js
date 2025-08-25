@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from '../Navbar'
 import { useRole } from '../RoleContext';
 import '../../styles.css';
+import Chats from './Chats';
+
 import ActualCommit from '../ActualCommit';
 import Subnavbar from '../Subnavbar';
 import Textarea from '../Textarea';
@@ -116,6 +118,7 @@ export default function UserCommitment() {
 
           </div>))}
       {/* {role && name === '' && <ActualCommit />} */}
+       
     </div>
   )
 }

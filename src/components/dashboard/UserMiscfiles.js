@@ -6,6 +6,8 @@ import ActualCommit from '../ActualCommit';
 import Textarea from '../Textarea';
 import Subnavbar from '../Subnavbar';
 import { useRole } from '../RoleContext';
+import Chats from './Chats';
+
 export default function UserMiscfiles() {
     
        const { role,userRole,name, setName } = useRole();
@@ -180,7 +182,6 @@ export default function UserMiscfiles() {
     
            
           </div> 
-              {/* {role && name === '' && <ActualCommit />} */}
-              </div>
+             </div>
   )
 }

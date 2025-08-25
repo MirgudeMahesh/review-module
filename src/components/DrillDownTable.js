@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import '../styles.css'; // Keep if needed for other styles
- import { useRole } from './RoleContext';
-  import { useNavigate } from 'react-router-dom';
+import '../styles.css';
+import { useRole } from './RoleContext';
+import { useNavigate } from 'react-router-dom';
+
 const DrillDownTable = ({ childrenData, level }) => {
   const [expandedRows, setExpandedRows] = useState({});
- const {  setName ,setUserRole} = useRole();
+  const { setName, setUserRole } = useRole();
+  const navigate = useNavigate();
+
   const toggleRow = (name) => {
     setExpandedRows((prev) => ({
       ...prev,
@@ -12,7 +15,6 @@ const DrillDownTable = ({ childrenData, level }) => {
     }));
   };
 
-  const  navigate=useNavigate();
   const styles = {
     th: {
       backgroundColor: '#eeeeee',
@@ -21,42 +23,34 @@ const DrillDownTable = ({ childrenData, level }) => {
     },
     td: {
       padding: '8px 12px',
-     
-      border:'1px solid black'
+      border: '1px solid black'
     },
     table: {
       width: '100%',
       borderCollapse: 'collapse',
       marginTop: '10px',
-      fontSize:'13px'
+      fontSize: '13px'
     },
     row: {
       cursor: 'pointer'
     }
   };
 
-  
-
-  ;
-const openprofile = (x) => {
-const selectedChild = childrenData[x];
-if (selectedChild?.territory) {
-localStorage.setItem("territory", selectedChild.territory);
- 
-
-}
-if(selectedChild?.role){
-  setUserRole(selectedChild.role);
- 
-}
-setName(x);
-navigate(`/profile/${x}/Review`);
-window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+  const openprofile = (x) => {
+    const selectedChild = childrenData[x];
+    if (selectedChild?.territory) {
+      localStorage.setItem("territory", selectedChild.territory);
+    }
+    if (selectedChild?.role) {
+      setUserRole(selectedChild.role);
+    }
+    setName(x);
+    navigate(`/profile/${x}/Review`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <>
-     
       <table style={styles.table}>
         <thead>
           <tr>
@@ -67,19 +61,32 @@ window.scrollTo({ top: 0, behavior: 'smooth' });
         <tbody>
           {Object.entries(childrenData).map(([name, child]) => (
             <React.Fragment key={name}>
-              
               <tr
-  style={{
-    ...styles.row,
-    backgroundColor: child.amount <= 50 ? 'rgb(255, 120, 120)' : 'transparent'
-  }}
-  onClick={() => toggleRow(name)}
->
-  <td style={styles.td}>
-    <button onClick={() => openprofile(name)} className='profile-button'>{name}</button>
-  </td> 
-  <td style={styles.td}>{child.amount}</td>
-</tr>
+                style={{
+                  ...styles.row,
+                  backgroundColor: child.amount <= 50 ? 'rgb(255, 120, 120)' : 'transparent'
+                }}
+                onClick={() => toggleRow(name)}
+              >
+                <td style={styles.td}>
+                  {level === 1 ? (
+                    // First level → not clickable
+                    <span className="profile-button-disabled">{name}</span>
+                  ) : (
+                    // Deeper levels → clickable
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation(); // prevent expanding when clicking button
+                        openprofile(name);
+                      }}
+                      className="profile-button"
+                    >
+                      {name}
+                    </button>
+                  )}
+                </td>
+                <td style={styles.td}>{child.amount}</td>
+              </tr>
 
               {expandedRows[name] && child.children && Object.keys(child.children).length > 0 && (
                 <tr className="nested">
@@ -92,7 +99,7 @@ window.scrollTo({ top: 0, behavior: 'smooth' });
           ))}
         </tbody>
       </table>
-   </>
+    </>
   );
 };
 

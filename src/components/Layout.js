@@ -20,6 +20,7 @@ const Layout = ({ children }) => {
 
   const hideComponentsOnPaths = ['/LoginPage'];
   const shouldHideMainUI = hideComponentsOnPaths.includes(location.pathname);
+  const isProfilePage = location.pathname.startsWith("/profile");
 
   // Modal State
   const [showModal, setShowModal] = useState(false);
@@ -47,13 +48,13 @@ const Layout = ({ children }) => {
         <main>{children}</main>
 
         {role && !shouldHideMainUI && <ActualCommit />}
-        {userRole && role && !shouldHideMainUI && <Chats />}
 
+{isProfilePage && <Chats />}
 
        
       </div>
 
-      {/* Modal */}
+
     {showModal && (
 <div className="modal-overlay">
   <div className="modal-box">
