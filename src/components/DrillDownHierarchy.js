@@ -6,7 +6,7 @@ const DrillDownHierarchy = () => {
 
   useEffect(() => {
     const empName = localStorage.getItem('user'); // logged in employee
-    fetch(`http://localhost:8000/hierarchy/${empName}`)
+    fetch(`https://review-module-backend-1.onrender.com/hierarchy/${empName}`)
       .then(res => res.json())
       .then(actual => setData(actual))
       .catch(err => console.error(err));

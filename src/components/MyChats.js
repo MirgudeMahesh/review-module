@@ -37,7 +37,7 @@ const sendInformation = async () => {
   };
 
   try {
-    await fetch("http://localhost:8000/putInfo", {
+    await fetch("https://review-module-backend-1.onrender.com/putInfo", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
@@ -58,7 +58,7 @@ const sendInformation = async () => {
     const empterr=localStorage.getItem("empterr");
     try {
       const response = await fetch(
-        "http://localhost:8000/getMessagesByTerritory",
+        "https://review-module-backend-1.onrender.com/getMessagesByTerritory",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
