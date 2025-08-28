@@ -20,14 +20,19 @@ export default function Loginpage() {
       return;
     }
 
-    fetch('https://review-module-backend-2.onrender.com/employees')
-      .then((res) => res.json())
+    fetch('https://review-module-backend-3.onrender.com/employees')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch employees');
+        return res.json();
+      })
       .then((data) => {
         setEmployees(data);
-       
-        setFilteredEmployees(data); // default: show all
+        setFilteredEmployees(data); 
       })
-      .catch((err) => console.error('Error fetching employees:', err));
+      .catch((err) => {
+        console.error('Error fetching employees:', err);
+        setWarning('Unable to load employees. Please try again later.');
+      });
   }, [navigate]);
 
   // Filter employees whenever searchTerm changes
@@ -55,13 +60,11 @@ export default function Loginpage() {
       return;
     }
 
+    const userRole = selectedEmp.Role.toLowerCase() === 'te' ? 'be' : selectedEmp.Role.toLowerCase();
+
     localStorage.setItem('empcode', selectedEmp.Emp_Code);
     localStorage.setItem('empterr', selectedEmp.Territory);
-
-    let userRole = selectedEmp.Role.toLowerCase();
-    if (userRole === 'te') {
-      userRole = 'be';
-    }
+    localStorage.setItem('role', userRole); // store role for redirect
 
     setRole(userRole);
     setUser(selectedEmp.name);
@@ -105,9 +108,7 @@ export default function Loginpage() {
                 borderBottom: '1px solid #eee',
                 cursor: 'pointer',
                 background:
-                  selectedEmp?.Emp_Code === emp.Emp_Code
-                    ? '#d0e8ff'
-                    : 'transparent',
+                  selectedEmp?.Emp_Code === emp.Emp_Code ? '#d0e8ff' : 'transparent',
               }}
             >
               {emp.name} ({emp.Territory})

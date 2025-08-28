@@ -53,7 +53,7 @@ export default function Textarea() {
         commitment: text
       };
       // try {
-        const response = await fetch('https://review-module-backend-2.onrender.com/putData', {
+        const response = await fetch('https://review-module-backend-3.onrender.com/putData', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

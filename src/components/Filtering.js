@@ -31,7 +31,7 @@ export default function Filtering() {
     }
     try {
       // Use fetch instead of axios
-      const response = await fetch("https://review-module-backend-2.onrender.com/filterData", {
+      const response = await fetch("https://review-module-backend-3.onrender.com/filterData", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -99,7 +99,7 @@ export default function Filtering() {
         message: text
       };
 
-      const res = await fetch('https://review-module-backend-2.onrender.com/addEscalation', {
+      const res = await fetch('https://review-module-backend-3.onrender.com/addEscalation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
