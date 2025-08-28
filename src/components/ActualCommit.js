@@ -7,7 +7,7 @@ export default function ActualCommit() {
   useEffect(() => {
     if (!territory) return;
 
-    fetch(`https://review-module-backend-1.onrender.com/getData/${territory}`)
+    fetch(`https://review-module-backend-2.onrender.com/getData/${territory}`)
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch data');
         return res.json();
@@ -30,7 +30,7 @@ export default function ActualCommit() {
   };
 
   const saveDateToDB = (row) => {
-    fetch(`https://review-module-backend-1.onrender.com/updateReceiverCommitDate`, {
+    fetch(`https://review-module-backend-2.onrender.com/updateReceiverCommitDate`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

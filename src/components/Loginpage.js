@@ -20,7 +20,7 @@ export default function Loginpage() {
       return;
     }
 
-    fetch('https://review-module-backend-1.onrender.com/employees')
+    fetch('https://review-module-backend-2.onrender.com/employees')
       .then((res) => res.json())
       .then((data) => {
         setEmployees(data);
