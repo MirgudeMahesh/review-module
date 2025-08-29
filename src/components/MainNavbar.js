@@ -72,8 +72,11 @@ export default function Navbar() {
           <option value="MyChats">Info</option>
           {/* {role !== 'be' && <option value="hygine">Hygine</option>} */}
 
-          {!role === 'be' && <option value="chose">chose</option>}
-          {role === 'be' && <option value="notchose">logout</option>}
+
+       <option value={role === 'be' ? "notchose" : "chose"}>
+  {role === 'be' ? "logout" : "chose"}
+</option>
+
         </select>
 
         <ul className="navbar-menu">
