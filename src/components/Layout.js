@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
     <>
       {/* Optional: Add blur class to main UI when modal shows */}
       <div className={`layout-container ${showModal ? 'blurred' : ''}`}>
-        {role && !shouldHideMainUI && <MainNavbar />}
+        {/* {role && !shouldHideMainUI && <MainNavbar />} */}
         {/* <div style={{ marginTop: "150px" }}>
           {role && !shouldHideMainUI && (
   <Navbar handleOpenModal={handleOpenModal} />

@@ -4,7 +4,7 @@ import React, { useState,useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useRole } from './RoleContext';
 import DrillDownHierarchy from './DrillDownHierarchy';
-
+import MainNavbar from './MainNavbar';
 function Selection() {
   const [expandedRows, setExpandedRows] = useState({});
   const navigate = useNavigate();
@@ -25,6 +25,7 @@ function Selection() {
   };
   return (
     <div>
+      <MainNavbar/>
       <DrillDownHierarchy />
 
       

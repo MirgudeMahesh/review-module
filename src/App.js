@@ -26,13 +26,18 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-            <Route exact path='/Disclosure' element={<Filtering />} />
+            <Route exact path='/Disclosure' element={<Filtering/>} />
+              <Route path="/" element={<Loginpage/>} /> 
+
+
+ <Route path="/selection" element={<Selection />} />
+
 
             {/* protected landing route */}
-            <Route
+            {/* <Route
               path="/"
               element={role ? <Selection/> : <Loginpage />}
-            />
+            /> */}
 
             {/* <Route exact path='/info' element={<MyChats />} />
             <Route exact path='/Performance' element={<Home />} />

@@ -67,9 +67,11 @@ const DrillDownTable = ({ childrenData, level }) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ territory }),
+
       });
       const data = await res.json();
       setOverlay((o) => ({ ...o, loading: false, table2: data?.results || [] }));
+      console.log("Pivot data", data);
     } catch (e) {
       console.error("openPivotOverlay error", e);
       setOverlay((o) => ({ ...o, loading: false, table2: [] }));
@@ -90,74 +92,83 @@ const DrillDownTable = ({ childrenData, level }) => {
   return (
     <>
       {/* main drilldown table */}
-      <table style={styles.table}>
-        <thead>
-          <tr>
-            <th style={styles.th}>Name (Level {level})</th>
-            <th style={styles.th}>Efficiency(%)</th>
-            <th style={styles.th}>Sales</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(childrenData).map(([name, child]) => {
-            const isLeaf = !child.children || Object.keys(child.children).length === 0;
+<table style={styles.table}>
+  <thead>
+    <tr>
+      <th style={styles.th}>Name (Level {level})</th>
+      <th style={styles.th}>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Object.entries(childrenData).map(([empCode, child]) => {
+      const isLeaf =
+        !child.children || Object.keys(child.children).length === 0;
 
-            return (
-              <React.Fragment key={name}>
-                <tr
-                  style={{
-                    ...styles.row,
-                    backgroundColor: child.amount <= 50 ? "rgb(255, 120, 120)" : "transparent",
+      return (
+        <React.Fragment key={empCode}>
+          <tr
+            style={{
+              ...styles.row,
+              backgroundColor:
+                child.amount <= 50 ? "rgb(255, 120, 120)" : "transparent",
+            }}
+            onClick={() => toggleRow(empCode)}
+          >
+            {/* Column 1: Name */}
+            <td style={styles.td}>
+              {level === 1 ? (
+                <span className="profile-button-disabled">{child.empName}</span>
+              ) : (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    openprofile(empCode);
                   }}
-                  onClick={() => toggleRow(name)}
+                  className="profile-button"
                 >
-                  <td style={styles.td}>
-                    {level === 1 ? (
-                      <span className="profile-button-disabled">{name}</span>
-                    ) : (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          openprofile(name);
-                        }}
-                        className="profile-button"
-                      >
-                        {name}
-                      </button>
-                    )}
-                  </td>
-                  <td style={styles.td}>{child.amount}</td>
-                  <td style={styles.td}>
-                    {getSalesValue(child.sales)}
-                    {isLeaf && child.territory && (
-                      <span
-                        title="Show Pivot Table"
-                        style={styles.questionMark}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          openPivotOverlay(child.territory);
-                        }}
-                      >
-                        ?
-                      </span>
-                    )}
-                  </td>
-                </tr>
+                  {child.empName}
+                </button>
+              )}
+            </td>
 
-                {expandedRows[name] &&
-                  child.children &&
-                  Object.keys(child.children).length > 0 && (
-                    <tr className="nested">
-                      <td colSpan="3" style={{ paddingLeft: 30 }}>
-                        <DrillDownTable childrenData={child.children} level={level + 1} />
-                      </td>
-                    </tr>
-                  )}
-              </React.Fragment>
-            );
-          })}
-        </tbody>
-      </table>
+            {/* Column 2: Sales */}
+            <td style={styles.td}>
+              {child.totalSales}
+              {isLeaf && child.territory && (
+                <span
+                  title="Show Pivot Table"
+                  style={styles.questionMark}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    openPivotOverlay(child.territory);
+                  }}
+                >
+                  ?
+                </span>
+              )}
+            </td>
+          </tr>
+
+          {/* Expand children */}
+          {expandedRows[empCode] &&
+            child.children &&
+            Object.keys(child.children).length > 0 && (
+              <tr className="nested">
+                <td colSpan="2" style={{ paddingLeft: 30 }}>
+                  <DrillDownTable
+                    childrenData={child.children}
+                    level={level + 1}
+                  />
+                </td>
+              </tr>
+            )}
+        </React.Fragment>
+      );
+    })}
+  </tbody>
+</table>
+
+
 
       {/* Overlay with Pivot table only */}
       {overlay.open && (

@@ -15,10 +15,10 @@ export default function Loginpage() {
   // Fetch employees once on mount
   useEffect(() => {
     const storedRole = localStorage.getItem('role');
-    if (storedRole) {
-      navigate('/', { replace: true });
-      return;
-    }
+    // if (storedRole) {
+    //   navigate('/', { replace: true });
+    //   return;
+    // }
 
     fetch('https://review-module-backend-3.onrender.com/employees')
       .then((res) => {
@@ -49,28 +49,36 @@ export default function Loginpage() {
     }
   }, [searchTerm, employees]);
 
-  const handleLogin = () => {
-    if (!selectedEmp) {
-      setWarning('Please select an employee');
-      return;
-    }
+const handleLogin = () => {
+  if (!selectedEmp) {
+    setWarning("Please select an employee");
+    return;
+  }
 
-    if (!selectedEmp.Role) {
-      setWarning('Role not found for selected employee');
-      return;
-    }
+  if (!selectedEmp.Role) {
+    setWarning("Role not found for selected employee");
+    return;
+  }
 
-    const userRole = selectedEmp.Role.toLowerCase() === 'te' ? 'be' : selectedEmp.Role.toLowerCase();
+  const userRole =
+    selectedEmp.Role.toLowerCase() === "te"
+      ? "be"
+      : selectedEmp.Role.toLowerCase();
 
-    localStorage.setItem('empcode', selectedEmp.Emp_Code);
-    localStorage.setItem('empterr', selectedEmp.Territory);
-    localStorage.setItem('role', userRole); // store role for redirect
+  // keep storing these in localStorage
+  localStorage.setItem("empterr", selectedEmp.Territory);
+  localStorage.setItem("role", userRole);
+  localStorage.setItem("empcde", selectedEmp.Emp_Code);
 
-    setRole(userRole);
-    setUser(selectedEmp.name);
+  setRole(userRole);
+  setUser(selectedEmp.name);
 
-    navigate('/', { replace: true });
-  };
+  // embed only empcode in the URL
+  const empCode = selectedEmp.Emp_Code;
+navigate(`/selection?empCode=${encodeURIComponent(empCode)}`, { replace: true });
+
+};
+
 
   return (
     <div

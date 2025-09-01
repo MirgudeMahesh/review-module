@@ -58,12 +58,13 @@ export default function Navbar() {
 
   return (
     <div>
+      
       <nav className="navbar">
 
 
 
 
-        <h2 >Review</h2>
+        <h2 >Primary Sales</h2>
 
      
 
