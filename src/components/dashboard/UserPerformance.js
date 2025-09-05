@@ -250,74 +250,74 @@ export default function UserPerformance() {
             <div className="table-container">
                 {name && <Subnavbar/>}
               <h1 style={{ textAlign: 'center' }}>Efforts and Effectivenss</h1>
-              <table className="custom-table">
-                <thead>
-                  <tr>
-                    <th>Parameter</th>
-                    <th>Objective(%)</th>
-                    <th>Month(%)</th>
-                    <th>YTD(%)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>#Calls</td>
-                    <td>21</td>
-                    <td>88</td>
-                    <td>88</td>
-                  </tr>
-                  <tr>
-                    <td>%Coverage</td>
-                    <td>21</td>
-                    <td>alice</td>
-                    <td>88</td>
-                  </tr>
-                  <tr>
-                    <td>%Compliance</td>
-                    <td>22</td>
-                    <td>bob</td>
-                    <td>75</td>
-                  </tr>
-                  <tr>
-                    <td>#RCPA</td>
-                    <td>23</td>
-                    <td>charlie</td>
-                    <td>92</td>
-                  </tr>
-                  <tr>
-                    <td>Coaching Score</td>
-                    <td>20</td>
-                    <td>diana</td>
-                    <td>81</td>
-                  </tr>
-                  <tr>
-                    <td>Learning Score</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>%Activity Imple</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>%Share('@RCPA)</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
+           <table className="custom-table">
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Objective(%)</th>
+      <th>Month(%)</th>
+      <th>YTD(%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#Calls</td>
+      <td>21</td>
+      <td>88</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>%Coverage</td>
+      <td>21</td>
+      <td>64</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>%Compliance</td>
+      <td>22</td>
+      <td>73</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>#RCPA</td>
+      <td>23</td>
+      <td>57</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>Coaching Score</td>
+      <td>20</td>
+      <td>81</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>Learning Score</td>
+      <td>24</td>
+      <td>49</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>%Activity Imple</td>
+      <td>24</td>
+      <td>62</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>%Share('@RCPA)</td>
+      <td>24</td>
+      <td>38</td>
+      <td>68</td>
+    </tr>
 
+    <tr className="shade">
+      <td>Effort Score</td>
+      <td>24</td>
+      <td>91</td>
+      <td>68</td>
+    </tr>
+  </tbody>
+</table>
 
-                  <tr className='shade'>
-                    <td>Effort Score</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                </tbody>
-              </table>
            
             
 

@@ -30,101 +30,102 @@ export default function Performance() {
                 {/* {name && <Subnavbar/>} */}
               <h1 style={{ textAlign: 'center' }}>Efforts and Effectivenss</h1>
               <table className="custom-table">
-                <thead>
-                  <tr>
-                    <th>Parameter</th>
-                    <th>Objective(%)</th>
-                    <th>Month(%)</th>
-                    <th>YTD(%)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Self priority customer Cov</td>
-                    <td>21</td>
-                    <td>alice</td>
-                    <td>88</td>
-                  </tr>
-                  <tr>
-                    <td>Team's Coverage</td>
-                    <td>22</td>
-                    <td>bob</td>
-                    <td>75</td>
-                  </tr>
-                  <tr>
-                    <td>Team's compliance</td>
-                    <td>23</td>
-                    <td>charlie</td>
-                    <td>92</td>
-                  </tr>
-                  <tr>
-                    <td>Mkting Impl(No inv > 30 Days)</td>
-                    <td>20</td>
-                    <td>diana</td>
-                    <td>81</td>
-                  </tr>
-                  <tr>
-                    <td>Coaching days(No of BE X 5)</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>Coaching days(No of BE X 5)</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>MSP Compliance(Vs OBJ)</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>TP Adherence Self & Team</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>Coaching Score</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>% Tty MSR Compliant(Vs Sec)</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>No of Calls Self</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>Self Learning Score</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>Team Learning Score</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr className='shade'>
-                    <td>Effort Score</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                </tbody>
-              </table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Objective(%)</th>
+      <th>Month(%)</th>
+      <th>YTD(%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Self priority customer Cov</td>
+      <td>21</td>
+      <td>67</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>Team's Coverage</td>
+      <td>22</td>
+      <td>72</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>Team's compliance</td>
+      <td>23</td>
+      <td>81</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>Mkting Impl(No inv &gt; 30 Days)</td>
+      <td>20</td>
+      <td>59</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>Coaching days(No of BE X 5)</td>
+      <td>24</td>
+      <td>46</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Coaching days(No of BE X 5)</td>
+      <td>24</td>
+      <td>73</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>MSP Compliance(Vs OBJ)</td>
+      <td>24</td>
+      <td>64</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>TP Adherence Self &amp; Team</td>
+      <td>24</td>
+      <td>91</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Coaching Score</td>
+      <td>24</td>
+      <td>53</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>% Tty MSR Compliant(Vs Sec)</td>
+      <td>24</td>
+      <td>84</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>No of Calls Self</td>
+      <td>24</td>
+      <td>62</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Self Learning Score</td>
+      <td>24</td>
+      <td>48</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>Team Learning Score</td>
+      <td>24</td>
+      <td>77</td>
+      <td>68</td>
+    </tr>
+    <tr className="shade">
+      <td>Effort Score</td>
+      <td>24</td>
+      <td>89</td>
+      <td>68</td>
+    </tr>
+  </tbody>
+</table>
+
                 {/* { name && < Textarea onsubmit={handleSubmit}/>} */}
 
             </div>

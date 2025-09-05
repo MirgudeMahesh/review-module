@@ -75,7 +75,9 @@ const handleLogin = () => {
 
   // embed only empcode in the URL
   const empCode = selectedEmp.Emp_Code;
-navigate(`/selection?empCode=${encodeURIComponent(empCode)}`, { replace: true });
+// navigate(`/selection?empCode=${encodeURIComponent(empCode)}`, { replace: true });
+const encoded = btoa(empCode);
+ navigate(`/selection?empCode=${encoded}`, { replace: true });
 
 };
 

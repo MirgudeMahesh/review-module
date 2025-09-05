@@ -36,59 +36,60 @@ const Home = () => {
                 {/* {name && <Subnavbar/>} */}
               <h1 style={{ textAlign: 'center' }}>Bussiness Performance</h1>
               <table className="custom-table">
-                <thead>
-                  <tr>
-                    <th>Parameter</th>
-                    <th>Objective(%)</th>
-                    <th>Month(%)</th>
-                    <th>YTD(%)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Target Ach</td>
-                    <td>100%</td>
-                    <td>alice</td>
-                    <td>88</td>
-                  </tr>
-                  <tr>
-                    <td>Secondary Gr%</td>
-                    <td>22</td>
-                    <td>bob</td>
-                    <td>75</td>
-                  </tr>
-                  <tr>
-                    <td>Span of Performance</td>
-                    <td>23</td>
-                    <td>charlie</td>
-                    <td>92</td>
-                  </tr>
-                  <tr>
-                    <td>Dr.Conversion(Self Prio)</td>
-                    <td>20</td>
-                    <td>diana</td>
-                    <td>81</td>
-                  </tr>
-                  <tr>
-                    <td>%Gr in Rxer</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr>
-                    <td>% of Viable Terr</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                  <tr className='shade'>
-                    <td>Performance Score</td>
-                    <td>24</td>
-                    <td>ethan</td>
-                    <td>68</td>
-                  </tr>
-                </tbody>
-              </table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Objective(%)</th>
+      <th>Month(%)</th>
+      <th>YTD(%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Target Ach</td>
+      <td>100%</td>
+      <td>86</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>Secondary Gr%</td>
+      <td>22</td>
+      <td>71</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>Span of Performance</td>
+      <td>23</td>
+      <td>54</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>Dr.Conversion(Self Prio)</td>
+      <td>20</td>
+      <td>63</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>%Gr in Rxer</td>
+      <td>24</td>
+      <td>47</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>% of Viable Terr</td>
+      <td>24</td>
+      <td>79</td>
+      <td>68</td>
+    </tr>
+    <tr className="shade">
+      <td>Performance Score</td>
+      <td>24</td>
+      <td>91</td>
+      <td>68</td>
+    </tr>
+  </tbody>
+</table>
+
                 {/* { name && < Textarea onsubmit={handleSubmit}/>} */}
 
 
