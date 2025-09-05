@@ -3,14 +3,18 @@ import { useRole } from "./RoleContext";
 import { useNavigate } from "react-router-dom";
 import "../styles.css";
 
-const DrillDownTable = ({ childrenData, level }) => {
+const DrillDownTable = ({ childrenData, level, appliedProduct }) => {
   const [expandedRows, setExpandedRows] = useState({});
   const [overlay, setOverlay] = useState({
     open: false,
     loading: false,
-    table2: null, // Pivot table only
+    table2: null,
     territory: null,
   });
+
+  // 🔽 Only the top-most DrillDownTable manages filter state
+  const [selectedProduct, setSelectedProduct] = useState("");
+  const [localAppliedProduct, setLocalAppliedProduct] = useState("");
 
   const { setName, setUserRole } = useRole();
   const navigate = useNavigate();
@@ -83,7 +87,6 @@ const DrillDownTable = ({ childrenData, level }) => {
         loading: false,
         table2: data?.results || [],
       }));
-      console.log("Pivot data", data);
     } catch (e) {
       console.error("openPivotOverlay error", e);
       setOverlay((o) => ({ ...o, loading: false, table2: [] }));
@@ -100,8 +103,58 @@ const DrillDownTable = ({ childrenData, level }) => {
     return Array.from(cols).sort();
   };
 
+  // 🔽 Collect product names for dropdown
+  const collectProducts = (node) => {
+    let products = new Set();
+    if (node.salesByProduct) {
+      Object.keys(node.salesByProduct).forEach((p) => products.add(p));
+    }
+    if (node.children) {
+      Object.values(node.children).forEach((child) => {
+        collectProducts(child).forEach((p) => products.add(p));
+      });
+    }
+    return products;
+  };
+
+  const allProducts =
+    level === 1
+      ? Array.from(
+          Object.values(childrenData).reduce((acc, child) => {
+            collectProducts(child).forEach((p) => acc.add(p));
+            return acc;
+          }, new Set())
+        ).sort()
+      : [];
+
+  // 🔽 Determine which product filter is active
+  const activeProduct = level === 1 ? localAppliedProduct : appliedProduct;
+
   return (
     <>
+      {/* Filter dropdown only at top level */}
+      {level === 1 && (
+        <div style={{ marginBottom: "10px" }}>
+          <select
+            value={selectedProduct}
+            onChange={(e) => setSelectedProduct(e.target.value)}
+          >
+            <option value="">-- All Products --</option>
+            {allProducts.map((p) => (
+              <option key={p} value={p}>
+                {p}
+              </option>
+            ))}
+          </select>
+          <button
+            style={{ marginLeft: "8px" }}
+            onClick={() => setLocalAppliedProduct(selectedProduct)}
+          >
+            Filter
+          </button>
+        </div>
+      )}
+
       {/* main drilldown table */}
       <table style={styles.table}>
         <thead>
@@ -116,6 +169,11 @@ const DrillDownTable = ({ childrenData, level }) => {
             const isLeaf =
               !child.children || Object.keys(child.children).length === 0;
 
+            // 🔽 Decide sales based on filter
+            const salesToShow = activeProduct
+              ? child.salesByProduct?.[activeProduct] || 0
+              : child.totalSales;
+
             return (
               <React.Fragment key={empCode}>
                 <tr
@@ -126,26 +184,10 @@ const DrillDownTable = ({ childrenData, level }) => {
                   }}
                   onClick={() => toggleRow(empCode)}
                 >
+                  <td style={styles.td}>{child.empName}</td>
+                  <td style={styles.td}>{child.territory}</td>
                   <td style={styles.td}>
-                    {level === 1 ? (
-                      <span className="profile-button-disabled">
-                        {child.empName}
-                      </span>
-                    ) : (
-                      <span>{child.empName}</span>
-                    )}
-                  </td>
-                  <td style={styles.td}>
-                    {level === 2 ? (
-                      <span className="profile-button-disabled">
-                        {child.territory}
-                      </span>
-                    ) : (
-                      <span>{child.territory}</span>
-                    )}
-                  </td>
-                  <td style={styles.td}>
-                    {Math.floor(child.totalSales)}
+                    {Math.floor(salesToShow)}
                     {isLeaf && child.territory && (
                       <span
                         title="Show Pivot Table"
@@ -166,10 +208,11 @@ const DrillDownTable = ({ childrenData, level }) => {
                   child.children &&
                   Object.keys(child.children).length > 0 && (
                     <tr className="nested">
-                      <td colSpan="2" style={{ paddingLeft: 30 }}>
+                      <td colSpan="3" style={{ paddingLeft: 30 }}>
                         <DrillDownTable
                           childrenData={child.children}
                           level={level + 1}
+                          appliedProduct={activeProduct} // 🔑 pass filter down
                         />
                       </td>
                     </tr>
@@ -190,8 +233,7 @@ const DrillDownTable = ({ childrenData, level }) => {
                   Pivot Table — {overlay.territory || ""}
                 </h3>
                 <p style={styles.subtle}>
-                  Format:{" "}
-                  <strong>Product Name × Stockists + Grand Total</strong>
+                  Format: <strong>Product Name × Stockists + Grand Total</strong>
                 </p>
               </div>
               <span
@@ -239,9 +281,7 @@ const DrillDownTable = ({ childrenData, level }) => {
                         const stockCols = getStockistColumns(overlay.table2);
                         return (
                           <tr key={idx}>
-                            <td style={styles.td}>
-                              {row.ProductName || "-"}
-                            </td>
+                            <td style={styles.td}>{row.ProductName || "-"}</td>
                             {stockCols.map((s) => (
                               <td key={s} style={styles.td}>
                                 {Number(row[s] ?? 0).toLocaleString()}
