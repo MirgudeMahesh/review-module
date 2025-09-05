@@ -8,7 +8,7 @@ const DrillDownHierarchy = () => {
   const [data, setData] = useState(null);
 const location = useLocation();
 const queryParams = new URLSearchParams(location.search);
-const empCode = queryParams.get("empCode"); // match the URL param
+const empCode = queryParams.get("ec"); // match the URL param
 
 useEffect(() => {
   if (!empCode) return;
