@@ -14,12 +14,6 @@ export default function Loginpage() {
 
   // Fetch employees once on mount
   useEffect(() => {
-    const storedRole = localStorage.getItem('role');
-    // if (storedRole) {
-    //   navigate('/', { replace: true });
-    //   return;
-    // }
-
     fetch('https://review-module-backend-3.onrender.com/employees')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch employees');
@@ -27,13 +21,13 @@ export default function Loginpage() {
       })
       .then((data) => {
         setEmployees(data);
-        setFilteredEmployees(data); 
+        setFilteredEmployees(data);
       })
       .catch((err) => {
         console.error('Error fetching employees:', err);
         setWarning('Unable to load employees. Please try again later.');
       });
-  }, [navigate]);
+  }, []);
 
   // Filter employees whenever searchTerm changes
   useEffect(() => {
@@ -49,38 +43,34 @@ export default function Loginpage() {
     }
   }, [searchTerm, employees]);
 
-const handleLogin = () => {
-  if (!selectedEmp) {
-    setWarning("Please select an employee");
-    return;
-  }
+  const handleLogin = () => {
+    if (!selectedEmp) {
+      setWarning("Please select an employee");
+      return;
+    }
 
-  if (!selectedEmp.Role) {
-    setWarning("Role not found for selected employee");
-    return;
-  }
+    if (!selectedEmp.Role) {
+      setWarning("Role not found for selected employee");
+      return;
+    }
 
-  const userRole =
-    selectedEmp.Role.toLowerCase() === "te"
-      ? "be"
-      : selectedEmp.Role.toLowerCase();
+    const userRole =
+      selectedEmp.Role.toLowerCase() === "te"
+        ? "be"
+        : selectedEmp.Role.toLowerCase();
 
-  // keep storing these in localStorage
-  localStorage.setItem("empterr", selectedEmp.Territory);
-  localStorage.setItem("role", userRole);
-  localStorage.setItem("empcde", selectedEmp.Emp_Code);
+    // Store territory, role, and name in localStorage
+    localStorage.setItem("empterr", selectedEmp.Territory);
+    localStorage.setItem("role", userRole);
+    localStorage.setItem("empcde", selectedEmp.Emp_Code);
 
-  setRole(userRole);
-  setUser(selectedEmp.name);
+    setRole(userRole);
+    setUser(selectedEmp.name);
 
-  // embed only empcode in the URL
-  const empCode = selectedEmp.Emp_Code;
-// navigate(`/selection?empCode=${encodeURIComponent(empCode)}`, { replace: true });
-const encoded = btoa(empCode);
- navigate(`/selection?ec=${encoded}`, { replace: true });
-
-};
-
+    // Encode empCode in Base64 for URL
+    const encoded = btoa(selectedEmp.Emp_Code);
+    navigate(`/selection?ec=${encoded}`, { replace: true });
+  };
 
   return (
     <div
@@ -111,17 +101,17 @@ const encoded = btoa(empCode);
         {filteredEmployees.length > 0 ? (
           filteredEmployees.map((emp) => (
             <div
-              key={emp.Emp_Code}
+              key={emp.Territory}
               onClick={() => setSelectedEmp(emp)}
               style={{
                 padding: '6px',
                 borderBottom: '1px solid #eee',
                 cursor: 'pointer',
                 background:
-                  selectedEmp?.Emp_Code === emp.Emp_Code ? '#d0e8ff' : 'transparent',
+                  selectedEmp?.Territory === emp.Territory ? '#d0e8ff' : 'transparent',
               }}
             >
-              {emp.name} ({emp.Territory})
+              {emp.name} 
             </div>
           ))
         ) : (
