@@ -111,7 +111,7 @@ export default function Loginpage() {
                   selectedEmp?.Territory === emp.Territory ? '#d0e8ff' : 'transparent',
               }}
             >
-              {emp.name} 
+              {emp.name} {emp.Territory}
             </div>
           ))
         ) : (
