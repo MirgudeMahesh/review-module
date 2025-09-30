@@ -4,7 +4,6 @@ import Loginpage from './components/Loginpage';
 import Selection from './components/Selection';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Layout from './components/Layout';
 
 
 import { useRole } from './components/RoleContext';
