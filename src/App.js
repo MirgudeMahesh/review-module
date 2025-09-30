@@ -14,7 +14,7 @@ function App() {
   return (
     <div className='overflow'>
       <Router>
-        <Layout>
+        
           <Routes>
            
               <Route path="/" element={<Loginpage/>} /> 
@@ -28,7 +28,7 @@ function App() {
            
           
           </Routes>
-        </Layout>
+       
       </Router>
     </div>
   );
