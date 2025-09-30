@@ -261,7 +261,7 @@ const DrillDownTable = ({ childrenData, level, appliedProduct }) => {
                 <table style={styles.table}>
                   <thead>
                     <tr>
-                      <th style={styles.th}>Row Labels</th>
+                      <th style={styles.th}>Brand Name</th>
                       {getStockistColumns(overlay.table2).map((s) => (
                         <th key={s} style={styles.th}>
                           {s}

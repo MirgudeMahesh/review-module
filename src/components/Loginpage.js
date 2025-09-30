@@ -115,7 +115,7 @@ export default function Loginpage() {
             </div>
           ))
         ) : (
-          <div style={{ color: 'gray' }}>No employees found</div>
+          <div style={{ color: 'gray' }}>Loading...</div>
         )}
       </div>
 
