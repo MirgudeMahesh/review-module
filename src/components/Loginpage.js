@@ -54,17 +54,12 @@ export default function Loginpage() {
       return;
     }
 
-    const userRole =
-      selectedEmp.Role.toLowerCase() === "te"
-        ? "be"
-        : selectedEmp.Role.toLowerCase();
+  
 
     // Store territory, role, and name in localStorage
     localStorage.setItem("empterr", selectedEmp.Territory);
-    localStorage.setItem("role", userRole);
     localStorage.setItem("empcde", selectedEmp.Emp_Code);
 
-    setRole(userRole);
     setUser(selectedEmp.name);
 
     // Encode empCode in Base64 for URL

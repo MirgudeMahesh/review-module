@@ -8,18 +8,18 @@ import MainNavbar from './MainNavbar';
 function Selection() {
   const [expandedRows, setExpandedRows] = useState({});
   const navigate = useNavigate();
-  const { setRole, setName ,setUser,setUserRole} = useRole();
+  const { setName ,setUser} = useRole();
 
 
     const logout = () => {
-    setRole('');
+    
     setName('');
     setUser('');
-    setUserRole('');
+  
    
     localStorage.removeItem('empterr');   
-    localStorage.removeItem('empcode');
-     localStorage.removeItem('territory');
+    localStorage.removeItem('empcde');
+   
     
     navigate('/', { replace: true });
   };

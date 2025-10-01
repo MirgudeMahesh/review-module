@@ -16,7 +16,7 @@ const DrillDownTable = ({ childrenData, level, appliedProduct }) => {
   const [selectedProduct, setSelectedProduct] = useState("");
   const [localAppliedProduct, setLocalAppliedProduct] = useState("");
 
-  const { setName, setUserRole } = useRole();
+  // const { setName, setUserRole } = useRole();
   const navigate = useNavigate();
 
   const toggleRow = (name) =>
