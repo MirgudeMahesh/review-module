@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import DrillDownTable from './DrillDownTable';
 
 const DrillDownHierarchy = () => {
   const [data, setData] = useState(null);
-  const empterr = localStorage.getItem("empterr"); // read territory from localStorage
+
+  // read the encoded territory from URL query param ?ec=...
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const encodedTerr = searchParams.get("ec");
+
+  // decode base64 -> original territory
+  const empterr = encodedTerr ? atob(encodedTerr) : null;
 
   useEffect(() => {
     if (!empterr) return;
@@ -30,7 +38,8 @@ const DrillDownHierarchy = () => {
         marginRight: '50px',
         marginTop: '100px'
       }}
-    ><h2>Primary Sales</h2>
+    >
+      <h2>Primary Sales</h2>
       {data ? (
         <DrillDownTable childrenData={data} level={1} />
       ) : (

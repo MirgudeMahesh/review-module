@@ -63,7 +63,7 @@ export default function Loginpage() {
     setUser(selectedEmp.name);
 
     // Encode empCode in Base64 for URL
-    const encoded = btoa(selectedEmp.Emp_Code);
+    const encoded = btoa(selectedEmp.Territory);
     navigate(`/selection?ec=${encoded}`, { replace: true });
   };
 
