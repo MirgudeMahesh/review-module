@@ -30,7 +30,7 @@ const DrillDownHierarchy = () => {
         marginRight: '50px',
         marginTop: '100px'
       }}
-    >
+    ><h2>Primary Sales</h2>
       {data ? (
         <DrillDownTable childrenData={data} level={1} />
       ) : (

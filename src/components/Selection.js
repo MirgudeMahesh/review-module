@@ -25,7 +25,7 @@ function Selection() {
   };
   return (
     <div>
-      <MainNavbar/>
+      {/* <MainNavbar/> */}
       <DrillDownHierarchy />
 
       
