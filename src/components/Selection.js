@@ -15,10 +15,10 @@ function Selection() {
     
     setName('');
     setUser('');
-  
+  localStorage.removeItem('role');
    
-    localStorage.removeItem('empterr');   
-    localStorage.removeItem('empcde');
+    // localStorage.removeItem('empterr');   
+    // localStorage.removeItem('empcde');
    
     
     navigate('/', { replace: true });

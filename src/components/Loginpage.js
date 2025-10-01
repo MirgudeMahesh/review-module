@@ -57,8 +57,8 @@ export default function Loginpage() {
   
 
     // Store territory, role, and name in localStorage
-    localStorage.setItem("empterr", selectedEmp.Territory);
-    localStorage.setItem("empcde", selectedEmp.Emp_Code);
+    // localStorage.setItem("empterr", selectedEmp.Territory);
+    // localStorage.setItem("empcde", selectedEmp.Emp_Code);
 
     setUser(selectedEmp.name);
 
