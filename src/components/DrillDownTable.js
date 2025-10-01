@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useRole } from "./RoleContext";
+
 import { useNavigate } from "react-router-dom";
 import "../styles.css";
 
@@ -16,7 +16,6 @@ const DrillDownTable = ({ childrenData, level, appliedProduct }) => {
   const [selectedProduct, setSelectedProduct] = useState("");
   const [localAppliedProduct, setLocalAppliedProduct] = useState("");
 
-  // const { setName, setUserRole } = useRole();
   const navigate = useNavigate();
 
   const toggleRow = (name) =>

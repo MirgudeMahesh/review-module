@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 
-import { useRole } from './RoleContext';
 export default function Navbar() {
 
 
@@ -13,7 +12,7 @@ export default function Navbar() {
 
   return (
     <div>
-      
+
       <nav className="navbar">
 
 
@@ -21,23 +20,7 @@ export default function Navbar() {
 
         <h2 >Primary Sales</h2>
 
-     
-
-       
-
-       
-
-
-
-
-       
-
-
-        
-
-         
-        
-      </nav>
+  </nav>
     </div>
   )
 }
